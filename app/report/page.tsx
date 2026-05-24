@@ -119,22 +119,11 @@ export default function ReportPage() {
 
   const strings  = t[lang]
   const overall  = OVERALL[report.summary.overall_status]
-  const sorted   = [...report.checks].sort((a,b) => ({fail:0,review:1,pass:2}[a.status]-{fail:0,review:1,pass:2}[b.status]))
+  const statusOrder: Record<string, number> = { fail: 0, review: 1, pass: 2 }
+  const sorted = [...report.checks].sort((a, b) => statusOrder[a.status] - statusOrder[b.status])
 
   return (
-    <>
-      <style>{`
-        @media print {
-          @page { margin: 1.5cm; size: A4; }
-          .no-print { display: none !important; }
-          header { position: static !important; }
-          body { background: white !important; }
-          .print-show { display: block !important; }
-        }
-        @media screen { .print-show { display: none; } }
-      `}</style>
-
-      <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
         {/* Header */}
         <header className="border-b border-slate-light bg-white sticky top-0 z-20 no-print">
           <div className="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
@@ -401,6 +390,5 @@ export default function ReportPage() {
           )}
         </div>
       </main>
-    </>
   )
 }

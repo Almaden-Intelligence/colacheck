@@ -33,3 +33,15 @@
 
 @keyframes spin { to { transform: rotate(360deg); } }
 .spin { animation: spin 0.8s linear infinite; }
+
+@media print {
+  @page { margin: 1.5cm; size: A4; }
+  .no-print { display: none !important; }
+  header { position: static !important; }
+  body { background: white !important; }
+  .print-show { display: block !important; }
+}
+
+@media screen {
+  .print-show { display: none; }
+}
