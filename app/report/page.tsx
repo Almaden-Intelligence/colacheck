@@ -119,7 +119,7 @@ export default function ReportPage() {
 
   const strings  = t[lang]
   const overall  = OVERALL[report.summary.overall_status]
-  const statusOrder = { fail: 0, review: 1, pass: 2 }
+  const statusOrder: Record<string, number> = { fail: 0, review: 1, pass: 2 }
   const sorted = [...report.checks].sort((a, b) => statusOrder[a.status] - statusOrder[b.status])
 
   return (
