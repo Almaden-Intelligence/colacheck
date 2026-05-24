@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     const filename = `labels/${category}/${timestamp}_${side}_${emailSlug}.${ext}`
 
     const blob = await put(filename, buffer, {
-      access: 'private',
+      access: 'public',
       contentType: imageMimeType,
     })
 
