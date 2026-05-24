@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import type { ComplianceReport, CheckStatus } from '@/lib/types'
 import { t, type Lang } from '@/lib/translations'
 
 const STATUS = {
@@ -12,12 +11,8 @@ const STATUS = {
 }
 
 const OVERALL = {
-  PASS:   { bg: 'bg-pass',  key: 'overallPass'   as const },
-  REVIEW: { bg: 'bg-warn',  key: 'overallReview' as const },
-  FAIL:   { bg: 'bg-alert', key: 'overallFail'   as const },
 }
 
-const CFR_DISPLAY: Record<string, string> = {
   wine: '27 CFR Part 4', spirits: '27 CFR Part 5', beer: '27 CFR Part 7',
 }
 
@@ -25,18 +20,12 @@ const TALLY_FORM_URL = 'https://tally.so/r/colacheck' // Update with real Tally 
 
 export default function ReportPage() {
   const router = useRouter()
-  const [report, setReport]     = useState<ComplianceReport | null>(null)
-  const [front,  setFront]      = useState<string | null>(null)
-  const [back,   setBack]       = useState<string | null>(null)
-  const [lang,   setLang]       = useState<Lang>('en')
-  const [expanded, setExpanded] = useState<Set<string>>(new Set())
 
   // Email gate state
   const [unlocked, setUnlocked]   = useState(false)
   const [email, setEmail]         = useState('')
   const [company, setCompany]     = useState('')
   const [submitting, setSubmitting] = useState(false)
-  const [gateError, setGateError] = useState<string | null>(null)
 
   useEffect(() => {
     const stored = sessionStorage.getItem('colacheck_report')
@@ -79,7 +68,6 @@ export default function ReportPage() {
     }
   }, [router])
 
-  const toggle = (id: string) => setExpanded(prev => {
     const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id); return n
   })
 
@@ -187,7 +175,6 @@ export default function ReportPage() {
               <div className="relative rounded-2xl overflow-hidden mb-6">
                 <div className="space-y-2 pointer-events-none select-none" style={{ filter: 'blur(4px)', opacity: 0.5 }}>
                   {sorted.slice(0, 4).map(check => {
-                    const s = STATUS[check.status as CheckStatus]
                     return (
                       <div key={check.id} className={`rounded-xl overflow-hidden ${s.row} p-4 flex items-center gap-3`}>
                         <span className={`${s.badge} text-xs font-mono font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0`}>
@@ -274,7 +261,6 @@ export default function ReportPage() {
                 <h2 className="font-display text-lg text-navy mb-4">{strings.complianceChecks}</h2>
 
                 {sorted.map(check => {
-                  const s = STATUS[check.status as CheckStatus]
                   const open = expanded.has(check.id)
                   return (
                     <div key={check.id} className={`rounded-xl overflow-hidden ${s.row}`}>

@@ -1,1 +1,4 @@
-(Get-Content "app\report\page.tsx") | ForEach-Object { if ($_ -match "const sorted") { "  const sorted = report.checks.slice().sort(function(a,b){ return (a.status=='fail'?0:a.status=='review'?1:2)-(b.status=='fail'?0:b.status=='review'?1:2) })" } else { $_ } } | Set-Content "app\report\page.tsx"
+$file = "app\report\page.tsx"
+$lines = Get-Content $file
+$newLines = $lines | Where-Object { $_ -notmatch "as const|Record<|CheckStatus|: string\b|: number\b|: boolean\b|: Set<|: Lang\b|useState<" }
+$newLines | Set-Content $file
