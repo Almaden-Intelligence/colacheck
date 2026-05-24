@@ -120,7 +120,7 @@ export default function ReportPage() {
   const strings  = t[lang]
   const overall  = OVERALL[report.summary.overall_status]
   
-  const sorted = [...report.checks].sort((a, b) => (a.status === 'fail' ? 0 : a.status === 'review' ? 1 : 2) - (b.status === 'fai
+  const sorted = report.checks.slice().sort(function(a,b){ return (a.status=='fail'?0:a.status=='review'?1:2)-(b.status=='fail'?0:b.status=='review'?1:2) })
 
   return (
     <main className="min-h-screen bg-white">
