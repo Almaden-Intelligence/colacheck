@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-white text-navy; }
+  ::selection { @apply bg-sky text-white; }
+}
+
+@layer components {
+  .drop-zone {
+    background-image: radial-gradient(circle, rgba(74,144,184,0.12) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .drop-zone.active {
+    background-image: radial-gradient(circle, rgba(74,144,184,0.3) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .check-pass  { @apply border-l-4 border-pass  bg-pass-bg;  }
+  .check-review{ @apply border-l-4 border-warn  bg-warn-bg;  }
+  .check-fail  { @apply border-l-4 border-alert bg-alert-bg; }
+}
+
+@keyframes fade-up {
+  from { opacity:0; transform:translateY(12px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.fade-up   { animation: fade-up 0.45s ease both; }
+.fade-up-1 { animation: fade-up 0.45s 0.08s ease both; }
+.fade-up-2 { animation: fade-up 0.45s 0.16s ease both; }
+.fade-up-3 { animation: fade-up 0.45s 0.24s ease both; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 0.8s linear infinite; }
