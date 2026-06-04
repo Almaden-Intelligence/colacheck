@@ -126,7 +126,7 @@ export default function ReportPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <button onClick={() => router.push('/')} className="flex items-baseline gap-2">
             <span className="font-display text-2xl text-navy tracking-tight">COLA<span className="text-sky">Check</span></span>
-            <span className="text-xs text-slate hidden sm:inline">· {T.tagline} · Part of the Almaden Group</span>
+            <span className="text-xs text-steel hidden sm:inline">· {T.tagline} · Part of the Almaden Group</span>
           </button>
           <div className="flex items-center gap-3">
             {unlocked && (
@@ -151,7 +151,7 @@ export default function ReportPage() {
             </div>
             <div className="text-right">
               <div className={`font-display text-3xl ${bannerText[status]}`}>{s.pass}/{s.total_checks}</div>
-              <div className="text-xs text-slate uppercase tracking-wide">{T.checksPassed}</div>
+              <div className="text-xs text-steel uppercase tracking-wide">{T.checksPassed}</div>
             </div>
           </div>
           {s.overall_message && <p className="text-navy/80 text-sm mt-4 leading-relaxed">{s.overall_message}</p>}
@@ -175,11 +175,11 @@ export default function ReportPage() {
                       <p className="text-sm text-navy/80 mt-2"><span className="font-semibold text-steel">{T.finding}: </span>{c.finding}</p>
                     )}
                     {c.explanation && (
-                      <p className="text-sm text-navy/70 mt-1"><span className="font-semibold text-steel">{T.requirement}: </span>{c.explanation}</p>
+                      <p className="text-sm text-navy/80 mt-1"><span className="font-semibold text-steel">{T.requirement}: </span>{c.explanation}</p>
                     )}
                     {c.suggested_fix && (
                       <div className="mt-3 bg-white border border-sky/30 rounded-lg p-3">
-                        <div className="text-xs font-semibold text-sky uppercase tracking-wide mb-1">{T.suggestedFix}</div>
+                        <div className="text-xs font-semibold text-steel uppercase tracking-wide mb-1">{T.suggestedFix}</div>
                         <p className="text-sm text-navy/80">{c.suggested_fix}</p>
                       </div>
                     )}
@@ -200,7 +200,7 @@ export default function ReportPage() {
 
               {(frontImg || backImg) && (
                 <div className="bg-white rounded-xl border border-slate-light p-5">
-                  <h3 className="text-xs font-semibold text-slate uppercase tracking-wide mb-3">{T.labelsAnalyzed}</h3>
+                  <h3 className="text-xs font-semibold text-steel uppercase tracking-wide mb-3">{T.labelsAnalyzed}</h3>
                   <div className="grid grid-cols-2 gap-3">
                     {frontImg && <LabelThumb src={frontImg} label={T.front} />}
                     {backImg && <LabelThumb src={backImg} label={T.back} />}
@@ -211,7 +211,7 @@ export default function ReportPage() {
               {report.image_quality_note && (
                 <div className="bg-warn-bg border border-warn/30 rounded-xl p-4">
                   <h3 className="text-xs font-semibold text-warn uppercase tracking-wide mb-1">{T.imageNote}</h3>
-                  <p className="text-sm text-navy/70">{report.image_quality_note}</p>
+                  <p className="text-sm text-navy/80">{report.image_quality_note}</p>
                 </div>
               )}
 
@@ -226,7 +226,7 @@ export default function ReportPage() {
                 </a>
               </div>
 
-              {report.disclaimer && <p className="text-xs text-slate leading-relaxed">{report.disclaimer}</p>}
+              {report.disclaimer && <p className="text-xs text-steel leading-relaxed">{report.disclaimer}</p>}
             </aside>
           </div>
 
@@ -259,7 +259,7 @@ export default function ReportPage() {
                   >
                     {submitting ? G.unlocking : G.button}
                   </button>
-                  <p className="text-xs text-slate text-center">{G.privacy}</p>
+                  <p className="text-xs text-steel text-center">{G.privacy}</p>
                 </div>
               </div>
             </div>
@@ -286,7 +286,7 @@ function LabelThumb({ src, label }) {
   return (
     <div>
       <img src={src} alt={label} className="w-full h-28 object-contain bg-ice rounded-lg border border-slate-light p-1" />
-      <div className="text-xs text-slate text-center mt-1">{label}</div>
+      <div className="text-xs text-steel text-center mt-1">{label}</div>
     </div>
   )
 }
