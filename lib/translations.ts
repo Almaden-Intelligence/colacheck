@@ -71,8 +71,10 @@ export const t = {
     downloadPDFReport: 'Download PDF Report',
     checkAnother: '← Check Another Label',
     needHelp: 'Need help filing?',
-    needHelpBody: 'Almaden Trade handles the full COLA submission — from label review to TTB approval.',
+    needHelpBody: 'Coming soon — Almaden Trade will handle your full COLA submission to TTB, from label review to approval.',
     contactUs: 'Contact Almaden Trade →',
+    comingSoon: 'Coming soon',
+    learnMore: 'Learn more at almadentrade.com →',
   },
 
   es: {
@@ -87,9 +89,9 @@ export const t = {
 
     // Category
     selectCategory: '1. Seleccionar Categoría',
-    wine: 'Vino',
-    spirits: 'Bebidas Espirituosas',
-    beer: 'Cerveza / Malta',
+    wine: 'Vinos',
+    spirits: 'Licores',
+    beer: 'Cervezas',
     soon: 'Pronto',
 
     // Upload
@@ -145,7 +147,9 @@ export const t = {
     downloadPDFReport: 'Descargar Informe PDF',
     checkAnother: '← Verificar Otra Etiqueta',
     needHelp: '¿Necesita ayuda para presentar?',
-    needHelpBody: 'Almaden Trade gestiona toda la presentación COLA — desde la revisión de la etiqueta hasta la aprobación del TTB.',
+    needHelpBody: 'Próximamente — Almaden Trade gestionará su envío COLA completo al TTB, desde la revisión de la etiqueta hasta la aprobación.',
     contactUs: 'Contactar Almaden Trade →',
+    comingSoon: 'Próximamente',
+    learnMore: 'Más información en almadentrade.com →',
   },
 }
