@@ -216,10 +216,13 @@ export default function ReportPage() {
               )}
 
               <div className="bg-navy rounded-xl p-5 text-white">
-                <h3 className="font-display text-lg mb-1">{T.needHelp}</h3>
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="font-display text-lg">{T.needHelp}</h3>
+                  <span className="text-[10px] font-semibold uppercase tracking-wide bg-accent text-navy rounded-full px-2 py-0.5">{T.comingSoon}</span>
+                </div>
                 <p className="text-sm text-slate-light mb-4">{T.needHelpBody}</p>
-                <a href="https://almadentrade.com" target="_blank" rel="noopener noreferrer" className="inline-block text-sm font-medium bg-sky hover:bg-sky-light text-white rounded-lg px-4 py-2 transition">
-                  {T.contactUs}
+                <a href="https://almadentrade.com" target="_blank" rel="noopener noreferrer" className="text-sm text-sky-light hover:text-white transition">
+                  {T.learnMore}
                 </a>
               </div>
 
