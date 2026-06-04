@@ -8,7 +8,7 @@ export const t = {
 
     // Landing
     eyebrow: 'TTB Label Compliance',
-    headline: 'Check your label before TTB does.',
+    headline: 'Check your label before you submit to TTB.',
     subheadline: 'Upload your beverage alcohol label and get an instant compliance report against federal regulations — with specific citations and actionable fixes.',
 
     // Category
@@ -84,7 +84,7 @@ export const t = {
 
     // Landing
     eyebrow: 'Cumplimiento de Etiquetas TTB',
-    headline: 'Verifique su etiqueta antes de que lo haga el TTB.',
+    headline: 'Verifique su etiqueta antes de enviarla al TTB.',
     subheadline: 'Cargue su etiqueta de bebida alcohólica y obtenga un informe de cumplimiento instantáneo con las regulaciones federales — con citas específicas y correcciones accionables.',
 
     // Category
