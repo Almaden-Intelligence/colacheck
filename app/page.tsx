@@ -87,7 +87,7 @@ function UploadZone({ label, badge, badgeColor, image, dragging, inputRef, onFil
   return (
     <div>
       <div className="flex items-center gap-2 mb-2">
-        <span className="text-xs font-mono text-slate uppercase tracking-widest">{label}</span>
+        <span className="text-xs font-mono text-steel uppercase tracking-widest">{label}</span>
         <span className={`text-xs font-mono px-2 py-0.5 rounded-full border ${badgeColor}`}>{badge}</span>
       </div>
       {image ? (
@@ -98,8 +98,8 @@ function UploadZone({ label, badge, badgeColor, image, dragging, inputRef, onFil
             {strings.remove}
           </button>
           <div className="border-t border-slate-light px-3 py-2 bg-white flex justify-between items-center">
-            <span className="text-xs font-mono text-slate truncate max-w-[160px]">{image.file.name}</span>
-            <span className="text-xs font-mono text-slate-light ml-2">{(image.file.size/1024).toFixed(0)} KB</span>
+            <span className="text-xs font-mono text-steel truncate max-w-[160px]">{image.file.name}</span>
+            <span className="text-xs font-mono text-steel ml-2">{(image.file.size/1024).toFixed(0)} KB</span>
           </div>
         </div>
       ) : (
@@ -116,8 +116,8 @@ function UploadZone({ label, badge, badgeColor, image, dragging, inputRef, onFil
             </svg>
           </div>
           <p className="text-sm font-semibold text-navy mb-0.5">{strings.dropHere}</p>
-          <p className="text-xs text-slate">{strings.browseFiles} · {strings.fileTypes}</p>
-          <p className="text-xs font-mono text-slate-light mt-1">{strings.minSize}</p>
+          <p className="text-xs text-steel">{strings.browseFiles} · {strings.fileTypes}</p>
+          <p className="text-xs font-mono text-steel mt-1">{strings.minSize}</p>
         </div>
       )}
       <input ref={inputRef} type="file" accept="image/jpeg,image/png,image/webp"
@@ -136,7 +136,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
       >
         <span className="font-semibold text-navy text-sm">{q}</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-          className={`shrink-0 text-slate transition-transform duration-200 ${open ? 'rotate-180' : ''}`}>
+          className={`shrink-0 text-steel transition-transform duration-200 ${open ? 'rotate-180' : ''}`}>
           <path d="M6 9l6 6 6-6"/>
         </svg>
       </button>
@@ -231,7 +231,7 @@ export default function HomePage() {
             </span>
             <button
               onClick={() => setLang(l => l === 'en' ? 'es' : 'en')}
-              className="flex items-center gap-1.5 text-xs font-mono text-slate hover:text-navy border border-slate-light hover:border-steel px-3 py-1.5 rounded-full transition-all"
+              className="flex items-center gap-1.5 text-xs font-mono text-steel hover:text-navy border border-slate-light hover:border-steel px-3 py-1.5 rounded-full transition-all"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
@@ -239,10 +239,10 @@ export default function HomePage() {
               {lang === 'en' ? 'Español' : 'English'}
             </button>
           </div>
-          <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-slate-light">
+          <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-steel">
             <span>by</span>
             <a href="https://almadentrade.com" target="_blank" rel="noopener noreferrer"
-              className="text-slate hover:text-navy transition-colors font-semibold">
+              className="text-steel hover:text-navy transition-colors font-semibold">
               Almaden Trade
             </a>
             <span>·</span>
@@ -256,17 +256,17 @@ export default function HomePage() {
         <div className="mb-7 fade-up">
           <div className="flex items-center gap-2 mb-3">
             <div className="w-1.5 h-1.5 rounded-full bg-sky"></div>
-            <p className="text-xs font-mono text-sky uppercase tracking-widest">{strings.eyebrow}</p>
+            <p className="text-xs font-mono text-steel uppercase tracking-widest">{strings.eyebrow}</p>
           </div>
           <h1 className="font-display text-3xl sm:text-4xl text-navy leading-tight mb-2">
             {strings.headline}
           </h1>
-          <p className="text-slate text-sm max-w-xl leading-relaxed">{strings.subheadline}</p>
+          <p className="text-steel text-sm max-w-xl leading-relaxed">{strings.subheadline}</p>
         </div>
 
         {/* Category */}
         <div className="mb-6 fade-up-1">
-          <label className="block text-xs font-mono text-slate uppercase tracking-widest mb-3">{strings.selectCategory}</label>
+          <label className="block text-xs font-mono text-steel uppercase tracking-widest mb-3">{strings.selectCategory}</label>
           <div className="grid grid-cols-3 gap-3">
             {CATEGORIES.map(({ id, icon }) => (
               <button key={id} onClick={() => setCat(id)}
@@ -276,7 +276,7 @@ export default function HomePage() {
               >
                 <span className="text-xl mb-1.5 block">{icon}</span>
                 <span className="font-semibold text-navy text-sm block">{strings[id]}</span>
-                <span className="text-xs font-mono text-slate mt-0.5 block">{CFR[id]}</span>
+                <span className="text-xs font-mono text-steel mt-0.5 block">{CFR[id]}</span>
                 {cat === id && <span className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-sky" />}
               </button>
             ))}
@@ -285,7 +285,7 @@ export default function HomePage() {
 
         {/* Upload */}
         <div className="mb-6 fade-up-2">
-          <label className="block text-xs font-mono text-slate uppercase tracking-widest mb-3">{strings.uploadImages}</label>
+          <label className="block text-xs font-mono text-steel uppercase tracking-widest mb-3">{strings.uploadImages}</label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <UploadZone
               label={strings.frontLabel} badge={strings.required}
@@ -298,7 +298,7 @@ export default function HomePage() {
             />
             <UploadZone
               label={strings.backLabel} badge={strings.requiredIfHasOne}
-              badgeColor="border-slate-light text-slate bg-white"
+              badgeColor="border-slate-light text-steel bg-white"
               image={back} dragging={dragB} inputRef={backRef}
               onFile={handleBack}
               onRemove={() => { setBack(null); if(backRef.current) backRef.current.value='' }}
@@ -306,7 +306,7 @@ export default function HomePage() {
               strings={strings}
             />
           </div>
-          <p className="text-xs font-mono text-slate-light mt-2">{strings.bothLabels}</p>
+          <p className="text-xs font-mono text-steel mt-2">{strings.bothLabels}</p>
         </div>
 
         {/* Error */}
@@ -318,7 +318,7 @@ export default function HomePage() {
 
         {/* Submit row */}
         <div className="fade-up-3 flex items-center justify-between gap-6 mb-16">
-          <p className="text-xs font-mono text-slate-light max-w-md leading-relaxed hidden sm:block">{strings.disclaimer}</p>
+          <p className="text-xs font-mono text-steel max-w-md leading-relaxed hidden sm:block">{strings.disclaimer}</p>
           <div className="flex items-center gap-3 shrink-0">
             <span className="text-xs font-mono bg-pass/10 text-pass border border-pass/20 px-2.5 py-1.5 rounded-full sm:hidden">
               {lang === 'en' ? 'Free during beta' : 'Gratis durante beta'}
@@ -362,24 +362,24 @@ export default function HomePage() {
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="font-display text-base text-navy">COLA<span className="text-sky">Check</span></span>
-              <span className="text-xs text-slate-light font-mono">·</span>
+              <span className="text-xs text-steel font-mono">·</span>
               <a href="https://almadentrade.com" target="_blank" rel="noopener noreferrer"
-                className="text-xs text-slate hover:text-navy transition-colors font-sans">
+                className="text-xs text-steel hover:text-navy transition-colors font-sans">
                 Almaden Trade
               </a>
-              <span className="text-xs text-slate-light font-mono">·</span>
-              <span className="text-xs text-slate-light font-sans">Part of the Almaden Group</span>
+              <span className="text-xs text-steel font-mono">·</span>
+              <span className="text-xs text-steel font-sans">Part of the Almaden Group</span>
             </div>
-            <p className="text-xs text-slate-light font-mono">
+            <p className="text-xs text-steel font-mono">
               {lang === 'en' ? 'Filing service coming soon.' : 'Servicio de presentación próximamente.'}
             </p>
           </div>
           <div className="flex flex-col items-start sm:items-end gap-1">
             <a href="mailto:compliance@almadentrade.com"
-              className="text-xs font-mono text-sky hover:text-sky-light transition-colors">
+              className="text-xs font-mono text-steel hover:text-navy transition-colors">
               compliance@almadentrade.com
             </a>
-            <p className="text-xs text-slate-light font-mono">
+            <p className="text-xs text-steel font-mono">
               {lang === 'en' ? 'Free during beta · Not legal advice' : 'Gratis durante beta · No es asesoría legal'}
             </p>
           </div>
