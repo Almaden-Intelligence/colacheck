@@ -5,7 +5,6 @@ import { t } from '@/lib/translations'
 
 const statusWords = {
   en: { pass: 'PASS', review: 'REVIEW', fail: 'FAIL' },
-  es: { pass: 'APROBADO', review: 'REVISAR', fail: 'NO CUMPLE' },
 }
 
 const pillStyles = {
@@ -43,22 +42,11 @@ const gate = {
     invalid: 'Please enter a valid email address.',
     privacy: 'Used only to send your report and occasional updates from Almaden Trade. No spam.',
   },
-  es: {
-    title: 'Vea su informe de cumplimiento completo',
-    body: 'Ingrese su correo para desbloquear cada verificación, su cita del CFR y las correcciones sugeridas.',
-    email: 'Correo electrónico',
-    company: 'Empresa (opcional)',
-    button: 'Desbloquear Informe Completo',
-    unlocking: 'Desbloqueando…',
-    invalid: 'Por favor ingrese un correo electrónico válido.',
-    privacy: 'Se usa solo para enviar su informe y novedades ocasionales de Almaden Trade. Sin spam.',
-  },
 }
 
 export default function ReportPage() {
   const router = useRouter()
   const [report, setReport] = useState(null)
-  const [lang, setLang] = useState('en')
   const [frontImg, setFrontImg] = useState(null)
   const [backImg, setBackImg] = useState(null)
   const [unlocked, setUnlocked] = useState(false)
@@ -72,7 +60,6 @@ export default function ReportPage() {
     if (!stored) { router.push('/'); return }
     const parsed = JSON.parse(stored)
     setReport(parsed)
-    setLang(sessionStorage.getItem('colacheck_lang') || parsed.lang || 'en')
     setFrontImg(sessionStorage.getItem('colacheck_front'))
     setBackImg(sessionStorage.getItem('colacheck_back'))
     if (sessionStorage.getItem('colacheck_unlocked') === 'true') setUnlocked(true)
@@ -80,9 +67,9 @@ export default function ReportPage() {
 
   if (!report) return null
 
-  const T = t[lang] || t.en
-  const G = gate[lang] || gate.en
-  const SW = statusWords[lang] || statusWords.en
+  const T = t.en
+  const G = gate.en
+  const SW = statusWords.en
   const s = report.summary
   const status = s.overall_status
 
@@ -108,7 +95,6 @@ export default function ReportPage() {
           overallStatus: status,
           passCount: s.pass,
           totalCount: s.total_checks,
-          lang,
         }),
       })
     } catch (e) {
