@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer'
 
 export async function POST(request: NextRequest) {
   try {
-    const { email, company, category, overallStatus, passCount, totalCount, lang } = await request.json()
+    const { email, company, category, overallStatus, passCount, totalCount } = await request.json()
 
     if (!email) {
       return NextResponse.json({ success: false, error: 'Email required.' }, { status: 400 })
@@ -22,7 +22,6 @@ export async function POST(request: NextRequest) {
 
     const categoryLabel = category === 'wine' ? 'Wine' : category === 'spirits' ? 'Distilled Spirits' : 'Malt Beverage'
     const statusEmoji = overallStatus === 'PASS' ? '✅' : overallStatus === 'REVIEW' ? '⚠️' : '❌'
-    const langLabel = lang === 'es' ? 'Spanish' : 'English'
 
     await transporter.sendMail({
       from: `"COLACheck" <${process.env.ZOHO_EMAIL}>`,
@@ -46,13 +45,9 @@ export async function POST(request: NextRequest) {
               <td style="padding: 10px 0; color: #64748B; font-size: 13px;">Category</td>
               <td style="padding: 10px 0; color: #0B1929;">${categoryLabel}</td>
             </tr>
-            <tr style="border-bottom: 1px solid #E2E8F0;">
+            <tr>
               <td style="padding: 10px 0; color: #64748B; font-size: 13px;">Result</td>
               <td style="padding: 10px 0; color: #0B1929;">${statusEmoji} ${overallStatus} — ${passCount}/${totalCount} checks passed</td>
-            </tr>
-            <tr>
-              <td style="padding: 10px 0; color: #64748B; font-size: 13px;">Language</td>
-              <td style="padding: 10px 0; color: #0B1929;">${langLabel}</td>
             </tr>
           </table>
 
