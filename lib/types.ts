@@ -26,7 +26,7 @@ export interface ComplianceReport {
   image_quality_note: string | null
   disclaimer: string
   category: 'wine' | 'spirits' | 'beer'
-  lang: 'en' | 'es'
+  lang: 'en'
   analyzed_at: string
 }
 
@@ -36,7 +36,6 @@ export interface CheckRequest {
   imageMimeType: string
   backImageBase64?: string
   backImageMimeType?: string
-  lang?: 'en' | 'es'
 }
 
 export interface CheckResponse {
