@@ -10,15 +10,10 @@ const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 const PROMPTS = { wine: WINE_SYSTEM_PROMPT, spirits: SPIRITS_SYSTEM_PROMPT, beer: BEER_SYSTEM_PROMPT }
 const CFR_PARTS = { wine: '27 CFR Part 4', spirits: '27 CFR Part 5', beer: '27 CFR Part 7' }
 
-const LANG_INSTRUCTION = {
-  en: '',
-  es: '\n\nIMPORTANT: Respond entirely in Spanish. All fields in the JSON — "finding", "explanation", "suggested_fix", "overall_message", "image_quality_note", and "disclaimer" — must be written in Spanish. CFR citation numbers and codes remain in English. The JSON keys themselves remain in English.',
-}
-
 export async function POST(request: NextRequest) {
   try {
     const body: CheckRequest = await request.json()
-    const { category, imageBase64, imageMimeType, backImageBase64, backImageMimeType, lang = 'en' } = body
+    const { category, imageBase64, imageMimeType, backImageBase64, backImageMimeType } = body
 
     if (!imageBase64 || !imageMimeType)
       return NextResponse.json({ success: false, error: 'Front label image is required.' }, { status: 400 })
@@ -26,7 +21,7 @@ export async function POST(request: NextRequest) {
     if (!['wine','spirits','beer'].includes(category))
       return NextResponse.json({ success: false, error: 'Invalid category.' }, { status: 400 })
 
-    const systemPrompt = PROMPTS[category] + LANG_INSTRUCTION[lang as 'en'|'es']
+    const systemPrompt = PROMPTS[category]
     const cfrPart = CFR_PARTS[category]
 
     const imageContent: Anthropic.ImageBlockParam[] = [{
@@ -67,7 +62,7 @@ export async function POST(request: NextRequest) {
     raw = raw.replace(/^```json\s*/i,'').replace(/```\s*$/,'').trim()
 
     const parsed = JSON.parse(raw)
-    const report: ComplianceReport = { ...parsed, category, lang, analyzed_at: new Date().toISOString() }
+    const report: ComplianceReport = { ...parsed, category, lang: 'en', analyzed_at: new Date().toISOString() }
 
     return NextResponse.json({ success: true, report })
   } catch (error) {
