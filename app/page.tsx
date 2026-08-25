@@ -3,7 +3,7 @@
 import { useState, useCallback, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import type { CheckRequest } from '@/lib/types'
-import { t, type Lang } from '@/lib/translations'
+import { t } from '@/lib/translations'
 
 type Category = 'wine' | 'spirits' | 'beer'
 
@@ -19,60 +19,32 @@ const CFR: Record<Category, string> = {
   beer:    '27 CFR Part 7',
 }
 
-const FAQS = {
-  en: [
-    {
-      q: 'What is a COLA?',
-      a: 'A Certificate of Label Approval (COLA) is a federal authorization issued by the TTB that certifies your beverage alcohol label complies with U.S. regulations before your product can be sold in interstate commerce. It is required for wine (over 7% ABV), distilled spirits, and malt beverages.',
-    },
-    {
-      q: 'What does COLACheck actually check?',
-      a: 'COLACheck analyzes your label image against the mandatory requirements in 27 CFR Parts 4 (wine), 5 (spirits), and 7 (beer), plus Part 16 (health warning). This includes brand name, class/type designation, alcohol content, name and address, net contents, sulfite declarations, government health warning, and more — returning a pass, review, or fail verdict for each with the specific CFR citation.',
-    },
-    {
-      q: 'How accurate is the analysis?',
-      a: 'COLACheck is highly accurate for clearly visible label elements. Some checks — like whether actual sulfite levels exceed 10 ppm, or whether a vintage year percentage is correct — cannot be determined from a label image alone; these are flagged as "Review." Image quality matters: use the highest resolution image available for best results.',
-    },
-    {
-      q: 'Is this legal advice?',
-      a: 'No. COLACheck provides informational guidance based on published TTB regulations. It is not a substitute for legal advice. For complex submissions or unusual label designs, consult a qualified attorney or contact TTB directly at 1-866-927-2533.',
-    },
-    {
-      q: 'What happens after the beta?',
-      a: 'COLACheck is free during the beta period. Pricing will be introduced after beta. A separate filing service — where Almaden Trade handles your full COLA submission to TTB — is also coming soon. Beta users will be the first to know.',
-    },
-    {
-      q: 'Who is Almaden Trade?',
-      a: 'Almaden Trade is a beverage alcohol compliance and trade services company, part of the Almaden Group. COLACheck is Almaden Trade\'s free public tool for TTB label pre-screening. For full COLA filing services, visit almadentrade.com.',
-    },
-  ],
-  es: [
-    {
-      q: '¿Qué es un COLA?',
-      a: 'Un Certificado de Aprobación de Etiqueta (COLA) es una autorización federal emitida por el TTB que certifica que la etiqueta de su bebida alcohólica cumple con las regulaciones de EE.UU. antes de que su producto pueda venderse en el comercio interestatal. Es obligatorio para vinos (más de 7% ABV), bebidas espirituosas y cervezas.',
-    },
-    {
-      q: '¿Qué verifica exactamente COLACheck?',
-      a: 'COLACheck analiza su imagen de etiqueta contra los requisitos obligatorios de 27 CFR Partes 4 (vino), 5 (espirituosas) y 7 (cerveza), más la Parte 16 (advertencia de salud). Esto incluye nombre de marca, designación de clase/tipo, contenido de alcohol, nombre y dirección, contenido neto, declaraciones de sulfitos, advertencia de salud del gobierno, y más.',
-    },
-    {
-      q: '¿Qué tan preciso es el análisis?',
-      a: 'COLACheck es muy preciso para elementos de etiqueta claramente visibles. Algunos controles no pueden determinarse solo con la imagen y se marcan como "Revisión". La calidad de la imagen importa: use la imagen de mayor resolución disponible.',
-    },
-    {
-      q: '¿Esto es asesoramiento legal?',
-      a: 'No. COLACheck proporciona orientación informativa basada en regulaciones TTB publicadas. No sustituye al asesoramiento legal. Para presentaciones complejas, consulte a un abogado o contacte al TTB directamente al 1-866-927-2533.',
-    },
-    {
-      q: '¿Qué pasa después de la beta?',
-      a: 'COLACheck es gratuito durante el período beta. Los precios se introducirán después del beta. Un servicio de presentación separado — donde Almaden Trade gestiona su envío completo de COLA al TTB — también está próximamente. Los usuarios beta serán los primeros en saberlo.',
-    },
-    {
-      q: '¿Quién es Almaden Trade?',
-      a: 'Almaden Trade es una empresa de cumplimiento y servicios de comercio de bebidas alcohólicas, parte del Almaden Group. COLACheck es la herramienta pública gratuita de Almaden Trade para la preselección de etiquetas TTB.',
-    },
-  ],
-}
+const FAQS = [
+  {
+    q: 'What is a COLA?',
+    a: 'A Certificate of Label Approval (COLA) is a federal authorization issued by the TTB that certifies your beverage alcohol label complies with U.S. regulations before your product can be sold in interstate commerce. It is required for wine (over 7% ABV), distilled spirits, and malt beverages.',
+  },
+  {
+    q: 'What does COLACheck actually check?',
+    a: 'COLACheck analyzes your label image against the mandatory requirements in 27 CFR Parts 4 (wine), 5 (spirits), and 7 (beer), plus Part 16 (health warning). This includes brand name, class/type designation, alcohol content, name and address, net contents, sulfite declarations, government health warning, and more — returning a pass, review, or fail verdict for each with the specific CFR citation.',
+  },
+  {
+    q: 'How accurate is the analysis?',
+    a: 'COLACheck is highly accurate for clearly visible label elements. Some checks — like whether actual sulfite levels exceed 10 ppm, or whether a vintage year percentage is correct — cannot be determined from a label image alone; these are flagged as "Review." Image quality matters: use the highest resolution image available for best results.',
+  },
+  {
+    q: 'Is this legal advice?',
+    a: 'No. COLACheck provides informational guidance based on published TTB regulations. It is not a substitute for legal advice. For complex submissions or unusual label designs, consult a qualified attorney or contact TTB directly at 1-866-927-2533.',
+  },
+  {
+    q: 'What happens after the beta?',
+    a: 'COLACheck is free during the beta period. Pricing will be introduced after beta. A separate filing service — where Almaden Trade handles your full COLA submission to TTB — is also coming soon. Beta users will be the first to know.',
+  },
+  {
+    q: 'Who is Almaden Trade?',
+    a: 'Almaden Trade is a beverage alcohol compliance and trade services company, part of the Almaden Group. COLACheck is Almaden Trade\'s free public tool for TTB label pre-screening. For full COLA filing services, visit almadentrade.com.',
+  },
+]
 
 interface LabelImage { file: File; preview: string }
 
@@ -150,7 +122,6 @@ export default function HomePage() {
   const frontRef = useRef<HTMLInputElement>(null)
   const backRef  = useRef<HTMLInputElement>(null)
 
-  const [lang, setLang]   = useState<Lang>('en')
   const [cat,  setCat]    = useState<Category>('wine')
   const [front, setFront] = useState<LabelImage | null>(null)
   const [back,  setBack]  = useState<LabelImage | null>(null)
@@ -159,8 +130,8 @@ export default function HomePage() {
   const [loading, setLoading] = useState(false)
   const [error, setError]     = useState<string | null>(null)
 
-  const strings = t[lang]
-  const faqs = FAQS[lang]
+  const strings = t.en
+  const faqs = FAQS
 
   const readFile = useCallback((file: File, label: string): Promise<LabelImage> => {
     return new Promise((resolve, reject) => {
@@ -199,14 +170,12 @@ export default function HomePage() {
         imageMimeType: front.file.type,
         backImageBase64: back ? back.preview.split(',')[1] : undefined,
         backImageMimeType: back ? back.file.type : undefined,
-        lang,
       }
       const res  = await fetch('/api/check', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
       const data = await res.json()
       if (!data.success) throw new Error(data.error || strings.checkFailed)
       sessionStorage.setItem('colacheck_report', JSON.stringify(data.report))
       sessionStorage.setItem('colacheck_front', front.preview)
-      sessionStorage.setItem('colacheck_lang', lang)
       if (back) sessionStorage.setItem('colacheck_back', back.preview)
       else sessionStorage.removeItem('colacheck_back')
       router.push('/report')
@@ -227,17 +196,8 @@ export default function HomePage() {
             </span>
             <span className="text-xs font-mono bg-navy text-white px-2 py-0.5 rounded-full">{strings.beta}</span>
             <span className="text-xs font-mono bg-pass/10 text-pass border border-pass/20 px-2 py-0.5 rounded-full hidden sm:inline">
-              {lang === 'en' ? 'Free during beta' : 'Gratis durante beta'}
+              Free during beta
             </span>
-            <button
-              onClick={() => setLang(l => l === 'en' ? 'es' : 'en')}
-              className="flex items-center gap-1.5 text-xs font-mono text-steel hover:text-navy border border-slate-light hover:border-steel px-3 py-1.5 rounded-full transition-all"
-            >
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
-              </svg>
-              {lang === 'en' ? 'Español' : 'English'}
-            </button>
           </div>
           <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-steel">
             <span>by</span>
@@ -321,7 +281,7 @@ export default function HomePage() {
           <p className="text-xs font-mono text-steel max-w-md leading-relaxed hidden sm:block">{strings.disclaimer}</p>
           <div className="flex items-center gap-3 shrink-0">
             <span className="text-xs font-mono bg-pass/10 text-pass border border-pass/20 px-2.5 py-1.5 rounded-full sm:hidden">
-              {lang === 'en' ? 'Free during beta' : 'Gratis durante beta'}
+              Free during beta
             </span>
             <button
               onClick={handleSubmit}
@@ -348,7 +308,7 @@ export default function HomePage() {
         {/* FAQ */}
         <div className="border-t border-slate-light pt-10 mb-10">
           <h2 className="font-display text-2xl text-navy mb-6">
-            {lang === 'en' ? 'Frequently Asked Questions' : 'Preguntas Frecuentes'}
+            Frequently Asked Questions
           </h2>
           <div className="max-w-2xl">
             {faqs.map((faq, i) => <FaqItem key={i} q={faq.q} a={faq.a} />)}
@@ -371,7 +331,7 @@ export default function HomePage() {
               <span className="text-xs text-steel font-sans">Part of the Almaden Group</span>
             </div>
             <p className="text-xs text-steel font-mono">
-              {lang === 'en' ? 'Filing service coming soon.' : 'Servicio de presentación próximamente.'}
+              Filing service coming soon.
             </p>
           </div>
           <div className="flex flex-col items-start sm:items-end gap-1">
@@ -380,7 +340,7 @@ export default function HomePage() {
               compliance@almadentrade.com
             </a>
             <p className="text-xs text-steel font-mono">
-              {lang === 'en' ? 'Free during beta · Not legal advice' : 'Gratis durante beta · No es asesoría legal'}
+              Free during beta · Not legal advice
             </p>
           </div>
         </div>
