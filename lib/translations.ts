@@ -1,4 +1,4 @@
-export type Lang = 'en' | 'es'
+export type Lang = 'en'
 
 export const t = {
   en: {
@@ -75,81 +75,5 @@ export const t = {
     contactUs: 'Contact Almaden Trade →',
     comingSoon: 'Coming soon',
     learnMore: 'Learn more at almadentrade.com →',
-  },
-
-  es: {
-    // Header
-    tagline: 'Almaden Trade',
-    beta: 'BETA',
-
-    // Landing
-    eyebrow: 'Cumplimiento de Etiquetas TTB',
-    headline: 'Verifique su etiqueta antes de enviarla al TTB.',
-    subheadline: 'Cargue su etiqueta de bebida alcohólica y obtenga un informe de cumplimiento instantáneo con las regulaciones federales — con citas específicas y correcciones accionables.',
-
-    // Category
-    selectCategory: '1. Seleccionar Categoría',
-    wine: 'Vinos',
-    spirits: 'Licores',
-    beer: 'Cervezas',
-    soon: 'Pronto',
-
-    // Upload
-    uploadImages: '2. Cargar Imágenes de Etiqueta',
-    frontLabel: 'Etiqueta Frontal',
-    backLabel: 'Etiqueta Trasera',
-    required: 'Requerida',
-    requiredIfHasOne: 'Requerida si su producto la tiene',
-    dropHere: 'Arrastre la imagen aquí',
-    browseFiles: 'o haga clic para buscar',
-    fileTypes: 'JPEG · PNG · WebP',
-    minSize: 'Mín. 150 KB · Máx. 10 MB',
-    bothLabels: 'Cargue ambas etiquetas si su producto las tiene — se analizan juntas',
-    remove: 'Eliminar',
-
-    // Submit
-    disclaimer: 'COLACheck proporciona orientación informativa basada en las regulaciones TTB publicadas. Esta herramienta no constituye asesoría legal.',
-    runCheck: 'Ejecutar Verificación de Cumplimiento →',
-    analyzing: 'Analizando — 15–30 segundos…',
-
-    // Errors
-    invalidType: 'Por favor cargue una imagen JPEG, PNG o WebP.',
-    tooSmall: 'La imagen debe tener al menos 150 KB. Su archivo tiene',
-    kb: 'KB.',
-    tooBig: 'La imagen debe ser menor a 10 MB.',
-    failedRead: 'Error al leer el archivo.',
-    checkFailed: 'La verificación falló.',
-    somethingWrong: 'Algo salió mal.',
-
-    // Report header
-    backToHome: '← COLACheck',
-    print: 'Imprimir',
-    downloadPDF: 'Descargar PDF',
-
-    // Report status
-    overallPass: 'Verificación de Cumplimiento Aprobada',
-    overallPassSub: 'Todos los requisitos obligatorios parecen estar cumplidos.',
-    overallReview: 'Se Requiere Revisión',
-    overallReviewSub: 'Algunos elementos no pudieron verificarse solo con la imagen.',
-    overallFail: 'Se Encontraron Problemas de Cumplimiento',
-    overallFailSub: 'Uno o más requisitos obligatorios parecen estar ausentes o incorrectos.',
-    checksPassed: 'verificaciones aprobadas',
-
-    // Report body
-    complianceChecks: 'Verificaciones de Cumplimiento',
-    labelsAnalyzed: 'Etiquetas Analizadas',
-    front: 'Frontal',
-    back: 'Trasera',
-    imageNote: 'Nota sobre la Imagen',
-    finding: 'Hallazgo',
-    requirement: 'Requisito',
-    suggestedFix: 'Corrección Sugerida',
-    downloadPDFReport: 'Descargar Informe PDF',
-    checkAnother: '← Verificar Otra Etiqueta',
-    needHelp: '¿Necesita ayuda para presentar?',
-    needHelpBody: 'Próximamente — Almaden Trade gestionará su envío COLA completo al TTB, desde la revisión de la etiqueta hasta la aprobación.',
-    contactUs: 'Contactar Almaden Trade →',
-    comingSoon: 'Próximamente',
-    learnMore: 'Más información en almadentrade.com →',
   },
 }
