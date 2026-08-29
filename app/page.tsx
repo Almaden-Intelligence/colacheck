@@ -118,21 +118,18 @@ function UploadZone({ label, badge, badgeTone, image, dragging, inputRef, onFile
     </div>
   )
 }
-
 function FaqItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false)
   return (
-    <div className="mb-2.5 overflow-hidden rounded-[14px] border border-rule bg-white shadow-e1 transition hover:shadow-e2">
-      <button onClick={() => setOpen(o => !o)} aria-expanded={open}
-        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left">
+    <details className="faq-item mb-2.5 overflow-hidden rounded-[14px] border border-rule bg-white shadow-e1 transition hover:shadow-e2">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left">
         <span className="text-[14.5px] font-semibold">{q}</span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-          className={`shrink-0 text-ink-soft transition-transform duration-200 ${open ? 'rotate-180' : ''}`}>
+          className="faq-chevron shrink-0 text-ink-soft transition-transform duration-200">
           <path d="M6 9l6 6 6-6" />
         </svg>
-      </button>
-      {open && <p className="px-5 pb-5 text-sm leading-relaxed text-ink-mid">{a}</p>}
-    </div>
+      </summary>
+      <p className="px-5 pb-5 text-sm leading-relaxed text-ink-mid">{a}</p>
+    </details>
   )
 }
 
