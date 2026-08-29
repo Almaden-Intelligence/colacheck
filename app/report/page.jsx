@@ -37,12 +37,15 @@ const gate = {
     body: 'Enter your email to unlock every check, its CFR citation, and the suggested fixes.',
     email: 'Work email',
     company: 'Company (optional)',
+    roleLabel: 'Which best describes you? (optional)',
     button: 'Unlock Full Report',
     unlocking: 'Unlocking…',
     invalid: 'Please enter a valid email address.',
     privacy: 'Used only to send your report. No spam.',
   },
 }
+
+const VISITOR_TYPES = ['Importer', 'Domestic producer', 'Label designer', 'Consultant', 'Other']
 
 export default function ReportPage() {
   const router = useRouter()
@@ -52,6 +55,7 @@ export default function ReportPage() {
   const [unlocked, setUnlocked] = useState(false)
   const [email, setEmail] = useState('')
   const [company, setCompany] = useState('')
+  const [visitorType, setVisitorType] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [formError, setFormError] = useState('')
 
@@ -80,21 +84,56 @@ export default function ReportPage() {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
   }
 
+  // Shrink a data-URL image so the notification payload stays well under
+  // Vercel's request body limit. Adjudication needs a legible image, not print artwork.
+  function downscale(dataUrl, maxEdge = 1400, quality = 0.82) {
+    return new Promise((resolve) => {
+      if (!dataUrl) return resolve(null)
+      try {
+        const img = new Image()
+        img.onload = () => {
+          const scale = Math.min(1, maxEdge / Math.max(img.width, img.height))
+          const w = Math.round(img.width * scale)
+          const h = Math.round(img.height * scale)
+          const c = document.createElement('canvas')
+          c.width = w; c.height = h
+          const ctx = c.getContext('2d')
+          ctx.fillStyle = '#fff'
+          ctx.fillRect(0, 0, w, h)
+          ctx.drawImage(img, 0, 0, w, h)
+          resolve(c.toDataURL('image/jpeg', quality).split(',')[1])
+        }
+        img.onerror = () => resolve(null)
+        img.src = dataUrl
+      } catch (e) {
+        resolve(null)
+      }
+    })
+  }
+
   async function handleUnlock() {
     setFormError('')
     if (!validEmail(email)) { setFormError(G.invalid); return }
     setSubmitting(true)
     try {
+      const [frontThumb, backThumb] = await Promise.all([
+        downscale(sessionStorage.getItem('colacheck_front')),
+        downscale(sessionStorage.getItem('colacheck_back')),
+      ])
       await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email,
           company,
+          visitorType,
           category: report.category,
           overallStatus: status,
           passCount: s.pass,
           totalCount: s.total_checks,
+          report,
+          frontThumb,
+          backThumb,
         }),
       })
     } catch (e) {
@@ -225,6 +264,26 @@ export default function ReportPage() {
                     placeholder={G.company}
                     className="w-full border border-slate-light rounded-lg px-3 py-2.5 text-navy focus:outline-none focus:border-sky"
                   />
+
+                  <div>
+                    <p className="text-xs font-mono uppercase tracking-wide text-steel mb-2">{G.roleLabel}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {VISITOR_TYPES.map((v) => (
+                        <button
+                          key={v}
+                          type="button"
+                          onClick={() => setVisitorType(visitorType === v ? '' : v)}
+                          className={`rounded-full border px-3 py-1.5 text-xs transition ${
+                            visitorType === v
+                              ? 'border-sky bg-sky text-white'
+                              : 'border-slate-light text-steel hover:border-sky'
+                          }`}
+                        >
+                          {v}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                   {formError && <p className="text-sm text-alert">{formError}</p>}
                   <button
                     onClick={handleUnlock}
