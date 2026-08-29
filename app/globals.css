@@ -42,6 +42,8 @@
     box-shadow: inset 0 0 0 1px rgba(120,95,60,.14);
   }
   .paper-sheen { background: linear-gradient(180deg, rgba(255,255,255,.5), transparent); }
+  .faq-item > summary::-webkit-details-marker { display: none; }
+  .faq-item[open] .faq-chevron { transform: rotate(180deg); }
 }
 
 @keyframes fade-up {
