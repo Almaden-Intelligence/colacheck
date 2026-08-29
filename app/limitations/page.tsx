@@ -2,116 +2,100 @@ import type { Metadata } from 'next'
 import PageShell, { H2, P, UL, Callout } from '@/components/PageShell'
 
 export const metadata: Metadata = {
-  title: 'Terms of Use — COLACheck',
-  description: 'Terms governing use of COLACheck, including how uploaded label artwork is handled.',
+  title: 'Limitations — COLACheck',
+  description: 'What COLACheck can and cannot determine from a label image, and why.',
 }
 
-export default function TermsPage() {
+export default function LimitationsPage() {
   return (
     <PageShell
-      eyebrow="Terms of Use"
-      title="Terms of use."
-      intro="Plain terms covering what COLACheck is, what happens to the artwork you upload, and the limits of what we promise."
+      eyebrow="Limitations"
+      title="What COLACheck cannot do."
+      intro="Read this before you rely on a result. Every limitation below is real, and naming them precisely is the only way a result here is worth anything."
       updated="August 2026"
     >
-      <H2>1. Who we are</H2>
-      <P>
-        COLACheck is operated by Almaden Studio (&ldquo;we&rdquo;, &ldquo;us&rdquo;). By using this site you agree to
-        these terms. If you do not agree, do not use the service.
-      </P>
-
-      <H2>2. What the service is</H2>
-      <P>
-        COLACheck is a pre-screening tool. It examines beverage alcohol label artwork against federal labeling
-        requirements in 27 CFR Parts 4, 5, 7 and 16, and returns a report. It does not submit anything to the Alcohol
-        and Tobacco Tax and Trade Bureau, has no affiliation with TTB, and is not connected to COLAs Online.
-      </P>
-
       <Callout tone="review">
-        <strong className="font-semibold text-ink">COLACheck is not legal advice</strong> and does not create an
-        attorney-client relationship. A clean report is not an approval and does not predict how TTB will treat your
-        submission. Please read the{' '}
-        <a href="/limitations" className="font-medium text-brand underline underline-offset-2">limitations</a> before
-        relying on any result.
+        <strong className="font-semibold text-ink">A pass is not an approval, and not a prediction of one.</strong>{' '}
+        COLACheck checks whether required elements are present and correctly stated on your artwork. TTB reviewers
+        apply judgment, internal policy, and precedent that no published regulation fully captures. A label can clear
+        every check here and still be rejected. Nothing on this site forecasts what TTB will do with your submission.
       </Callout>
 
-      <H2>3. The artwork you upload</H2>
-      <P>
-        <strong className="font-medium text-ink">You keep ownership of everything you upload.</strong> We claim no
-        rights in your label designs, brands, or artwork.
-      </P>
-      <P>By uploading, you grant us a limited, non-exclusive licence to:</P>
+      <H2>It only sees the image</H2>
+      <P>Several requirements are physical. An image cannot settle them:</P>
       <UL items={[
-        'Process your images in order to produce your report. This involves sending them to Anthropic, our AI provider, which performs the analysis.',
-        'Retain your images and the resulting report so we can review the tool\u2019s accuracy and improve it.',
-        'Analyse aggregate patterns across many checks — for example how often a given requirement is missed.',
-      ]} />
-      <P>
-        <strong className="font-medium text-ink">We will not</strong> publish your artwork, sell or licence it to
-        anyone, use it in marketing, portfolio work, or case studies, or show it as an example — whether or not it is
-        identifiable. Retained material is used to check and improve COLACheck and for nothing else.
-      </P>
-
-      <H2>4. You must have the right to upload it</H2>
-      <P>
-        You confirm that you own the artwork you upload, or have permission from whoever does. Do not upload material
-        you are not entitled to share. Do not upload personal data, confidential information unrelated to the label,
-        or anything unlawful.
-      </P>
-
-      <H2>5. Your email address</H2>
-      <P>
-        If you give us an email address, we use it to send you your report and to contact you about that check. We do
-        not sell or rent it. If we ever want to send you anything else, we will ask first.
-      </P>
-
-      <H2>6. Deletion</H2>
-      <P>
-        You can ask us to delete your uploaded artwork, your report, and your email address at any time by writing to{' '}
-        <a href="mailto:info@almadengroup.com" className="text-brand underline underline-offset-2">info@almadengroup.com</a>.
-        We will do so promptly. Aggregate statistics that do not identify you or your product may remain.
-      </P>
-
-      <H2>7. Beta, and no warranty</H2>
-      <P>
-        COLACheck is in beta and provided free of charge, <strong className="font-medium text-ink">as is</strong> and{' '}
-        <strong className="font-medium text-ink">as available</strong>, with no warranty of any kind — express or
-        implied — including as to accuracy, completeness, fitness for a particular purpose, or availability. Findings
-        may be incomplete or wrong. Verify anything you intend to act on.
-      </P>
-
-      <H2>8. Limitation of liability</H2>
-      <P>
-        To the fullest extent permitted by law, we are not liable for any loss arising from your use of COLACheck —
-        including rejected applications, delays, re-printing costs, lost sales, or any indirect or consequential loss.
-        You remain responsible for the accuracy of your own label and your own submission to TTB.
-      </P>
-
-      <H2>9. Acceptable use</H2>
-      <UL items={[
-        'Do not attempt to disrupt, overload, or reverse-engineer the service.',
-        'Do not use automated means to submit checks at scale without asking us first.',
-        'Do not present COLACheck results as an official determination, or imply endorsement by TTB or by us.',
+        <><strong className="font-medium text-ink">Type size.</strong> Mandatory text must meet minimum heights in millimetres. We can see that text is small; we cannot measure it against the real container.</>,
+        <><strong className="font-medium text-ink">Legibility and contrast</strong> under ordinary viewing conditions.</>,
+        <><strong className="font-medium text-ink">Whether the label is firmly affixed,</strong> and whether it can be removed by soaking — a requirement under Part 7.</>,
+        <><strong className="font-medium text-ink">Actual container volume,</strong> as opposed to what the label claims.</>,
       ]} />
 
-      <H2>10. Changes</H2>
+      <H2>It cannot verify facts that aren&rsquo;t printed on the label</H2>
       <P>
-        We may change these terms as the service develops. The date at the top of this page shows when it was last
-        updated. Material changes affecting how we handle uploaded artwork will be reflected here before they take
-        effect.
+        Some of the most consequential requirements turn on facts about the liquid, not the artwork. These are always
+        returned as <strong className="font-medium text-ink">Review</strong>, never as Pass:
+      </P>
+      <UL items={[
+        'Sulfur dioxide at or above 10 ppm, which is what triggers the sulfite declaration.',
+        'Grape percentages behind an appellation of origin — 75% or 85% depending on the type of appellation.',
+        'Vintage percentages — 95% for a viticultural area appellation, 85% otherwise.',
+        'Whether "Estate Bottled" conditions are actually met.',
+        'Whether a stated age, alcohol content, or class designation is truthful.',
+        'Whether colorings or additives requiring disclosure were in fact used.',
+      ]} />
+      <P>A Review is not a soft pass. It means we cannot answer, and you must.</P>
+
+      <H2>It checks federal requirements only</H2>
+      <P>
+        Nothing here covers state labeling law, state registration or franchise requirements, container-deposit
+        marking, or local rules. Several states impose requirements beyond the federal ones.{' '}
+        <strong className="font-medium text-ink">A federally compliant label may still be non-compliant in the state
+        where you intend to sell it.</strong>
       </P>
 
-      <H2>11. Governing law</H2>
+      <H2>It does not cover everything TTB looks at</H2>
       <P>
-        These terms are governed by the laws of the State of California, and any dispute will be handled in the courts
-        of Santa Clara County, California.
+        Out of scope: formula and lab sample approval, FDA requirements, trademark conflicts, distinctive liquor
+        bottle approval, and the accuracy of your COLA application form itself.
       </P>
 
-      <H2>12. Contact</H2>
+      <H2>The checks are derived from the regulation, not a substitute for it</H2>
       <P>
-        Questions about these terms, or about anything COLACheck did with your label:{' '}
-        <a href="mailto:info@almadengroup.com" className="text-brand underline underline-offset-2">info@almadengroup.com</a>.
+        The requirement list is written and maintained by hand from 27 CFR. It reflects human judgment about what
+        matters and how to state it, and it can be incomplete or wrong in ways an automated system would not detect.
+        The regulation itself always governs.
       </P>
+
+      <H2>It is AI-based, and AI misreads things</H2>
+      <P>
+        Analysis is performed by a machine learning model. It can misread stylized typefaces, foil, embossing, curved
+        or angled photographs, low-resolution scans, and text in languages other than English. It can also be
+        confidently wrong. Upload the highest-resolution artwork you have, and treat every finding as something to
+        verify rather than something to act on unread.
+      </P>
+
+      <H2>It is in beta and has had limited real-world testing</H2>
+      <P>
+        COLACheck is new. It has not been validated against a large corpus of previously approved and rejected labels.
+        Findings may be incomplete or incorrect. It is free during this period, and the absence of a fee reflects the
+        absence of a warranty.
+      </P>
+
+      <H2>This is not legal advice</H2>
+      <P>
+        COLACheck provides informational guidance based on published TTB regulations. It does not create an
+        attorney-client relationship and is not a substitute for professional advice. For complex submissions, unusual
+        label designs, or anything with money riding on it, consult a qualified attorney or contact TTB directly at{' '}
+        <strong className="font-medium text-ink">1-866-927-2533</strong> or{' '}
+        <a href="mailto:alfd@ttb.gov" className="text-brand underline underline-offset-2">alfd@ttb.gov</a>.
+      </P>
+
+      <Callout>
+        Found something COLACheck got wrong? That is the most useful thing you can send us during beta —{' '}
+        <a href="mailto:info@almadengroup.com" className="font-medium text-brand underline underline-offset-2">
+          info@almadengroup.com
+        </a>.
+      </Callout>
     </PageShell>
   )
 }
