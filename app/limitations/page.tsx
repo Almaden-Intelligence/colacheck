@@ -92,8 +92,8 @@ export default function LimitationsPage() {
 
       <Callout>
         Found something COLACheck got wrong? That is the most useful thing you can send us during beta —{' '}
-        <a href="mailto:info@almadengroup.com" className="font-medium text-brand underline underline-offset-2">
-          info@almadengroup.com
+        <a href="mailto:studio@almadengroup.com" className="font-medium text-brand underline underline-offset-2">
+          studio@almadengroup.com
         </a>.
       </Callout>
     </PageShell>
