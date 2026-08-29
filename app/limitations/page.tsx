@@ -37,7 +37,7 @@ export default function LimitationsPage() {
       </P>
       <UL items={[
         'Sulfur dioxide at or above 10 ppm, which is what triggers the sulfite declaration.',
-        'Grape percentages behind an appellation of origin — 75% or 85% depending on the type of appellation.',
+        'Grape percentages behind an appellation of origin — 75% for a country, state or county; 85% for a viticultural area; and for multicounty or multistate appellations, all of the fruit from the named areas with each percentage stated on the label.',
         'Vintage percentages — 95% for a viticultural area appellation, 85% otherwise.',
         'Whether "Estate Bottled" conditions are actually met.',
         'Whether a stated age, alcohol content, or class designation is truthful.',
