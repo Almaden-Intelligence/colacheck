@@ -53,15 +53,15 @@ export async function POST(request: NextRequest) {
 
           ${overallStatus === 'FAIL' ? `
           <div style="background: #FEF2F2; border-left: 4px solid #DC2626; padding: 12px 16px; border-radius: 4px; margin-bottom: 16px;">
-            <p style="margin: 0; color: #DC2626; font-size: 13px; font-weight: 600;">⚡ High conversion opportunity — label has failures. Follow up with filing service offer.</p>
+            <p style="margin: 0; color: #DC2626; font-size: 13px; font-weight: 600;">⚡ Label has failures.</p>
           </div>` : ''}
 
           ${overallStatus === 'REVIEW' ? `
           <div style="background: #FFFBEB; border-left: 4px solid #D97706; padding: 12px 16px; border-radius: 4px; margin-bottom: 16px;">
-            <p style="margin: 0; color: #D97706; font-size: 13px; font-weight: 600;">⚠️ Label has review items — good candidate for filing service.</p>
+            <p style="margin: 0; color: #D97706; font-size: 13px; font-weight: 600;">⚠️ Label has review items.</p>
           </div>` : ''}
 
-          <p style="color: #94A3B8; font-size: 12px; margin-top: 24px;">COLACheck · Almaden Trade · Part of the Almaden Group</p>
+                    <p style="color: #94A3B8; font-size: 12px; margin-top: 24px;">COLACheck lead notification</p>
         </div>
       `,
     })
