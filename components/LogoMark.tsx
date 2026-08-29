@@ -1,9 +1,15 @@
-export default function LogoMark({ className = '' }: { className?: string }) {
+export default function LogoMark({ className = '', onGradient = false }: { className?: string; onGradient?: boolean }) {
   return (
-    <svg viewBox="0 0 40 40" fill="none" aria-hidden="true" className={className}>
-      <rect width="40" height="40" rx="10" fill="#0B1929" />
-      <path d="M11 20.5l6 6 12-13" stroke="#6BAED6" strokeWidth="3.4"
-        strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <span
+      className={`grid place-items-center rounded-xl ${
+        onGradient ? 'border border-white/30 bg-white/[.16] backdrop-blur' : 'grad-fill'
+      } ${className}`}
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth={3}
+        strokeLinecap="round" strokeLinejoin="round" className="h-1/2 w-1/2">
+        <path d="M5 13l4.5 4.5L19 7" />
+      </svg>
+    </span>
   )
 }
