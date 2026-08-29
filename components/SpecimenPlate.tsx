@@ -1,43 +1,43 @@
 'use client'
 
 const CALLOUTS = [
-  { tone: 'pass',  align: 'left',  top: '20%', label: 'Brand name § 4.33',     delay: '.75s' },
-  { tone: 'pass',  align: 'right', top: '40%', label: 'Class/type § 4.34',     delay: '.95s' },
-  { tone: 'warn',  align: 'left',  top: '60%', label: 'Sulfites — flagged',    delay: '1.15s' },
-  { tone: 'alert', align: 'right', top: '80%', label: 'Health warning absent', delay: '1.35s' },
+  { tone: 'pass',   align: 'left',  top: '15%', label: 'Brand name § 4.33',     delay: '.8s'  },
+  { tone: 'pass',   align: 'right', top: '38%', label: 'Class/type § 4.34',     delay: '1.0s' },
+  { tone: 'review', align: 'left',  top: '61%', label: 'Sulfites — flagged',    delay: '1.2s' },
+  { tone: 'fail',   align: 'right', top: '84%', label: 'Health warning absent', delay: '1.4s' },
 ] as const
 
 const TONE: Record<string, { text: string; dot: string }> = {
-  pass:  { text: 'text-pass',  dot: 'bg-pass'  },
-  warn:  { text: 'text-warn',  dot: 'bg-warn'  },
-  alert: { text: 'text-alert', dot: 'bg-alert' },
+  pass:   { text: 'text-[#B9F0D5]', dot: 'bg-[#5FD39B]' },
+  review: { text: 'text-[#F7E1B4]', dot: 'bg-[#E9B958]' },
+  fail:   { text: 'text-[#FBCFC7]', dot: 'bg-[#F1806E]' },
 }
 
 export default function SpecimenPlate() {
   return (
-    <div className="relative mx-auto w-full max-w-[420px]" aria-hidden="true">
-      <div className="plate-in rounded-xl bg-white p-[15px] shadow-lift-dark">
-        <div className="mb-[11px] flex justify-between px-0.5 font-mono text-[9.5px] uppercase tracking-[.11em] text-ink-soft">
+    <div className="plate-in mx-auto w-full max-w-[440px]" aria-hidden="true">
+      <div className="rounded-[20px] bg-white/[.97] p-[15px] shadow-plate">
+        <div className="mb-3 flex justify-between px-[3px] font-mono text-[9.5px] uppercase tracking-[.1em] text-ink-soft">
           <span>Specimen · front</span><span>Wine · Part 4</span>
         </div>
 
-        {/* label artwork + callouts pinned inside the plate */}
-        <div className="relative flex h-[300px] flex-col items-center justify-center overflow-hidden rounded-[7px] px-6 text-center text-[#F2F6FA]"
-          style={{ background: 'linear-gradient(168deg,#1E3A5C,#0D1B2C)' }}>
-          <div className="pointer-events-none absolute inset-0"
-            style={{ background: 'radial-gradient(70% 50% at 50% 0%,rgba(255,255,255,.08),transparent 70%)' }} />
-
-          <div className="mb-[15px] font-mono text-[8.5px] uppercase tracking-[.32em] opacity-50">Estate Bottled</div>
-          <div className="mb-[5px] font-display text-[32px] italic tracking-tight">Vela Roja</div>
-          <div className="mb-[18px] font-display text-[16px] opacity-90">2022 · Cabernet Sauvignon</div>
-          <div className="mb-[18px] h-px w-[42px] bg-white/30" />
-          <div className="font-mono text-[8.5px] uppercase leading-[2.1] tracking-[.17em] opacity-60">
-            Napa Valley<br />750 ML · ALC 14.2% BY VOL
+        <div className="paper-stock relative flex h-[312px] items-center justify-center overflow-hidden rounded-xl">
+          {/* the printed label */}
+          <div className="paper-sheen flex h-[84%] w-[74%] flex-col items-center justify-center rounded-sm border border-paper-rule p-[18px] text-center text-paper-ink">
+            <span className="mb-[11px] grid h-[26px] w-[26px] place-items-center rounded-full border border-[rgba(120,95,60,.5)] font-label text-[13px] text-[#6B4A2E]">V</span>
+            <span className="mb-[9px] font-mono text-[7.5px] uppercase tracking-[.28em] text-[#8A6C48]">Estate Bottled</span>
+            <span className="mb-[3px] font-label text-[34px] font-medium leading-[1.05] tracking-[.01em] text-paper-wine">Vela Roja</span>
+            <span className="mb-3 font-label text-[16px] text-[#5C4A38]">2022 · Cabernet Sauvignon</span>
+            <span className="mb-3 block h-px w-[44px] bg-paper-rule" />
+            <span className="font-mono text-[7.5px] uppercase leading-[2.2] tracking-[.16em] text-[#7A5F41]">
+              Napa Valley<br />750 ML · ALC 14.2% BY VOL
+            </span>
           </div>
 
+          {/* annotations */}
           {CALLOUTS.map((c) => (
             <span key={c.label}
-              className={`callout-in absolute flex items-center gap-[6px] whitespace-nowrap rounded-full bg-white/95 px-[9px] py-[4px] font-mono text-[9px] uppercase tracking-[.04em] shadow-lift-1 backdrop-blur-sm ${TONE[c.tone].text}`}
+              className={`callout-in absolute flex items-center gap-1.5 whitespace-nowrap rounded-full bg-[#211E2E] px-2.5 py-[5px] font-mono text-[8.5px] uppercase tracking-[.04em] shadow-pill ${TONE[c.tone].text}`}
               style={{
                 top: c.top,
                 animationDelay: c.delay,
