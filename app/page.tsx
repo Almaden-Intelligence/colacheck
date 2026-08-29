@@ -36,13 +36,9 @@ const FAQS = [
     q: 'Is this legal advice?',
     a: 'No. COLACheck provides informational guidance based on published TTB regulations. It is not a substitute for legal advice. For complex submissions or unusual label designs, consult a qualified attorney or contact TTB directly at 1-866-927-2533.',
   },
-  {
+   {
     q: 'What happens after the beta?',
-    a: 'COLACheck is free during the beta period. Pricing will be introduced after beta. A separate filing service — where Almaden Trade handles your full COLA submission to TTB — is also coming soon. Beta users will be the first to know.',
-  },
-  {
-    q: 'Who is Almaden Trade?',
-    a: 'Almaden Trade is a beverage alcohol compliance and trade services company, part of the Almaden Group. COLACheck is Almaden Trade\'s free public tool for TTB label pre-screening. For full COLA filing services, visit almadentrade.com.',
+    a: 'COLACheck is free during the beta period. Pricing will be introduced after beta, based on what we learn from real usage.',
   },
 ]
 
@@ -320,16 +316,6 @@ export default function HomePage() {
       <footer className="border-t border-slate-light bg-white">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="font-display text-base text-navy">COLA<span className="text-sky">Check</span></span>
-              <span className="text-xs text-steel font-mono">·</span>
-              <a href="https://almadentrade.com" target="_blank" rel="noopener noreferrer"
-                className="text-xs text-steel hover:text-navy transition-colors font-sans">
-                Almaden Trade
-              </a>
-              <span className="text-xs text-steel font-mono">·</span>
-              <span className="text-xs text-steel font-sans">Part of the Almaden Group</span>
-            </div>
             <p className="text-xs text-steel font-mono">
               Filing service coming soon.
             </p>
