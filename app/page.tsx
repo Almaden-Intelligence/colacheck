@@ -436,18 +436,18 @@ export default function HomePage() {
       <footer className="border-t border-rule bg-white py-8">
         <div className="mx-auto flex max-w-[1180px] flex-col items-start justify-between gap-4 px-9 sm:flex-row sm:items-center">
           <div className="flex flex-col gap-1.5">
-            <span className="font-display text-[19px] font-semibold tracking-[-.03em]">
+            <span className="font-display text-[24px] font-semibold tracking-[-.03em]">
               COLA<span className="text-brand">Check</span>
             </span>
-            <span className="font-mono text-[11px] text-ink-soft">Built by Almaden Studio</span>
+            <span className="font-mono text-[14px] text-ink-soft">Built by Almaden Studio</span>
           </div>
           <div className="flex flex-col gap-1.5 sm:items-end">
-            <div className="flex gap-4 font-mono text-[11px]">
+            <div className="flex gap-4 font-mono text-[14px]">
               <a href="/limitations" className="text-ink-soft transition hover:text-brand">Limitations</a>
               <a href="/terms" className="text-ink-soft transition hover:text-brand">Terms</a>
-              <a href="mailto:info@almadengroup.com" className="text-ink-soft transition hover:text-brand">Contact</a>
+              <a href="mailto:studio@almadengroup.com" className="text-ink-soft transition hover:text-brand">Contact</a>
             </div>
-            <span className="font-mono text-[11px] text-ink-soft">Free during beta · Not legal advice</span>
+            <span className="font-mono text-[14px] text-ink-soft">Free during beta · Not legal advice</span>
           </div>
         </div>
       </footer>
