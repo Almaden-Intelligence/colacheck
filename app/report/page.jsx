@@ -40,7 +40,7 @@ const gate = {
     button: 'Unlock Full Report',
     unlocking: 'Unlocking…',
     invalid: 'Please enter a valid email address.',
-    privacy: 'Used only to send your report and occasional updates from Almaden Trade. No spam.',
+    privacy: 'Used only to send your report. No spam.',
   },
 }
 
@@ -111,8 +111,8 @@ export default function ReportPage() {
       <header className="border-b border-slate-light bg-white sticky top-0 z-20 no-print">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <button onClick={() => router.push('/')} className="flex items-baseline gap-2">
-            <span className="font-display text-2xl text-navy tracking-tight">COLA<span className="text-sky">Check</span></span>
-            <span className="text-xs text-steel hidden sm:inline">· {T.tagline} · Part of the Almaden Group</span>
+          <span className="font-display text-2xl text-navy tracking-tight">COLA<span className="text-sky">Check</span></span>
+          </button>
           </button>
           <div className="flex items-center gap-3">
             {unlocked && (
@@ -201,18 +201,7 @@ export default function ReportPage() {
                 </div>
               )}
 
-              <div className="bg-navy rounded-xl p-5 text-white">
-                <div className="flex items-center gap-2 mb-1">
-                  <h3 className="font-display text-lg">{T.needHelp}</h3>
-                  <span className="text-[10px] font-semibold uppercase tracking-wide bg-accent text-navy rounded-full px-2 py-0.5">{T.comingSoon}</span>
-                </div>
-                <p className="text-sm text-slate-light mb-4">{T.needHelpBody}</p>
-                <a href="https://almadentrade.com" target="_blank" rel="noopener noreferrer" className="text-sm text-sky-light hover:text-white transition">
-                  {T.learnMore}
-                </a>
-              </div>
-
-              {report.disclaimer && <p className="text-xs text-steel leading-relaxed">{report.disclaimer}</p>}
+             {report.disclaimer && <p className="text-xs text-steel leading-relaxed">{report.disclaimer}</p>}
             </aside>
           </div>
 
