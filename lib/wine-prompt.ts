@@ -15,7 +15,7 @@ Examine the label image carefully and check each mandatory requirement from 27 C
 
 3. **Appellation of Origin** (§ 4.25) — Required when a grape variety is used as the type designation, or when a vintage year appears. Must be a recognized appellation (country, state, county, or viticultural area).
 
-4. **Vintage Year** (§ 4.27) — If stated, at least 85% of the wine must be from grapes harvested in that year. Appellation of origin required when vintage is declared.
+4. **Vintage Year** (§ 4.27) — If stated, an appellation of origin is required, shown in direct conjunction with the class/type designation and in lettering substantially as conspicuous. The qualifying percentage depends on the appellation type: if the appellation is a viticultural area (or foreign equivalent), at least 95% of the wine must derive from grapes harvested in the labeled year (§ 4.27(a)(1)); for any other appellation, at least 85% (§ 4.27(a)(2)). The percentage itself cannot be verified from a label image — mark this "review" and state which threshold applies based on the appellation shown.
 
 ### Any Label Requirements (§ 4.32(b))
 5. **Name and Address** (§ 4.35) — Must state the name and address of the bottler (domestic) or importer (imported). Must include city and state. For imported wines, name and address of importer required. "Bottled by", "Packed by", "Produced by", "Made by", or "Vinted by" are permitted qualifiers.
