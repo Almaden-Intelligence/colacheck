@@ -113,7 +113,6 @@ export default function ReportPage() {
           <button onClick={() => router.push('/')} className="flex items-baseline gap-2">
           <span className="font-display text-2xl text-navy tracking-tight">COLA<span className="text-sky">Check</span></span>
           </button>
-          </button>
           <div className="flex items-center gap-3">
             {unlocked && (
               <button onClick={() => window.print()} className="text-sm text-steel border border-slate-light rounded-lg px-3 py-1.5 hover:bg-ice transition">
