@@ -7,6 +7,7 @@ import { t } from '@/lib/translations'
 import CategoryIcon from '@/components/CategoryIcon'
 import UploadIcon from '@/components/UploadIcon'
 import SpecimenPlate from '@/components/SpecimenPlate'
+import LogoMark from '@/components/LogoMark'
 
 type Category = 'wine' | 'spirits' | 'beer'
 
@@ -208,10 +209,13 @@ export default function HomePage() {
     <main className="min-h-screen bg-canvas">
       {/* Header */}
       <header className="sticky top-0 z-30 border-b border-rule bg-white/[.86] backdrop-blur-lg">
-        <div className="mx-auto flex h-[66px] max-w-[1120px] items-center justify-between px-8">
-          <span className="font-display text-[27px] tracking-tight text-navy">
-            COLA<span className="text-sky">Check</span>
-          </span>
+        <div className="mx-auto flex h-[74px] max-w-[1120px] items-center justify-between px-8">
+          <a href="/" className="flex items-center gap-3">
+            <LogoMark className="h-9 w-9 shrink-0" />
+            <span className="font-display text-[32px] leading-none tracking-tight text-navy">
+              COLA<span className="text-sky">Check</span>
+            </span>
+          </a>
           <div className="flex items-center gap-2">
             <span className="rounded-full bg-navy px-2.5 py-[5px] font-mono text-[10.5px] uppercase tracking-[.08em] text-white">
               {strings.beta}
@@ -260,25 +264,29 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* Limitations notice */}
-        <div className="mt-10 rounded-2xl border border-warn/25 bg-warn-bg p-5 shadow-lift-1 sm:p-6">
-          <div className="mb-2 flex items-center gap-2.5">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-              strokeLinecap="round" className="shrink-0 text-warn">
-              <path d="M12 8v5M12 17h.01" />
-              <circle cx="12" cy="12" r="9" />
-            </svg>
-            <h2 className="font-mono text-[10.5px] uppercase tracking-[.14em] text-warn">Read this first</h2>
+        {/* Scope notice */}
+        <div className="mt-12 overflow-hidden rounded-2xl border border-rule bg-white shadow-lift-1">
+          <div className="grid sm:grid-cols-[auto_1fr]">
+            <div className="flex items-center gap-3 border-b border-rule-soft bg-ice px-6 py-4 sm:flex-col sm:items-start sm:justify-center sm:border-b-0 sm:border-r sm:px-7 sm:py-6">
+              <span className="font-display text-[26px] leading-none text-navy sm:text-[30px]">Scope</span>
+              <span className="font-mono text-[10px] uppercase tracking-[.14em] text-steel">What this is</span>
+            </div>
+            <div className="px-6 py-5 sm:px-7 sm:py-6">
+              <p className="text-[14px] leading-[1.7] text-ink-mid">
+                <strong className="font-semibold text-navy">COLACheck is a pre-screening tool, not an approval.</strong>{' '}
+                It reads your artwork against federal labeling requirements in 27 CFR and reports what it can see.
+                It cannot measure type size, verify anything not printed on the label, or check state requirements —
+                and a clean result here does not mean TTB will approve your submission. It is in beta, AI-based,
+                and not legal advice.
+              </p>
+              <a href="/limitations"
+                className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[.08em] text-sky transition hover:text-navy">
+                Read the full limitations
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"
+                  strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
           </div>
-          <p className="text-[13.5px] leading-relaxed text-ink-mid">
-            <strong className="font-semibold text-navy">COLACheck is a pre-screening tool, not an approval.</strong>{' '}
-            It reads your artwork against federal labeling requirements in 27 CFR and flags what it can see. It cannot
-            measure type size, verify anything not printed on the label, or check state requirements — and passing here
-            does not mean TTB will approve your submission. It is in beta, AI-based, and not legal advice.{' '}
-            <a href="/limitations" className="font-medium text-sky underline decoration-sky/30 underline-offset-2 transition hover:decoration-sky">
-              Full limitations
-            </a>
-          </p>
         </div>
 
         {/* Check card */}
