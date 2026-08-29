@@ -3,7 +3,6 @@ export type Lang = 'en'
 export const t = {
   en: {
     // Header
-    tagline: 'Almaden Trade',
     beta: 'BETA',
 
     // Landing
@@ -70,10 +69,5 @@ export const t = {
     suggestedFix: 'Suggested Fix',
     downloadPDFReport: 'Download PDF Report',
     checkAnother: '← Check Another Label',
-    needHelp: 'Need help filing?',
-    needHelpBody: 'Coming soon — Almaden Trade will handle your full COLA submission to TTB, from label review to approval.',
-    contactUs: 'Contact Almaden Trade →',
-    comingSoon: 'Coming soon',
-    learnMore: 'Learn more at almadentrade.com →',
   },
 }
