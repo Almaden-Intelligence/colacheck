@@ -287,8 +287,7 @@ export default function HomePage() {
         {/* ---------- SCOPE ---------- */}
         <div className="mt-11 grid overflow-hidden rounded-[18px] border border-rule bg-white shadow-e1 sm:grid-cols-[auto_1fr]">
           <div className="grad-panel flex min-w-[180px] flex-row items-baseline gap-2.5 px-[30px] py-[26px] text-white sm:flex-col sm:justify-center sm:gap-1.5">
-            <span className="font-display text-[27px] font-semibold tracking-[-.03em]">Scope</span>
-            <span className="font-mono text-[10px] uppercase tracking-[.13em] opacity-80">What this is</span>
+            <span className="font-display text-[27px] font-semibold tracking-[-.03em]">What it this?</span>
           </div>
           <div className="px-[30px] py-[26px]">
             <p className="text-sm leading-[1.72] text-ink-mid">
