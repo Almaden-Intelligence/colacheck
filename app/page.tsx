@@ -195,15 +195,6 @@ export default function HomePage() {
               Free during beta
             </span>
           </div>
-          <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-steel">
-            <span>by</span>
-            <a href="https://almadentrade.com" target="_blank" rel="noopener noreferrer"
-              className="text-steel hover:text-navy transition-colors font-semibold">
-              Almaden Trade
-            </a>
-            <span>·</span>
-            <span>Part of the Almaden Group</span>
-          </div>
         </div>
       </header>
 
@@ -315,16 +306,8 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="border-t border-slate-light bg-white">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
-            <p className="text-xs text-steel font-mono">
-              Filing service coming soon.
-            </p>
-          </div>
+          <div></div>
           <div className="flex flex-col items-start sm:items-end gap-1">
-            <a href="mailto:compliance@almadentrade.com"
-              className="text-xs font-mono text-steel hover:text-navy transition-colors">
-              compliance@almadentrade.com
-            </a>
             <p className="text-xs text-steel font-mono">
               Free during beta · Not legal advice
             </p>
