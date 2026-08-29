@@ -68,7 +68,7 @@ export default function TermsPage() {
       <H2>6. Deletion</H2>
       <P>
         You can ask us to delete your uploaded artwork, your report, and your email address at any time by writing to{' '}
-        <a href="mailto:info@almadengroup.com" className="text-brand underline underline-offset-2">info@almadengroup.com</a>.
+        <a href="mailto:studio@almadengroup.com" className="text-brand underline underline-offset-2">studio@almadengroup.com</a>.
         We will do so promptly. Aggregate statistics that do not identify you or your product may remain.
       </P>
 
@@ -110,7 +110,7 @@ export default function TermsPage() {
       <H2>12. Contact</H2>
       <P>
         Questions about these terms, or about anything COLACheck did with your label:{' '}
-        <a href="mailto:info@almadengroup.com" className="text-brand underline underline-offset-2">info@almadengroup.com</a>.
+        <a href="mailto:studio@almadengroup.com" className="text-brand underline underline-offset-2">studio@almadengroup.com</a>.
       </P>
     </PageShell>
   )
