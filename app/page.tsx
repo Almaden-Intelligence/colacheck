@@ -18,17 +18,16 @@ const CATEGORIES: { id: Category; cfr: string; note: string }[] = [
 ]
 
 const STATS = [
-  { v: '4',   unit: 'parts',   label: 'Parts 4, 5, 7 and 16 of Title 27' },
-  { v: '3',   unit: 'classes', label: 'Wine, distilled spirits, malt beverage' },
-  { v: '§',   unit: '',        label: 'Citation attached to every finding' },
-  { v: '~25', unit: 's',       label: 'Upload to full written report' },
+  { k: 'Regulations',     v: '4',   unit: 'parts',   d: 'Parts 4, 5, 7 and 16 of Title 27' },
+  { k: 'Coverage',        v: '3',   unit: 'classes', d: 'Wine, distilled spirits, malt beverage' },
+  { k: 'Corpus revision', v: '2026', pre: 'May ',    d: 'Every finding names its CFR section' },
 ]
 
 const PARTS = [
   { n: '27 CFR § 4',  t: 'Wine',              d: 'Labeling and advertising of wine' },
   { n: '27 CFR § 5',  t: 'Distilled Spirits', d: 'Labeling and advertising of distilled spirits' },
   { n: '27 CFR § 7',  t: 'Malt Beverages',    d: 'Labeling and advertising of malt beverages' },
-  { n: '27 CFR § 16', t: 'Health Warning',    d: 'Health warning statement — applies to all three' },
+  { n: '27 CFR § 16', t: 'Health Warning',    d: 'Applies to all three classes' },
 ]
 
 const FAQS = [
@@ -66,32 +65,31 @@ function UploadZone({ label, badge, badgeTone, image, dragging, inputRef, onFile
   inputRef: React.RefObject<HTMLInputElement>
   onFile: (f: File) => void; onRemove: () => void
   onDragOver: () => void; onDragLeave: () => void
-  hint: string
-  strings: typeof t['en']
+  hint: string; strings: typeof t['en']
 }) {
   const badgeClass = badgeTone === 'req'
-    ? 'text-alert bg-alert-bg border-alert/20'
-    : 'text-ink-soft bg-canvas border-rule'
+    ? 'text-brand bg-tint border-line'
+    : 'text-ink-soft bg-ground border-rule'
 
   return (
     <div>
       <div className="mb-2.5 flex items-center gap-2.5">
-        <span className="font-mono text-[10.5px] uppercase tracking-[.12em] text-ink-mid">{label}</span>
-        <span className={`rounded-full border px-2 py-[3px] font-mono text-[9.5px] uppercase tracking-[.06em] ${badgeClass}`}>{badge}</span>
+        <span className="font-mono text-[10.5px] uppercase tracking-[.11em] text-ink-mid">{label}</span>
+        <span className={`rounded-full border px-2 py-[3px] font-mono text-[9.5px] uppercase tracking-[.05em] ${badgeClass}`}>{badge}</span>
       </div>
 
       {image ? (
-        <div className="overflow-hidden rounded-2xl border border-rule bg-white shadow-lift-1">
-          <div className="relative bg-canvas">
-            <img src={image.preview} alt={label} className="max-h-52 w-full object-contain p-3" />
+        <div className="overflow-hidden rounded-[18px] border border-rule bg-white shadow-e1">
+          <div className="relative bg-ground">
+            <img src={image.preview} alt={label} className="max-h-56 w-full object-contain p-3" />
             <button onClick={onRemove}
-              className="absolute right-2.5 top-2.5 rounded-lg bg-navy/90 px-2.5 py-1 font-mono text-[11px] text-white transition hover:bg-navy">
+              className="absolute right-3 top-3 rounded-full bg-ink/90 px-3 py-1 font-mono text-[10.5px] uppercase tracking-[.05em] text-white transition hover:bg-ink">
               {strings.remove}
             </button>
           </div>
-          <div className="flex items-center justify-between border-t border-rule-soft px-3.5 py-2.5">
-            <span className="max-w-[170px] truncate font-mono text-[11px] text-ink-soft">{image.file.name}</span>
-            <span className="ml-2 font-mono text-[11px] text-ink-soft">{(image.file.size / 1024).toFixed(0)} KB</span>
+          <div className="flex items-center justify-between border-t border-rule-soft px-4 py-2.5">
+            <span className="max-w-[180px] truncate font-mono text-[10.5px] text-ink-soft">{image.file.name}</span>
+            <span className="ml-2 font-mono text-[10.5px] text-ink-soft">{(image.file.size / 1024).toFixed(0)} KB</span>
           </div>
         </div>
       ) : (
@@ -102,15 +100,15 @@ function UploadZone({ label, badge, badgeTone, image, dragging, inputRef, onFile
           onDragOver={(e) => { e.preventDefault(); onDragOver() }}
           onDragLeave={onDragLeave}
           onClick={() => inputRef.current?.click()}
-          className={`cursor-pointer rounded-2xl border-2 border-dashed px-5 py-9 text-center transition-all duration-200
+          className={`cursor-pointer rounded-[18px] border-2 border-dashed px-5 py-10 text-center transition duration-200
             ${dragging
-              ? 'border-sky bg-ice shadow-lift-1'
-              : 'border-rule bg-gradient-to-b from-white to-canvas hover:-translate-y-0.5 hover:border-sky-light hover:shadow-lift-1'}`}
+              ? 'border-brand bg-tint shadow-e1'
+              : 'border-rule bg-gradient-to-b from-white to-ground hover:-translate-y-0.5 hover:border-line hover:shadow-e1'}`}
         >
-          <div className="mx-auto mb-3.5 grid h-[42px] w-[42px] place-items-center rounded-xl bg-ice">
-            <UploadIcon className="h-[18px] w-[18px] stroke-sky" />
-          </div>
-          <p className="mb-1 text-sm font-semibold text-navy">{strings.dropHere}</p>
+          <span className="mx-auto mb-3.5 grid h-[46px] w-[46px] place-items-center rounded-[14px] bg-tint">
+            <UploadIcon className="h-5 w-5 stroke-brand" />
+          </span>
+          <p className="mb-1 text-sm font-semibold">{strings.dropHere}</p>
           <p className="font-mono text-[10.5px] text-ink-soft">{hint}</p>
         </div>
       )}
@@ -124,10 +122,10 @@ function UploadZone({ label, badge, badgeTone, image, dragging, inputRef, onFile
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className="mb-2.5 overflow-hidden rounded-xl border border-rule bg-white shadow-lift-1 transition hover:shadow-lift-2">
+    <div className="mb-2.5 overflow-hidden rounded-[14px] border border-rule bg-white shadow-e1 transition hover:shadow-e2">
       <button onClick={() => setOpen(o => !o)} aria-expanded={open}
         className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left">
-        <span className="text-sm font-semibold text-navy">{q}</span>
+        <span className="text-[14.5px] font-semibold">{q}</span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
           className={`shrink-0 text-ink-soft transition-transform duration-200 ${open ? 'rotate-180' : ''}`}>
           <path d="M6 9l6 6 6-6" />
@@ -180,6 +178,8 @@ export default function HomePage() {
     catch (e) { setError(e instanceof Error ? e.message : strings.somethingWrong) }
   }, [readFile, strings])
 
+  const scrollToCheck = () => document.getElementById('check')?.scrollIntoView({ behavior: 'smooth' })
+
   const handleSubmit = async () => {
     if (!front) return
     setLoading(true); setError(null)
@@ -206,100 +206,120 @@ export default function HomePage() {
   }
 
   return (
-    <main className="min-h-screen bg-canvas">
-      {/* Header */}
-      <header className="sticky top-0 z-30 border-b border-rule bg-white/[.86] backdrop-blur-lg">
-        <div className="mx-auto flex h-[74px] max-w-[1120px] items-center justify-between px-8">
-          <a href="/" className="flex items-center gap-3">
-            <LogoMark className="h-9 w-9 shrink-0" />
-            <span className="font-display text-[32px] leading-none tracking-tight text-navy">
-              COLA<span className="text-sky">Check</span>
-            </span>
-          </a>
-          <div className="flex items-center gap-2">
-            <span className="rounded-full bg-navy px-2.5 py-[5px] font-mono text-[10.5px] uppercase tracking-[.08em] text-white">
-              {strings.beta}
-            </span>
-            <span className="hidden rounded-full border border-pass/20 bg-pass/[.09] px-2.5 py-[5px] font-mono text-[10.5px] uppercase tracking-[.08em] text-pass sm:inline">
-              Free during beta
-            </span>
-          </div>
-        </div>
-      </header>
+    <main className="min-h-screen">
+      {/* ---------- HERO ---------- */}
+      <div className="hero-gradient relative overflow-hidden">
+        <span className="blob-1 pointer-events-none absolute -right-24 -top-36 h-[520px] w-[520px] rounded-full" />
+        <span className="blob-2 pointer-events-none absolute -bottom-28 left-[7%] h-[330px] w-[330px] rounded-full" />
+        <span className="pointer-events-none absolute right-[4%] top-[4%] h-[400px] w-[400px] rounded-full border-[1.5px] border-white/[.16]" />
+        <span className="pointer-events-none absolute right-[24%] top-[32%] h-[250px] w-[250px] rounded-full border-[1.5px] border-white/10" />
+        <span className="pointer-events-none absolute -right-[8%] bottom-[-46%] h-[580px] w-[580px] rounded-full border-[1.5px] border-white/[.07]" />
+        <span className="dot-grid pointer-events-none absolute bottom-[14%] left-0 h-[110px] w-[180px] opacity-20" />
 
-      {/* Hero */}
-      <div className="relative overflow-hidden rounded-b-[26px] bg-navy">
-        <div className="mesh pointer-events-none absolute inset-0" />
-        <div className="mesh-grid pointer-events-none absolute inset-0" />
-        <div className="relative mx-auto grid max-w-[1120px] items-center gap-14 px-8 pb-24 pt-[76px] text-white lg:grid-cols-[1.02fr_.98fr]">
-          <div className="fade-up">
-            <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/[.14] bg-white/[.07] px-3.5 py-1.5 font-mono text-[10.5px] uppercase tracking-[.16em] text-sky-light backdrop-blur">
-              <span className="pulse-ring block h-[5px] w-[5px] rounded-full bg-sky-light" />
-              TTB Label Pre-Screening
+        <div className="relative z-10 mx-auto max-w-[1180px] px-9">
+          {/* nav */}
+          <nav className="flex h-[82px] items-center justify-between gap-5">
+            <a href="/" className="flex items-center gap-3">
+              <LogoMark onGradient className="h-[39px] w-[39px]" />
+              <span className="font-display text-[28px] font-semibold leading-none tracking-[-.03em] text-white">
+                COLA<span className="text-white/[.62]">Check</span>
+              </span>
+            </a>
+            <div className="hidden items-center gap-7 lg:flex">
+              <a href="#check" className="text-sm font-medium text-white/[.84] transition hover:text-white">How it works</a>
+              <a href="#parts" className="text-sm font-medium text-white/[.84] transition hover:text-white">What it checks</a>
+              <a href="/limitations" className="text-sm font-medium text-white/[.84] transition hover:text-white">Limitations</a>
+              <button onClick={scrollToCheck}
+                className="rounded-full border border-white/40 px-5 py-2.5 text-[13.5px] font-medium text-white backdrop-blur transition hover:bg-white/15">
+                Check a label
+              </button>
             </div>
-            <h1 className="mb-5 font-display text-[38px] leading-[1.07] tracking-tight sm:text-[48px] lg:text-[56px]">
-              Every finding arrives with <em className="italic text-sky-light">the section it came from.</em>
-            </h1>
-            <p className="max-w-[46ch] text-[16.5px] leading-[1.68] text-ice/80">
-              Upload your artwork. COLACheck reads it against the mandatory provisions of 27 CFR and returns a verdict
-              for each requirement — cited, not asserted. What can&rsquo;t be settled from an image is said so plainly,
-              rather than guessed.
-            </p>
+          </nav>
+
+          {/* hero body */}
+          <div className="grid items-center gap-14 pb-24 pt-14 lg:grid-cols-[1.04fr_.96fr]">
+            <div className="fade-up">
+              <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/[.24] bg-white/[.13] px-[15px] py-2 font-mono text-[11.5px] uppercase tracking-[.1em] text-white/90 backdrop-blur">
+                <span className="block h-1.5 w-1.5 rounded-full bg-white" />
+                TTB Label Pre-Screening
+              </div>
+              <h1 className="mb-5 font-display text-[40px] font-bold leading-[1.02] tracking-[-.042em] text-white sm:text-[50px] lg:text-[60px]">
+                Catch it now,{' '}
+                <span className="font-light text-white/[.76]">
+                  <span className="font-semibold text-sand">before</span> a rejection.
+                </span>
+              </h1>
+              <p className="mb-8 max-w-[48ch] text-[17px] leading-[1.66] text-white/[.82]">
+                Upload your label and see every federal requirement it meets, misses, or leaves open —
+                each one cited to the regulation behind it. Takes about a minute.
+              </p>
+              <div className="flex flex-wrap items-center gap-3">
+                <button onClick={scrollToCheck}
+                  className="rounded-full bg-white px-[30px] py-[15px] text-[14.5px] font-semibold text-g2 shadow-[0_6px_22px_-6px_rgba(0,0,0,.35)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-8px_rgba(0,0,0,.4)]">
+                  Check a label →
+                </button>
+                <a href="#parts"
+                  className="rounded-full border border-white/40 bg-white/[.08] px-[30px] py-[15px] text-[14.5px] font-semibold text-white backdrop-blur transition duration-200 hover:-translate-y-0.5 hover:bg-white/[.18]">
+                  See what it checks
+                </a>
+                <span className="ml-1 font-mono text-[11px] tracking-[.04em] text-white/60">Free during beta</span>
+              </div>
+            </div>
+
+            <SpecimenPlate />
           </div>
-          <SpecimenPlate />
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1120px] px-8">
-        {/* Stats */}
-        <div className="relative z-10 -mt-14 grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div className="mx-auto max-w-[1180px] px-9">
+        {/* ---------- STATS ---------- */}
+        <div className="relative z-20 -mt-12 grid gap-4 sm:grid-cols-3">
           {STATS.map((s) => (
-            <div key={s.label}
-              className="rounded-2xl border border-rule bg-white p-5 shadow-lift-2 transition duration-200 ease-lift hover:-translate-y-1 hover:shadow-lift-3">
-              <div className="mb-2 font-display text-[29px] leading-none text-navy">
-                {s.v}{s.unit && <span className="ml-1 font-mono text-[11.5px] tracking-[.03em] text-ink-soft">{s.unit}</span>}
+            <div key={s.k}
+              className="rounded-[18px] border border-rule bg-white p-[23px] shadow-e2 transition duration-200 ease-lift hover:-translate-y-1 hover:shadow-e3">
+              <div className="mb-2.5 font-mono text-[10px] uppercase tracking-[.13em] text-ink-soft">{s.k}</div>
+              <div className="mb-1.5 font-display text-[28px] font-semibold leading-none tracking-[-.035em]">
+                {s.pre}<span className="grad-text">{s.v}</span>
+                {s.unit && <span className="ml-1.5 text-[16px] font-normal text-ink-soft">{s.unit}</span>}
               </div>
-              <div className="text-[12.5px] leading-snug text-ink-soft">{s.label}</div>
+              <div className="text-[12.5px] leading-snug text-ink-soft">{s.d}</div>
             </div>
           ))}
         </div>
 
-        {/* Scope notice */}
-        <div className="mt-12 overflow-hidden rounded-2xl border border-rule bg-white shadow-lift-1">
-          <div className="grid sm:grid-cols-[auto_1fr]">
-            <div className="flex items-center gap-3 border-b border-rule-soft bg-ice px-6 py-4 sm:flex-col sm:items-start sm:justify-center sm:border-b-0 sm:border-r sm:px-7 sm:py-6">
-              <span className="font-display text-[26px] leading-none text-navy sm:text-[30px]">Scope</span>
-              <span className="font-mono text-[10px] uppercase tracking-[.14em] text-steel">What this is</span>
-            </div>
-            <div className="px-6 py-5 sm:px-7 sm:py-6">
-              <p className="text-[14px] leading-[1.7] text-ink-mid">
-                <strong className="font-semibold text-navy">COLACheck is a pre-screening tool, not an approval.</strong>{' '}
-                It reads your artwork against federal labeling requirements in 27 CFR and reports what it can see.
-                It cannot measure type size, verify anything not printed on the label, or check state requirements —
-                and a clean result here does not mean TTB will approve your submission. It is in beta, AI-based,
-                and not legal advice.
-              </p>
-              <a href="/limitations"
-                className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[.08em] text-sky transition hover:text-navy">
-                Read the full limitations
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"
-                  strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-              </a>
-            </div>
+        {/* ---------- SCOPE ---------- */}
+        <div className="mt-11 grid overflow-hidden rounded-[18px] border border-rule bg-white shadow-e1 sm:grid-cols-[auto_1fr]">
+          <div className="grad-panel flex min-w-[180px] flex-row items-baseline gap-2.5 px-[30px] py-[26px] text-white sm:flex-col sm:justify-center sm:gap-1.5">
+            <span className="font-display text-[27px] font-semibold tracking-[-.03em]">Scope</span>
+            <span className="font-mono text-[10px] uppercase tracking-[.13em] opacity-80">What this is</span>
+          </div>
+          <div className="px-[30px] py-[26px]">
+            <p className="text-sm leading-[1.72] text-ink-mid">
+              <strong className="font-semibold text-ink">COLACheck is a pre-screening tool, not an approval.</strong>{' '}
+              It reads your artwork against federal labeling requirements in 27 CFR and reports what it can see.
+              It cannot measure type size, verify anything not printed on the label, or check state requirements —
+              and a clean result here does not mean TTB will approve your submission. It is in beta, AI-based,
+              and not legal advice.
+            </p>
+            <a href="/limitations"
+              className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[.06em] text-brand transition hover:text-g2">
+              Read the full limitations
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"
+                strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
           </div>
         </div>
 
-        {/* Check card */}
-        <section className="my-14 overflow-hidden rounded-[18px] border border-rule bg-white shadow-lift-2">
-          <div className="flex flex-wrap items-center justify-between gap-2.5 border-b border-rule-soft px-[30px] py-[22px]">
-            <h2 className="font-display text-2xl text-navy">Run a new check</h2>
-            <span className="font-mono text-[10.5px] uppercase tracking-[.09em] text-ink-soft">Two steps · about a minute</span>
+        {/* ---------- CHECK PANEL ---------- */}
+        <section id="check" className="my-11 scroll-mt-6 overflow-hidden rounded-[22px] border border-rule bg-white shadow-e2">
+          <div className="flex flex-wrap items-center justify-between gap-2.5 border-b border-rule-soft px-8 py-[26px]">
+            <h2 className="font-display text-[25px] font-semibold tracking-[-.03em]">Check a label</h2>
+            <span className="font-mono text-[10.5px] uppercase tracking-[.08em] text-ink-soft">Two steps · about a minute</span>
           </div>
 
-          <div className="p-[30px]">
-            {/* Step 1 */}
-            <div className="mb-4 flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-[.14em] text-ink-soft">
-              <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-ice text-[10px] font-medium text-steel">1</span>
+          <div className="p-8">
+            <div className="mb-4 flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">
+              <span className="grad-fill grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full text-[10px] font-semibold text-white">1</span>
               Commodity class
               <span className="h-px flex-1 bg-rule-soft" />
             </div>
@@ -308,29 +328,28 @@ export default function HomePage() {
                 const on = cat === id
                 return (
                   <button key={id} onClick={() => setCat(id)} aria-pressed={on}
-                    className={`relative rounded-2xl border-[1.5px] p-[19px] text-left transition duration-200 ease-lift
+                    className={`relative rounded-[18px] border-[1.5px] p-[21px] text-left transition duration-200 ease-lift
                       ${on
-                        ? 'border-sky bg-gradient-to-br from-white to-ice shadow-lift-2'
-                        : 'border-rule bg-white hover:-translate-y-1 hover:border-sky-light hover:shadow-lift-2'}`}>
+                        ? 'border-transparent bg-gradient-to-br from-white to-tint shadow-[0_0_0_2px_#4A4FA8] '
+                        : 'border-rule bg-white hover:-translate-y-1 hover:border-line hover:shadow-e2'}`}>
                     {on && (
-                      <span className="absolute right-4 top-4 grid h-[19px] w-[19px] place-items-center rounded-full bg-sky">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.8" strokeLinecap="round"
+                      <span className="grad-fill absolute right-[18px] top-[18px] grid h-[21px] w-[21px] place-items-center rounded-full">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round"
                           strokeLinejoin="round" className="h-2.5 w-2.5"><path d="M5 13l4 4L19 7" /></svg>
                       </span>
                     )}
-                    <span className={`mb-3.5 grid h-10 w-10 place-items-center rounded-xl transition ${on ? 'bg-sky' : 'bg-ice'}`}>
-                      <CategoryIcon category={id} className={`h-[23px] w-5 ${on ? 'stroke-white' : 'stroke-steel'}`} />
+                    <span className={`mb-[15px] grid h-11 w-11 place-items-center rounded-[13px] transition ${on ? 'grad-fill' : 'bg-tint'}`}>
+                      <CategoryIcon category={id} className={`h-[25px] w-[22px] ${on ? 'stroke-white' : 'stroke-brand'}`} />
                     </span>
-                    <span className="mb-0.5 block text-[15.5px] font-semibold tracking-tight text-navy">{strings[id]}</span>
-                    <span className="block font-mono text-[10.5px] tracking-[.03em] text-ink-soft">{cfr} · {note}</span>
+                    <span className="mb-0.5 block text-base font-semibold tracking-[-.015em]">{strings[id]}</span>
+                    <span className="block font-mono text-[10.5px] text-ink-soft">{cfr} · {note}</span>
                   </button>
                 )
               })}
             </div>
 
-            {/* Step 2 */}
-            <div className="mb-4 flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-[.14em] text-ink-soft">
-              <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-ice text-[10px] font-medium text-steel">2</span>
+            <div className="mb-4 flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">
+              <span className="grad-fill grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full text-[10px] font-semibold text-white">2</span>
               Label artwork
               <span className="h-px flex-1 bg-rule-soft" />
             </div>
@@ -356,23 +375,23 @@ export default function HomePage() {
             </div>
 
             {error && (
-              <div role="alert" className="mt-5 rounded-xl border border-alert/25 bg-alert-bg px-4 py-3 font-mono text-[12.5px] leading-relaxed text-alert">
+              <div role="alert" className="mt-5 rounded-[14px] border border-fail/25 bg-fail-bg px-4 py-3 font-mono text-[12.5px] leading-relaxed text-fail">
                 {error}
               </div>
             )}
           </div>
 
-          <div className="flex flex-col items-stretch justify-between gap-5 border-t border-rule-soft bg-canvas px-[30px] py-[22px] sm:flex-row sm:items-center">
-            <p className="max-w-[50ch] text-xs leading-relaxed text-ink-soft">
+          <div className="flex flex-col items-stretch justify-between gap-5 border-t border-rule-soft bg-ground px-8 py-6 sm:flex-row sm:items-center">
+            <p className="max-w-[52ch] text-xs leading-[1.65] text-ink-soft">
               Informational guidance drawn from published TTB regulations. Not legal advice, and not a substitute for
               TTB&rsquo;s own review. By running a check you agree to the{' '}
-              <a href="/terms" className="text-sky underline decoration-sky/30 underline-offset-2 transition hover:decoration-sky">terms</a>.
+              <a href="/terms" className="text-brand underline underline-offset-2">terms</a>.
             </p>
             <button onClick={handleSubmit} disabled={!front || loading}
-              className={`shrink-0 rounded-xl px-[30px] py-[15px] text-[14.5px] font-semibold tracking-tight transition duration-200
+              className={`shrink-0 rounded-full px-[30px] py-[15px] text-[14.5px] font-semibold transition duration-200
                 ${!front || loading
-                  ? 'cursor-not-allowed bg-slate-light text-white'
-                  : 'bg-navy text-white shadow-lift-1 hover:-translate-y-0.5 hover:bg-navy-light hover:shadow-lift-2'}`}>
+                  ? 'cursor-not-allowed bg-rule text-ink-soft'
+                  : 'grad-fill text-white shadow-[0_6px_20px_-6px_rgba(74,79,168,.5)] hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-8px_rgba(74,79,168,.55)]'}`}>
               {loading ? (
                 <span className="flex items-center justify-center gap-2.5">
                   <svg className="spin h-4 w-4" viewBox="0 0 24 24" fill="none">
@@ -386,11 +405,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Corpus */}
-        <section className="pb-16">
-          <div className="mb-8 text-center">
-            <h2 className="mb-2 font-display text-[30px] text-navy">What it reads against</h2>
-            <p className="mx-auto max-w-[58ch] text-[14.5px] leading-relaxed text-ink-soft">
+        {/* ---------- PARTS ---------- */}
+        <section id="parts" className="scroll-mt-6 pb-16 pt-2">
+          <div className="mb-8">
+            <h2 className="mb-2 font-display text-[31px] font-semibold tracking-[-.035em]">What it reads against</h2>
+            <p className="max-w-[58ch] text-[14.5px] leading-relaxed text-ink-soft">
               Four parts of Title 27, maintained by hand from the published regulation — so a finding can always be
               traced back to the section behind it.
             </p>
@@ -398,41 +417,39 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
             {PARTS.map((p) => (
               <div key={p.n}
-                className="relative overflow-hidden rounded-2xl border border-rule bg-white p-[22px] shadow-lift-1 transition duration-200 ease-lift hover:-translate-y-1 hover:shadow-lift-3">
-                <span className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-sky to-sky-light" />
-                <div className="mb-3 font-mono text-[10.5px] tracking-[.09em] text-sky">{p.n}</div>
-                <div className="mb-1 text-[17px] font-semibold tracking-tight text-navy">{p.t}</div>
+                className="relative overflow-hidden rounded-[18px] border border-rule bg-white p-6 shadow-e1 transition duration-200 ease-lift hover:-translate-y-1 hover:shadow-e3">
+                <span className="grad-fill-h absolute inset-x-0 top-0 h-[3.5px]" />
+                <div className="mb-3 font-mono text-[10.5px] tracking-[.08em] text-brand">{p.n}</div>
+                <div className="mb-1 text-[17px] font-semibold tracking-[-.02em]">{p.t}</div>
                 <div className="text-[12.5px] leading-snug text-ink-soft">{p.d}</div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* FAQ */}
+        {/* ---------- FAQ ---------- */}
         <section className="pb-16">
-          <div className="mb-8 text-center">
-            <h2 className="font-display text-[30px] text-navy">Questions</h2>
-          </div>
-          <div className="mx-auto max-w-[720px]">
+          <h2 className="mb-8 font-display text-[31px] font-semibold tracking-[-.035em]">Questions</h2>
+          <div className="max-w-[740px]">
             {FAQS.map((f) => <FaqItem key={f.q} q={f.q} a={f.a} />)}
           </div>
         </section>
       </div>
 
-      {/* Footer */}
-      <footer className="border-t border-rule bg-white py-7">
-        <div className="mx-auto flex max-w-[1120px] flex-col items-start justify-between gap-3 px-8 sm:flex-row sm:items-center">
-          <div className="flex flex-col gap-1">
-            <span className="font-display text-[17px] text-navy">COLA<span className="text-sky">Check</span></span>
+      {/* ---------- FOOTER ---------- */}
+      <footer className="border-t border-rule bg-white py-8">
+        <div className="mx-auto flex max-w-[1180px] flex-col items-start justify-between gap-4 px-9 sm:flex-row sm:items-center">
+          <div className="flex flex-col gap-1.5">
+            <span className="font-display text-[19px] font-semibold tracking-[-.03em]">
+              COLA<span className="text-brand">Check</span>
+            </span>
             <span className="font-mono text-[11px] text-ink-soft">Built by Almaden Studio</span>
           </div>
-          <div className="flex flex-col gap-1 sm:items-end">
-            <div className="flex items-center gap-3 font-mono text-[11px] text-ink-soft">
-              <a href="/limitations" className="transition hover:text-navy">Limitations</a>
-              <span className="text-rule">·</span>
-              <a href="/terms" className="transition hover:text-navy">Terms</a>
-              <span className="text-rule">·</span>
-              <a href="mailto:info@almadengroup.com" className="transition hover:text-navy">Contact</a>
+          <div className="flex flex-col gap-1.5 sm:items-end">
+            <div className="flex gap-4 font-mono text-[11px]">
+              <a href="/limitations" className="text-ink-soft transition hover:text-brand">Limitations</a>
+              <a href="/terms" className="text-ink-soft transition hover:text-brand">Terms</a>
+              <a href="mailto:info@almadengroup.com" className="text-ink-soft transition hover:text-brand">Contact</a>
             </div>
             <span className="font-mono text-[11px] text-ink-soft">Free during beta · Not legal advice</span>
           </div>
