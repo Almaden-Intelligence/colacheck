@@ -439,15 +439,15 @@ export default function HomePage() {
             <span className="font-display text-[24px] font-semibold tracking-[-.03em]">
               COLA<span className="text-brand">Check</span>
             </span>
-            <span className="font-mono text-[14px] text-ink-soft">Built by Almaden Studio</span>
+            <span className="font-mono text-[13px] text-ink-soft">Built by Almaden Studio</span>
           </div>
           <div className="flex flex-col gap-1.5 sm:items-end">
-            <div className="flex gap-4 font-mono text-[14px]">
+            <div className="flex gap-4 font-mono text-[13px]">
               <a href="/limitations" className="text-ink-soft transition hover:text-brand">Limitations</a>
               <a href="/terms" className="text-ink-soft transition hover:text-brand">Terms</a>
               <a href="mailto:studio@almadengroup.com" className="text-ink-soft transition hover:text-brand">Contact</a>
             </div>
-            <span className="font-mono text-[14px] text-ink-soft">Free during beta · Not legal advice</span>
+            <span className="font-mono text-[13px] text-ink-soft">Free during beta · Not legal advice</span>
           </div>
         </div>
       </footer>
