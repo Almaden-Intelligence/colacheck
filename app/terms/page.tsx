@@ -27,13 +27,26 @@ export default function TermsPage() {
         and Tobacco Tax and Trade Bureau, has no affiliation with TTB, and is not connected to COLAs Online.
       </P>
 
-      <Callout tone="review">
+        <Callout tone="review">
         <strong className="font-semibold text-ink">COLACheck is not legal advice</strong> and does not create an
         attorney-client relationship. A clean report is not an approval and does not predict how TTB will treat your
         submission. Please read the{' '}
         <a href="/limitations" className="font-medium text-brand underline underline-offset-2">limitations</a> before
         relying on any result.
       </Callout>
+
+      <H2>2a. TTB applies judgment we cannot model</H2>
+      <P>
+        Label approval is not a purely mechanical match against the regulation. TTB reviewers apply internal policy,
+        precedent, and case-by-case judgment — about whether a brand name is misleading, whether imagery is
+        appropriate, whether a label&rsquo;s overall presentation passes. Labels are also sometimes rejected for
+        reasons not clearly codified in the published regulations, based on an individual reviewer&rsquo;s
+        interpretation.
+      </P>
+      <P>
+        No tool can predict those determinations, and COLACheck does not attempt to. It reports on the requirements
+        that <em>are</em> written down and visible on your artwork. Everything beyond that is TTB&rsquo;s to decide.
+      </P>
 
       <H2>3. The artwork you upload</H2>
       <P>
