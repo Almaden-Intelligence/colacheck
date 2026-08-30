@@ -15,7 +15,15 @@ Examine the label image carefully and check each mandatory requirement from 27 C
 
 3. **Appellation of Origin** (§ 4.25) — Required when a grape variety is used as the type designation, or when a vintage year appears. Must be a recognized appellation (country, state, county, or viticultural area).
 
-4. **Vintage Year** (§ 4.27) — If stated, an appellation of origin is required, shown in direct conjunction with the class/type designation and in lettering substantially as conspicuous. The qualifying percentage depends on the appellation type: if the appellation is a viticultural area (or foreign equivalent), at least 95% of the wine must derive from grapes harvested in the labeled year (§ 4.27(a)(1)); for any other appellation, at least 85% (§ 4.27(a)(2)). The percentage itself cannot be verified from a label image — mark this "review" and state which threshold applies based on the appellation shown.
+4. **Vintage Year** (§ 4.27) — If stated, an appellation of origin is required, shown in direct conjunction with the class/type designation and in lettering substantially as conspicuous.
+
+   **Determining the appellation type — follow this exactly, do not rely on recall:**
+   Ask only one question: is the appellation a country, a state, or a county?
+   - A country ("France", "United States"), a state ("California", "Oregon"), a county ("Sonoma County", "Mendocino County"), or a combination of up to three of these → NOT a viticultural area. Threshold is 85%, cite § 4.27(a)(2).
+   - Anything else used as an appellation — a named region, valley, hill, bench, district, mountain, or any place name that is not a country, state or county ("Napa Valley", "Russian River Valley", "Paso Robles", "Willamette Valley", "Rutherford") → treat as a viticultural area. Threshold is 95%, cite § 4.27(a)(1).
+   - Note that a county appellation often includes the word "County" on the label. A viticultural area normally does not.
+
+   State the threshold and the citation you selected, and say which of the two rules above led you there. The percentage itself cannot be verified from a label image, so this check is always "review".
 
 ### Any Label Requirements (§ 4.32(b))
 5. **Name and Address** (§ 4.35) — Must state the name and address of the bottler (domestic) or importer (imported). Must include city and state. For imported wines, name and address of importer required. "Bottled by", "Packed by", "Produced by", "Made by", or "Vinted by" are permitted qualifiers.
