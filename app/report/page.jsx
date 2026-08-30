@@ -171,10 +171,7 @@ export default function ReportPage() {
                   Save as PDF
                 </button>
               )}
-              
-                href="/"
-                className="rounded-full bg-white px-5 py-2.5 text-[13.5px] font-medium text-g1 shadow-pill transition hover:bg-white/90"
-              >
+                           <a href="/" className="rounded-full bg-white px-5 py-2.5 text-[13.5px] font-medium text-g1 shadow-pill transition hover:bg-white/90">
                 Check another label
               </a>
             </div>
