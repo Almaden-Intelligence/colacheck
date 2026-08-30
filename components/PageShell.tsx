@@ -67,6 +67,7 @@ export default function PageShell({ eyebrow, title, intro, updated, children }: 
             <div className="flex gap-4 font-mono text-[13px]">
               <a href="/limitations" className="text-ink-soft transition hover:text-brand">Limitations</a>
               <a href="/terms" className="text-ink-soft transition hover:text-brand">Terms</a>
+              <a href="/privacy" className="text-ink-soft transition hover:text-brand">Privacy</a>
               <a href="mailto:studio@almadengroup.com" className="text-ink-soft transition hover:text-brand">Contact</a>
             </div>
             <span className="font-mono text-[13px] text-ink-soft">Free during beta · Not legal advice</span>
