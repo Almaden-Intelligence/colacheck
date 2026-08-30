@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Outfit, Inter, JetBrains_Mono, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
+import { Analytics } from '@vercel/analytics/react'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${outfit.variable} ${jetbrains.variable} ${cormorant.variable}`}>
       <body className="bg-ground font-sans text-ink antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   )
