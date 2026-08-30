@@ -79,10 +79,11 @@ export default function TermsPage() {
       </P>
 
       <H2>6. Deletion</H2>
-      <P>
+            <P>
         You can ask us to delete your uploaded artwork, your report, and your email address at any time by writing to{' '}
         <a href="mailto:studio@almadengroup.com" className="text-brand underline underline-offset-2">studio@almadengroup.com</a>.
-        We will do so promptly. Aggregate statistics that do not identify you or your product may remain.
+        We will delete every copy we hold, including copies held in our own email records, and confirm when it is done.
+        Aggregate statistics that do not identify you or your product may remain.
       </P>
 
       <H2>7. Beta, and no warranty</H2>
