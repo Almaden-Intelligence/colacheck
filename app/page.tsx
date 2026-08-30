@@ -23,6 +23,42 @@ const STATS = [
   { k: 'Corpus revision', v: '2026', pre: 'May ',    d: 'Every finding names its CFR section' },
 ]
 
+const STEPS = [
+  {
+    n: '1',
+    t: 'Upload your artwork',
+    d: 'Pick wine, distilled spirits or malt beverage, and add your front label. The back is optional — but several mandatory items usually live there, so including it changes what we can tell you.',
+  },
+  {
+    n: '2',
+    t: 'Read against 27 CFR',
+    d: 'Your label is examined against the mandatory labeling requirements for that product class — Part 4, 5 or 7, plus the Part 16 health warning — the way a reviewer would read it, element by element.',
+  },
+  {
+    n: '3',
+    t: 'Get a cited verdict on each requirement',
+    d: 'Every requirement comes back Pass, Review or Fail, carrying the section it was decided under and, where something needs doing, a concrete suggested fix.',
+  },
+]
+
+const VERDICTS = [
+  {
+    k: 'Pass',
+    tone: 'pass',
+    d: 'The requirement is met, and that can be confirmed from the artwork.',
+  },
+  {
+    k: 'Review',
+    tone: 'review',
+    d: 'The requirement applies, but whether it is met cannot be settled from an image — sulfite levels and grape percentages are the common cases. Not a soft pass: a question handed back to you.',
+  },
+  {
+    k: 'Fail',
+    tone: 'fail',
+    d: 'The requirement is clearly not met, and the label would need changing before you file.',
+  },
+]
+
 const PARTS = [
   { n: '27 CFR § 4',  t: 'Wine',              d: 'Labeling and advertising of wine' },
   { n: '27 CFR § 5',  t: 'Distilled Spirits', d: 'Labeling and advertising of distilled spirits' },
@@ -223,7 +259,7 @@ export default function HomePage() {
               </span>
             </a>
             <div className="hidden items-center gap-7 lg:flex">
-              <a href="#check" className="text-sm font-medium text-white/[.84] transition hover:text-white">How it works</a>
+              <a href="#how" className="text-sm font-medium text-white/[.84] transition hover:text-white">How it works</a>
               <a href="#parts" className="text-sm font-medium text-white/[.84] transition hover:text-white">What it checks</a>
               <a href="/limitations" className="text-sm font-medium text-white/[.84] transition hover:text-white">Limitations</a>
               <button onClick={scrollToCheck}
@@ -398,6 +434,67 @@ export default function HomePage() {
                 </span>
               ) : 'Run compliance check →'}
             </button>
+          </div>
+        </section>
+
+        {/* ---------- HOW IT WORKS ---------- */}
+        <section id="how" className="scroll-mt-6 pb-16 pt-2">
+          <div className="mb-8">
+            <h2 className="mb-2 font-display text-[31px] font-semibold tracking-[-.035em]">How it works</h2>
+            <p className="max-w-[58ch] text-[14.5px] leading-relaxed text-ink-soft">
+              Two things you do, one thing we return. No account, no upload queue, no waiting on a human.
+            </p>
+          </div>
+
+          <div className="mb-12 grid gap-4 lg:grid-cols-3">
+            {STEPS.map((st) => (
+              <div key={st.n}
+                className="rounded-[18px] border border-rule bg-white p-6 shadow-e1 transition duration-200 ease-lift hover:-translate-y-1 hover:shadow-e3">
+                <span className="grad-fill mb-4 grid h-9 w-9 place-items-center rounded-full font-display text-[15px] font-semibold text-white">
+                  {st.n}
+                </span>
+                <div className="mb-2 text-[17px] font-semibold tracking-[-.02em]">{st.t}</div>
+                <p className="text-[13.5px] leading-[1.65] text-ink-soft">{st.d}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* the three verdicts */}
+          <div className="overflow-hidden rounded-[22px] border border-rule bg-white shadow-e2">
+            <div className="border-b border-rule-soft px-8 py-6">
+              <h3 className="mb-1.5 font-display text-[22px] font-semibold tracking-[-.03em]">Three verdicts, not two</h3>
+              <p className="max-w-[62ch] text-[13.5px] leading-relaxed text-ink-soft">
+                A label image cannot answer every question the regulation asks. Rather than guess, COLACheck says so —
+                which is why there is a third category between pass and fail.
+              </p>
+            </div>
+            <div className="grid divide-y divide-rule-soft sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+              {VERDICTS.map((v) => (
+                <div key={v.k} className="px-7 py-6">
+                  <span className={`mb-3 inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[.1em] ${
+                    v.tone === 'pass'   ? 'border-pass/25 bg-pass-bg text-pass'
+                    : v.tone === 'review' ? 'border-review/25 bg-review-bg text-review'
+                    : 'border-fail/25 bg-fail-bg text-fail'}`}>
+                    <span className={`h-1.5 w-1.5 rounded-full ${
+                      v.tone === 'pass' ? 'bg-pass' : v.tone === 'review' ? 'bg-review' : 'bg-fail'}`} />
+                    {v.k}
+                  </span>
+                  <p className="text-[13.5px] leading-[1.65] text-ink-soft">{v.d}</p>
+                </div>
+              ))}
+            </div>
+            <div className="border-t border-rule-soft bg-ground px-8 py-6">
+              <div className="mb-2 font-mono text-[10px] uppercase tracking-[.13em] text-ink-soft">On method</div>
+              <p className="max-w-[76ch] text-[13.5px] leading-[1.7] text-ink-mid">
+                COLACheck reads your artwork using an AI model, guided by a checklist of the mandatory requirements
+                for your product class. That checklist is written and maintained by hand from the text of 27 CFR —
+                it is not scraped live, and it is not a general-purpose question to an AI about alcohol law. Each
+                finding names the section it was decided under so you can check it against the regulation yourself.{' '}
+                <a href="/limitations" className="font-medium text-brand underline underline-offset-2">
+                  What this approach cannot do
+                </a>{' '}is written up in full.
+              </p>
+            </div>
           </div>
         </section>
 
