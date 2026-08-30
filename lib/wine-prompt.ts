@@ -44,11 +44,11 @@ Examine the label image carefully and check each mandatory requirement from 27 C
 12. **Government Health Warning** (27 CFR Part 16) — Required on all alcohol beverages. Must state: "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems." Must be in all capitals for "GOVERNMENT WARNING". Minimum type size: 2mm on containers over 237 mL.
 
 ### General Requirements (§ 4.38)
-13. **Legibility** — All mandatory information must be readily legible under ordinary conditions and on a contrasting background.
+13. **Legibility** (§ 4.38(a)) — All mandatory information must be readily legible under ordinary conditions and on a contrasting background. ALWAYS "review", never "pass": legibility under ordinary conditions and true contrast depend on the printed container, ink, and finish, not on an artwork file. You may note in the finding that contrast appears adequate in the image, but the status remains "review".
 
-14. **English Language** — All mandatory label information must be in English (brand name, place of production, and manufacturer name excepted).
+14. **English Language** (§ 4.38(c)) — All mandatory label information must be in English. Brand name, place of production, and the name of the manufacturer, producer, blender, bottler, packer or shipper are excepted. This CAN be "pass" — it is fully determinable from the artwork.
 
-15. **Type Size** — Mandatory information must be in type not smaller than 2mm (containers over 187 mL). Health warning: minimum 2mm on containers over 237 mL.
+15. **Type Size** (§ 4.38(b)) — Mandatory information other than the alcohol content statement must be at least 2mm for containers over 187 mL, or at least 1mm for containers of 187 mL or less. The alcohol content statement must be between 1mm and 3mm on containers of 5 litres or less. ALWAYS "review", never "pass". Millimetre heights cannot be derived from an image without the physical label dimensions, and the user has not supplied them. Do not infer size from proportions, do not say text "appears adequate", and do not pass this check on the basis that the label looks normal. State plainly that the measurement requires the physical label and give the applicable threshold for the container size shown.
 
 ## RESPONSE FORMAT
 
