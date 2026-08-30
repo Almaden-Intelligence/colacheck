@@ -12,6 +12,7 @@ const CATEGORY_LABEL = {
 const VERDICT = {
   PASS: {
     word: 'Pass',
+    action: () => 'Nothing needs your answer',
     title: 'Nothing flagged in what we could check.',
     sub: 'Every requirement we were able to verify from your artwork is present and correctly stated. Read the caveat below before you rely on that.',
     text: 'text-pass',
@@ -21,6 +22,7 @@ const VERDICT = {
   },
   REVIEW: {
     word: 'Review',
+    action: (s) => `${s.review} item${s.review === 1 ? '' : 's'} need${s.review === 1 ? 's' : ''} your answer`,
     title: 'Some items need answering before you file.',
     sub: 'A review is not a soft pass. It means we cannot answer the question from an image, and you must.',
     text: 'text-review',
@@ -30,6 +32,7 @@ const VERDICT = {
   },
   FAIL: {
     word: 'Fail',
+    action: (s) => `${s.fail} item${s.fail === 1 ? '' : 's'} must be fixed`,
     title: 'Mandatory requirements are missing or misstated.',
     sub: 'One or more items required by the regulation are absent from the artwork or stated incorrectly. These would need fixing before submission.',
     text: 'text-fail',
@@ -193,7 +196,10 @@ export default function ReportPage() {
               <div className={`font-display text-[34px] font-bold leading-none tracking-[-.035em] ${V.text}`}>
                 {V.word}
               </div>
-              <div className="mt-2.5 font-mono text-[11px] uppercase tracking-[.1em] text-ink-soft">
+                <div className={`mt-2.5 font-mono text-[11px] uppercase tracking-[.1em] ${V.text}`}>
+                {V.action(s)}
+              </div>
+              <div className="mt-1 font-mono text-[11px] uppercase tracking-[.1em] text-ink-soft">
                 {categoryLine}
               </div>
               {analyzedOn && (
