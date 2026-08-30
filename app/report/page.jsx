@@ -240,7 +240,7 @@ export default function ReportPage() {
                   return (
                     <div
                       key={c.id}
-                      className={`rounded-[18px] border ${tone.border} bg-card p-5 shadow-e1 transition duration-300 ease-lift hover:-translate-y-1 hover:shadow-e2`}
+                                            className={`print-keep rounded-[18px] border ${tone.border} bg-card p-5 shadow-e1 transition duration-300 ease-lift hover:-translate-y-1 hover:shadow-e2`}
                     >
                       <div className="flex items-start justify-between gap-4">
                         <h3 className="font-display text-[16.5px] font-semibold tracking-[-.02em] text-ink">
@@ -290,7 +290,7 @@ export default function ReportPage() {
 
             {/* sidebar */}
             <aside className="space-y-5">
-              <div className="rounded-[18px] border border-rule bg-card p-5 shadow-e1">
+                <div className="print-keep rounded-[18px] border border-rule bg-card p-5 shadow-e1">
                 <h3 className="mb-3.5 font-mono text-[10.5px] uppercase tracking-[.1em] text-ink-soft">
                   This label
                 </h3>
@@ -302,7 +302,7 @@ export default function ReportPage() {
               </div>
 
               {(frontImg || backImg) && (
-                <div className="rounded-[18px] border border-rule bg-card p-5 shadow-e1">
+                <div className="print-keep rounded-[18px] border border-rule bg-card p-5 shadow-e1">
                   <h3 className="mb-3.5 font-mono text-[10.5px] uppercase tracking-[.1em] text-ink-soft">
                     Artwork analyzed
                   </h3>
@@ -314,7 +314,7 @@ export default function ReportPage() {
               )}
 
               {report.image_quality_note && (
-                <div className="rounded-[18px] border border-review/25 bg-review-bg p-5">
+                <div className="print-keep rounded-[18px] border border-review/25 bg-review-bg p-5">
                   <h3 className="mb-1.5 font-mono text-[10.5px] uppercase tracking-[.1em] text-review">
                     Image quality
                   </h3>
