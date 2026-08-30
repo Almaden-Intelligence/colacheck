@@ -123,7 +123,7 @@ export async function POST(request: NextRequest) {
     /* ---------- 2. internal notification ---------- */
     await transporter.sendMail({
       from: `"COLACheck" <${process.env.ZOHO_EMAIL}>`,
-      to: 'compliance@almadentrade.com',
+      to: 'studio@almadengroup.com',
       subject: `COLACheck — ${categoryLabel} — ${overallStatus} — ${email}`,
       attachments,
       html: shell(`
