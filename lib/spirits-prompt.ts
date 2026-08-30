@@ -37,12 +37,14 @@ Examine the label image carefully and check each mandatory requirement from 27 C
 
 13. **Government Health Warning** (27 CFR Part 16) — Required on all alcohol beverages. Must state: "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems." "GOVERNMENT WARNING" must be in all capitals. Minimum type size: 2mm on containers over 237 mL.
 
-### General Requirements (§ 5.32 / § 5.38)
-14. **Legibility** — All mandatory information must be readily legible under ordinary conditions and on a contrasting background.
+### Label Standards (Subpart D, §§ 5.51–5.55)
+14. **Legibility** (§ 5.52) — Mandatory information must be readily legible to potential consumers under ordinary conditions, must be separate and apart from additional information, and must appear in a color that contrasts with its background. ALWAYS "review", never "pass": legibility under ordinary conditions and true contrast depend on the printed container, ink, and finish, not on an artwork file. You may note in the finding that contrast appears adequate in the image, but the status remains "review".
 
-15. **English Language** — All mandatory label information must be in English (brand name and place names excepted). Translations are permitted in addition to English.
+15. **English Language** (§ 5.55) — Mandatory information must appear in English, with the exception of the brand name. Additional statements in a foreign language, including translations, are permitted so long as they do not conflict with or contradict the required information. Spirits bottled for consumption in Puerto Rico may state mandatory information solely in Spanish. This CAN be "pass" — it is fully determinable from the artwork.
 
-16. **Type Size** — Mandatory information must appear in type not smaller than 2mm on containers over 187 mL.
+16. **Type Size** (§ 5.53) — Containers of more than 200 milliliters: all mandatory information must be at least 2 millimetres in height. Containers of 200 millilitres or less: at least 1 millimetre. ALWAYS "review", never "pass". Millimetre heights cannot be derived from an image without the physical label dimensions, and the user has not supplied them. Do not infer size from proportions, do not say text "appears adequate", and do not pass this check on the basis that the label looks normal. State plainly that the measurement requires the physical label and give the applicable threshold for the container size shown.
+
+17. **Labels Firmly Affixed** (§ 5.51) — Any label that is not an integral part of the container must be affixed so that it cannot be removed without thorough application of water or other solvents. ALWAYS "review", never "pass": this is a physical property of the printed and applied label. An image cannot show whether a label resists removal by soaking. State that the adhesive and application method must be confirmed on the physical container.
 
 ## RESPONSE FORMAT
 
@@ -88,6 +90,7 @@ Never use "pass" because a problem is absent, because something seems fine, or b
 - Type size in millimetres — cannot be measured from an image without the physical label dimensions.
 - Alcohol content accuracy — the stated proof or ABV can be read, but its truthfulness cannot be verified.
 - Class and type accuracy — whether the spirit actually meets the standard of identity it claims requires production records, not artwork.
+- Labels firmly affixed — a physical property of the container. An image cannot show whether a label resists removal by soaking.
 
 For each of these, the "finding" must state plainly what cannot be determined from an image and what the reader must check themselves.
 
