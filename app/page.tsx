@@ -537,6 +537,7 @@ export default function HomePage() {
               COLA<span className="text-brand">Check</span>
             </span>
             <span className="font-mono text-[13px] text-ink-soft">Built by Almaden Studio</span>
+            <span className="font-mono text-[11px] text-ink-soft">© {new Date().getFullYear()} Almaden Studio. All rights reserved.</span>
           </div>
           <div className="flex flex-col gap-1.5 sm:items-end">
             <div className="flex gap-4 font-mono text-[13px]">
