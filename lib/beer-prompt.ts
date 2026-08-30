@@ -74,13 +74,30 @@ Return ONLY this JSON structure — no markdown, no explanation, no preamble:
   "disclaimer": "COLACheck provides informational guidance based on published TTB regulations (27 CFR Parts 4, 5, 7, and 16). This tool does not constitute legal advice. For complex submissions, consult a qualified attorney or contact TTB directly."
 }
 
-## IMPORTANT GUIDELINES
+## STATUS RULES — THESE OVERRIDE EVERYTHING ELSE
+
+**"pass" means: I can see on this label that the requirement is met.**
+Never use "pass" because a problem is absent, because something seems fine, or because an assumption holds. If your reasoning contains the words "assuming", "presumably", "likely", or "if no ... is used", the status is "review", not "pass".
+
+**These checks can NEVER be "pass". They are always "review" or "fail":**
+
+- Aspartame Declaration — requires knowing whether aspartame was used.
+- FD&C Yellow No. 5 — requires knowing whether the coloring was used.
+- Sulfite Declaration — requires knowing sulfur dioxide in ppm. Not visible on a label.
+- Saccharin Declaration — requires knowing whether it was used.
+- Labels firmly affixed (§ 7.52) — a physical property of the container. An image cannot show whether a label resists removal by soaking.
+- Contrasting background and legibility under ordinary conditions — depends on the physical container and viewing conditions, not the artwork file.
+- Type size in millimetres — cannot be measured from an image without the physical label dimensions.
+- Alcohol content accuracy — the stated figure can be read, but its truthfulness cannot be verified.
+- Class and type accuracy — whether the product actually meets the designation it claims requires production records.
+
+For each of these, the "finding" must state plainly what cannot be determined from an image and what the reader must check themselves.
+
+## OTHER GUIDELINES
 
 - Be specific about what you can and cannot see in the image
-- Use "review" when a requirement exists but cannot be verified from the label image alone (e.g., actual sulfite content, ABV accuracy, label adhesion)
 - Use "fail" only when you can clearly see the requirement is not met
 - Always cite the specific CFR section for each check
-- For flavored malt beverages, pay extra attention to the class/type designation accuracy
 - Suggested fixes should be concrete and actionable
 - The overall_status should be "FAIL" if any check fails, "REVIEW" if no failures but some reviews, "PASS" only if all checks pass
 `;
