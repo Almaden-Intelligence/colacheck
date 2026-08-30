@@ -402,7 +402,7 @@ export default function ReportPage() {
         </div>
       </div>
 
-      <footer className="border-t border-rule bg-white py-8">
+        <footer className="print-keep border-t border-rule bg-white py-8">
         <div className="mx-auto flex max-w-[1080px] flex-col items-start justify-between gap-4 px-9 sm:flex-row sm:items-center">
           <div className="flex flex-col gap-1.5">
             <span className="font-display text-[24px] font-semibold tracking-[-.03em]">
