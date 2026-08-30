@@ -183,6 +183,15 @@ export default function ReportPage() {
       </div>
 
       <div className="mx-auto max-w-[1080px] px-9 py-12">
+                <div className="print-show print-keep mb-8 flex items-center gap-3">
+          <LogoMark className="h-[34px] w-[34px]" />
+          <div>
+            <div className="font-display text-[22px] font-semibold leading-none tracking-[-.03em]">
+              COLA<span className="text-brand">Check</span>
+            </div>
+            <div className="mt-1 font-mono text-[11px] text-ink-soft">Built by Almaden Studio</div>
+          </div>
+        </div>
         {/* verdict banner */}
         <div className={`fade-up rounded-[22px] border ${V.border} ${V.bg} p-7 shadow-e1 sm:p-9`}>
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-start">
@@ -402,7 +411,7 @@ export default function ReportPage() {
         </div>
       </div>
 
-        <footer className="print-keep border-t border-rule bg-white py-8">
+          <footer className="no-print border-t border-rule bg-white py-8">
         <div className="mx-auto flex max-w-[1080px] flex-col items-start justify-between gap-4 px-9 sm:flex-row sm:items-center">
           <div className="flex flex-col gap-1.5">
             <span className="font-display text-[24px] font-semibold tracking-[-.03em]">
