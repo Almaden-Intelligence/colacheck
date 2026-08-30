@@ -1,48 +1,48 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { t } from '@/lib/translations'
+import LogoMark from '@/components/LogoMark'
 
-const statusWords = {
-  en: { pass: 'PASS', review: 'REVIEW', fail: 'FAIL' },
+const CATEGORY_LABEL = {
+  wine: 'Wine · 27 CFR Part 4',
+  spirits: 'Spirits · 27 CFR Part 5',
+  beer: 'Malt beverage · 27 CFR Part 7',
 }
 
-const pillStyles = {
-  pass: 'bg-pass-bg text-pass',
-  review: 'bg-warn-bg text-warn',
-  fail: 'bg-alert-bg text-alert',
-}
-
-const cardStyles = {
-  pass: 'check-pass',
-  review: 'check-review',
-  fail: 'check-fail',
-}
-
-const bannerStyles = {
-  PASS: 'bg-pass-bg border-pass',
-  REVIEW: 'bg-warn-bg border-warn',
-  FAIL: 'bg-alert-bg border-alert',
-}
-
-const bannerText = {
-  PASS: 'text-pass',
-  REVIEW: 'text-warn',
-  FAIL: 'text-alert',
-}
-
-const gate = {
-  en: {
-    title: 'See your full compliance report',
-    body: 'Enter your email to unlock every check, its CFR citation, and the suggested fixes.',
-    email: 'Work email',
-    company: 'Company (optional)',
-    roleLabel: 'Which best describes you? (optional)',
-    button: 'Unlock Full Report',
-    unlocking: 'Unlocking…',
-    invalid: 'Please enter a valid email address.',
-    privacy: 'Used only to send your report. No spam.',
+const VERDICT = {
+  PASS: {
+    word: 'Pass',
+    title: 'Nothing flagged in what we could check.',
+    sub: 'Every requirement we were able to verify from your artwork is present and correctly stated. Read the caveat below before you rely on that.',
+    text: 'text-pass',
+    bg: 'bg-pass-bg',
+    border: 'border-pass/25',
+    dot: 'bg-pass',
   },
+  REVIEW: {
+    word: 'Review',
+    title: 'Some items need answering before you file.',
+    sub: 'A review is not a soft pass. It means we cannot answer the question from an image, and you must.',
+    text: 'text-review',
+    bg: 'bg-review-bg',
+    border: 'border-review/25',
+    dot: 'bg-review',
+  },
+  FAIL: {
+    word: 'Fail',
+    title: 'Mandatory requirements are missing or misstated.',
+    sub: 'One or more items required by the regulation are absent from the artwork or stated incorrectly. These would need fixing before submission.',
+    text: 'text-fail',
+    bg: 'bg-fail-bg',
+    border: 'border-fail/25',
+    dot: 'bg-fail',
+  },
+}
+
+const CHECK_TONE = {
+  pass: { label: 'Pass', text: 'text-pass', bg: 'bg-pass-bg', border: 'border-pass/20', dot: 'bg-pass' },
+  review: { label: 'Review', text: 'text-review', bg: 'bg-review-bg', border: 'border-review/20', dot: 'bg-review' },
+  fail: { label: 'Fail', text: 'text-fail', bg: 'bg-fail-bg', border: 'border-fail/20', dot: 'bg-fail' },
 }
 
 const VISITOR_TYPES = ['Importer', 'Domestic producer', 'Label designer', 'Consultant', 'Other']
@@ -62,8 +62,7 @@ export default function ReportPage() {
   useEffect(() => {
     const stored = sessionStorage.getItem('colacheck_report')
     if (!stored) { router.push('/'); return }
-    const parsed = JSON.parse(stored)
-    setReport(parsed)
+    setReport(JSON.parse(stored))
     setFrontImg(sessionStorage.getItem('colacheck_front'))
     setBackImg(sessionStorage.getItem('colacheck_back'))
     if (sessionStorage.getItem('colacheck_unlocked') === 'true') setUnlocked(true)
@@ -71,14 +70,19 @@ export default function ReportPage() {
 
   if (!report) return null
 
-  const T = t.en
-  const G = gate.en
-  const SW = statusWords.en
   const s = report.summary
   const status = s.overall_status
+  const V = VERDICT[status] || VERDICT.REVIEW
+  const categoryLine = CATEGORY_LABEL[report.category] || ''
 
-  const overallTitle = status === 'PASS' ? T.overallPass : status === 'REVIEW' ? T.overallReview : T.overallFail
-  const overallSub = status === 'PASS' ? T.overallPassSub : status === 'REVIEW' ? T.overallReviewSub : T.overallFailSub
+  let analyzedOn = ''
+  if (report.analyzed_at) {
+    try {
+      analyzedOn = new Date(report.analyzed_at).toLocaleDateString('en-US', {
+        year: 'numeric', month: 'long', day: 'numeric',
+      })
+    } catch (e) { analyzedOn = '' }
+  }
 
   function validEmail(v) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
@@ -113,7 +117,7 @@ export default function ReportPage() {
 
   async function handleUnlock() {
     setFormError('')
-    if (!validEmail(email)) { setFormError(G.invalid); return }
+    if (!validEmail(email)) { setFormError('Enter a valid email address.'); return }
     setSubmitting(true)
     try {
       const [frontThumb, backThumb] = await Promise.all([
@@ -145,138 +149,228 @@ export default function ReportPage() {
   }
 
   return (
-    <main className="min-h-screen bg-ice/40">
-      {/* Header */}
-      <header className="border-b border-slate-light bg-white sticky top-0 z-20 no-print">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <button onClick={() => router.push('/')} className="flex items-baseline gap-2">
-          <span className="font-display text-2xl text-navy tracking-tight">COLA<span className="text-sky">Check</span></span>
-          </button>
-          <div className="flex items-center gap-3">
-            {unlocked && (
-              <button onClick={() => window.print()} className="text-sm text-steel border border-slate-light rounded-lg px-3 py-1.5 hover:bg-ice transition">
-                {T.downloadPDF}
-              </button>
-            )}
-            <button onClick={() => router.push('/')} className="text-sm text-steel hover:text-navy transition">
-              {T.checkAnother}
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
-        {/* Overall status banner (always visible — the hook) */}
-        <div className={`rounded-2xl border-l-4 p-6 mb-8 fade-up ${bannerStyles[status]}`}>
-          <div className="flex items-center justify-between flex-wrap gap-3">
-            <div>
-              <h1 className={`font-display text-2xl sm:text-3xl ${bannerText[status]}`}>{overallTitle}</h1>
-              <p className="text-steel mt-1">{overallSub}</p>
+    <main className="min-h-screen">
+      {/* gradient masthead */}
+      <div className="hero-gradient relative overflow-hidden no-print">
+        <span className="blob-1 pointer-events-none absolute -right-24 -top-40 h-[440px] w-[440px] rounded-full" />
+        <span className="dot-grid pointer-events-none absolute bottom-0 left-0 h-[70px] w-[150px] opacity-20" />
+        <div className="relative z-10 mx-auto max-w-[1080px] px-9">
+          <nav className="flex h-[82px] items-center justify-between gap-5">
+            <a href="/" className="flex items-center gap-3">
+              <LogoMark onGradient className="h-[37px] w-[37px]" />
+              <span className="font-display text-[26px] font-semibold leading-none tracking-[-.03em] text-white">
+                COLA<span className="text-white/[.62]">Check</span>
+              </span>
+            </a>
+            <div className="flex items-center gap-3">
+              {unlocked && (
+                <button
+                  onClick={() => window.print()}
+                  className="rounded-full border border-white/40 px-5 py-2.5 text-[13.5px] font-medium text-white backdrop-blur transition hover:bg-white/15"
+                >
+                  Save as PDF
+                </button>
+              )}
+              
+                href="/"
+                className="rounded-full bg-white px-5 py-2.5 text-[13.5px] font-medium text-g1 shadow-pill transition hover:bg-white/90"
+              >
+                Check another label
+              </a>
             </div>
-            <div className="text-right">
-              <div className={`font-display text-3xl ${bannerText[status]}`}>{s.pass}/{s.total_checks}</div>
-              <div className="text-xs text-steel uppercase tracking-wide">{T.checksPassed}</div>
+          </nav>
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-[1080px] px-9 py-12">
+        {/* verdict banner */}
+        <div className={`fade-up rounded-[22px] border ${V.border} ${V.bg} p-7 shadow-e1 sm:p-9`}>
+          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-start">
+            <div className="max-w-[54ch]">
+              <h1 className={`font-display text-[27px] font-semibold leading-[1.15] tracking-[-.03em] sm:text-[31px] ${V.text}`}>
+                {V.title}
+              </h1>
+              <p className="mt-2.5 text-[15px] leading-[1.7] text-ink-mid">{V.sub}</p>
+            </div>
+            <div className="shrink-0 sm:text-right">
+              <div className={`font-display text-[34px] font-bold leading-none tracking-[-.035em] ${V.text}`}>
+                {V.word}
+              </div>
+              <div className="mt-2.5 font-mono text-[11px] uppercase tracking-[.1em] text-ink-soft">
+                {categoryLine}
+              </div>
+              {analyzedOn && (
+                <div className="mt-1 font-mono text-[11px] uppercase tracking-[.1em] text-ink-soft">
+                  Checked {analyzedOn}
+                </div>
+              )}
             </div>
           </div>
-          {s.overall_message && <p className="text-navy/80 text-sm mt-4 leading-relaxed">{s.overall_message}</p>}
+          {s.overall_message && (
+            <p className="mt-6 border-t border-ink/[.07] pt-5 text-[14.5px] leading-[1.7] text-ink-mid">
+              {s.overall_message}
+            </p>
+          )}
         </div>
 
-        {/* Body (gated behind email until unlocked) */}
-        <div className="relative">
-          <div className={`grid md:grid-cols-3 gap-8 ${unlocked ? '' : 'blur-sm pointer-events-none select-none'}`}>
-            {/* Checks */}
+        {/* TTB reviewer discretion — always visible, never gated */}
+        <div className="fade-up-1 mt-5 rounded-[14px] border border-review/25 bg-review-bg px-5 py-4 text-[14.5px] leading-[1.7] text-ink-mid">
+          <strong className="font-semibold text-ink">This is not an approval, and not a prediction of one.</strong>{' '}
+          COLACheck checks whether required elements are present and correctly stated on your artwork. TTB reviewers
+          apply judgment, internal policy, and precedent that no published regulation fully captures. A label can clear
+          every check here and still be rejected, sometimes for reasons that are not clearly written down anywhere.
+          Nothing on this page forecasts what TTB will do with your submission.{' '}
+          <a href="/limitations" className="font-medium text-brand underline underline-offset-2">
+            Read the full limitations
+          </a>.
+        </div>
+
+        {/* body */}
+        <div className="relative mt-8">
+          <div className={`grid gap-8 md:grid-cols-3 ${unlocked ? '' : 'pointer-events-none select-none blur-[6px]'}`}>
+            {/* findings */}
             <div className="md:col-span-2">
-              <h2 className="font-display text-xl text-navy mb-4">{T.complianceChecks}</h2>
-              <div className="space-y-3">
-                {report.checks.map((c) => (
-                  <div key={c.id} className={`rounded-xl p-4 fade-up ${cardStyles[c.status]}`}>
-                    <div className="flex items-start justify-between gap-3">
-                      <h3 className="font-medium text-navy">{c.name}</h3>
-                      <span className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${pillStyles[c.status]}`}>{SW[c.status]}</span>
-                    </div>
-                    {c.cfr_citation && <div className="font-mono text-xs text-steel mt-1">{c.cfr_citation}</div>}
-                    {c.finding && (
-                      <p className="text-sm text-navy/80 mt-2"><span className="font-semibold text-steel">{T.finding}: </span>{c.finding}</p>
-                    )}
-                    {c.explanation && (
-                      <p className="text-sm text-navy/80 mt-1"><span className="font-semibold text-steel">{T.requirement}: </span>{c.explanation}</p>
-                    )}
-                    {c.suggested_fix && (
-                      <div className="mt-3 bg-white border border-sky/30 rounded-lg p-3">
-                        <div className="text-xs font-semibold text-steel uppercase tracking-wide mb-1">{T.suggestedFix}</div>
-                        <p className="text-sm text-navy/80">{c.suggested_fix}</p>
+              <h2 className="mb-4 font-display text-[23px] font-semibold tracking-[-.03em]">Findings</h2>
+              <div className="space-y-3.5">
+                {report.checks.map((c) => {
+                  const tone = CHECK_TONE[c.status] || CHECK_TONE.review
+                  return (
+                    <div
+                      key={c.id}
+                      className={`rounded-[18px] border ${tone.border} bg-card p-5 shadow-e1 transition duration-300 ease-lift hover:-translate-y-1 hover:shadow-e2`}
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <h3 className="font-display text-[16.5px] font-semibold tracking-[-.02em] text-ink">
+                          {c.name}
+                        </h3>
+                        <span
+                          className={`inline-flex shrink-0 items-center gap-1.5 rounded-full ${tone.bg} px-2.5 py-1 font-mono text-[10.5px] uppercase tracking-[.1em] ${tone.text}`}
+                        >
+                          <span className={`block h-1.5 w-1.5 rounded-full ${tone.dot}`} />
+                          {tone.label}
+                        </span>
                       </div>
-                    )}
-                  </div>
-                ))}
+
+                      {c.cfr_citation && (
+                        <div className="mt-1.5 font-mono text-[11px] uppercase tracking-[.08em] text-ink-soft">
+                          {c.cfr_citation}
+                        </div>
+                      )}
+
+                      {c.finding && (
+                        <p className="mt-3 text-[14.5px] leading-[1.7] text-ink-mid">
+                          <span className="font-mono text-[10.5px] uppercase tracking-[.1em] text-ink-soft">Finding </span>
+                          {c.finding}
+                        </p>
+                      )}
+
+                      {c.explanation && (
+                        <p className="mt-2 text-[14.5px] leading-[1.7] text-ink-mid">
+                          <span className="font-mono text-[10.5px] uppercase tracking-[.1em] text-ink-soft">Requirement </span>
+                          {c.explanation}
+                        </p>
+                      )}
+
+                      {c.suggested_fix && (
+                        <div className="mt-4 rounded-[12px] border border-line bg-tint px-4 py-3">
+                          <div className="mb-1 font-mono text-[10.5px] uppercase tracking-[.1em] text-brand">
+                            Suggested fix
+                          </div>
+                          <p className="text-[14px] leading-[1.65] text-ink-mid">{c.suggested_fix}</p>
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
-            {/* Sidebar */}
-            <aside className="space-y-6">
-              <div className="bg-white rounded-xl border border-slate-light p-5">
-                <div className="space-y-2 text-sm">
-                  <ScoreRow color="bg-pass" label={SW.pass} value={s.pass} />
-                  <ScoreRow color="bg-warn" label={SW.review} value={s.review} />
-                  <ScoreRow color="bg-alert" label={SW.fail} value={s.fail} />
+            {/* sidebar */}
+            <aside className="space-y-5">
+              <div className="rounded-[18px] border border-rule bg-card p-5 shadow-e1">
+                <h3 className="mb-3.5 font-mono text-[10.5px] uppercase tracking-[.1em] text-ink-soft">
+                  This label
+                </h3>
+                <div className="space-y-2.5">
+                  <ScoreRow dot="bg-pass" label="Pass" value={s.pass} />
+                  <ScoreRow dot="bg-review" label="Review" value={s.review} />
+                  <ScoreRow dot="bg-fail" label="Fail" value={s.fail} />
                 </div>
               </div>
 
               {(frontImg || backImg) && (
-                <div className="bg-white rounded-xl border border-slate-light p-5">
-                  <h3 className="text-xs font-semibold text-steel uppercase tracking-wide mb-3">{T.labelsAnalyzed}</h3>
+                <div className="rounded-[18px] border border-rule bg-card p-5 shadow-e1">
+                  <h3 className="mb-3.5 font-mono text-[10.5px] uppercase tracking-[.1em] text-ink-soft">
+                    Artwork analyzed
+                  </h3>
                   <div className="grid grid-cols-2 gap-3">
-                    {frontImg && <LabelThumb src={frontImg} label={T.front} />}
-                    {backImg && <LabelThumb src={backImg} label={T.back} />}
+                    {frontImg && <LabelThumb src={frontImg} label="Front" />}
+                    {backImg && <LabelThumb src={backImg} label="Back" />}
                   </div>
                 </div>
               )}
 
               {report.image_quality_note && (
-                <div className="bg-warn-bg border border-warn/30 rounded-xl p-4">
-                  <h3 className="text-xs font-semibold text-warn uppercase tracking-wide mb-1">{T.imageNote}</h3>
-                  <p className="text-sm text-navy/80">{report.image_quality_note}</p>
+                <div className="rounded-[18px] border border-review/25 bg-review-bg p-5">
+                  <h3 className="mb-1.5 font-mono text-[10.5px] uppercase tracking-[.1em] text-review">
+                    Image quality
+                  </h3>
+                  <p className="text-[14px] leading-[1.65] text-ink-mid">{report.image_quality_note}</p>
                 </div>
               )}
 
-             {report.disclaimer && <p className="text-xs text-steel leading-relaxed">{report.disclaimer}</p>}
+              {report.disclaimer && (
+                <p className="px-1 text-[12.5px] leading-[1.65] text-ink-soft">{report.disclaimer}</p>
+              )}
             </aside>
           </div>
 
-          {/* Email gate overlay */}
+          {/* email gate */}
           {!unlocked && (
-            <div className="absolute inset-0 flex items-start justify-center pt-10 no-print">
-              <div className="bg-white rounded-2xl border border-slate-light shadow-xl p-6 sm:p-8 max-w-md w-full mx-4 fade-up">
-                <h2 className="font-display text-xl text-navy mb-2">{G.title}</h2>
-                <p className="text-sm text-steel mb-5">{G.body}</p>
+            <div className="no-print absolute inset-0 flex items-start justify-center pt-8">
+              <div className="fade-up w-full max-w-[440px] rounded-[22px] border border-rule bg-card p-7 shadow-e3 sm:p-8">
+                <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-line bg-tint px-[13px] py-1.5 font-mono text-[10.5px] uppercase tracking-[.1em] text-brand">
+                  <span className="block h-1.5 w-1.5 rounded-full bg-brand" />
+                  One step left
+                </div>
+                <h2 className="mb-2 font-display text-[23px] font-semibold leading-[1.2] tracking-[-.03em]">
+                  See every finding in full.
+                </h2>
+                <p className="mb-6 text-[14.5px] leading-[1.7] text-ink-mid">
+                  Enter your email to open the full report — every finding, its CFR citation, and what to do about it.
+                  We&rsquo;ll send you a copy to keep.
+                </p>
+
                 <div className="space-y-3">
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder={G.email}
-                    className="w-full border border-slate-light rounded-lg px-3 py-2.5 text-navy focus:outline-none focus:border-sky"
+                    placeholder="name@company.com"
+                    className="w-full rounded-[12px] border border-line bg-white px-4 py-3 text-[15px] text-ink placeholder:text-ink-soft focus:border-brand focus:outline-none"
                   />
                   <input
                     type="text"
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    placeholder={G.company}
-                    className="w-full border border-slate-light rounded-lg px-3 py-2.5 text-navy focus:outline-none focus:border-sky"
+                    placeholder="Company (optional)"
+                    className="w-full rounded-[12px] border border-line bg-white px-4 py-3 text-[15px] text-ink placeholder:text-ink-soft focus:border-brand focus:outline-none"
                   />
 
-                  <div>
-                    <p className="text-xs font-mono uppercase tracking-wide text-steel mb-2">{G.roleLabel}</p>
+                  <div className="pt-1">
+                    <p className="mb-2.5 font-mono text-[10.5px] uppercase tracking-[.1em] text-ink-soft">
+                      Which best describes you? (optional)
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       {VISITOR_TYPES.map((v) => (
                         <button
                           key={v}
                           type="button"
                           onClick={() => setVisitorType(visitorType === v ? '' : v)}
-                          className={`rounded-full border px-3 py-1.5 text-xs transition ${
+                          className={`rounded-full border px-3.5 py-1.5 text-[12.5px] transition duration-200 ease-lift ${
                             visitorType === v
-                              ? 'border-sky bg-sky text-white'
-                              : 'border-slate-light text-steel hover:border-sky'
+                              ? 'border-brand bg-brand text-white'
+                              : 'border-line text-ink-mid hover:border-brand hover:text-brand'
                           }`}
                         >
                           {v}
@@ -284,33 +378,59 @@ export default function ReportPage() {
                       ))}
                     </div>
                   </div>
-                  {formError && <p className="text-sm text-alert">{formError}</p>}
+
+                  {formError && <p className="text-[13.5px] text-fail">{formError}</p>}
+
                   <button
                     onClick={handleUnlock}
                     disabled={submitting}
-                    className="w-full bg-sky hover:bg-steel disabled:opacity-60 text-white font-medium rounded-lg px-4 py-2.5 transition"
+                    className="grad-fill-h w-full rounded-full px-5 py-3.5 text-[14.5px] font-medium text-white shadow-pill transition duration-200 ease-lift hover:-translate-y-0.5 disabled:opacity-60"
                   >
-                    {submitting ? G.unlocking : G.button}
+                    {submitting ? 'Opening…' : 'Open the full report'}
                   </button>
-                  <p className="text-xs text-steel text-center">{G.privacy}</p>
+
+                  <p className="pt-1 text-center font-mono text-[11px] text-ink-soft">
+                    Used only to send your report. No spam.
+                  </p>
                 </div>
               </div>
             </div>
           )}
         </div>
       </div>
+
+      <footer className="border-t border-rule bg-white py-8">
+        <div className="mx-auto flex max-w-[1080px] flex-col items-start justify-between gap-4 px-9 sm:flex-row sm:items-center">
+          <div className="flex flex-col gap-1.5">
+            <span className="font-display text-[24px] font-semibold tracking-[-.03em]">
+              COLA<span className="text-brand">Check</span>
+            </span>
+            <span className="font-mono text-[13px] text-ink-soft">Built by Almaden Studio</span>
+            <span className="font-mono text-[11px] text-ink-soft">© {new Date().getFullYear()} Almaden Studio. All rights reserved.</span>
+          </div>
+          <div className="flex flex-col gap-1.5 sm:items-end">
+            <div className="flex gap-4 font-mono text-[13px]">
+              <a href="/limitations" className="text-ink-soft transition hover:text-brand">Limitations</a>
+              <a href="/terms" className="text-ink-soft transition hover:text-brand">Terms</a>
+              <a href="/privacy" className="text-ink-soft transition hover:text-brand">Privacy</a>
+              <a href="mailto:studio@almadengroup.com" className="text-ink-soft transition hover:text-brand">Contact</a>
+            </div>
+            <span className="font-mono text-[13px] text-ink-soft">Free during beta · Not legal advice</span>
+          </div>
+        </div>
+      </footer>
     </main>
   )
 }
 
-function ScoreRow({ color, label, value }) {
+function ScoreRow({ dot, label, value }) {
   return (
     <div className="flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        <span className={`inline-block w-2.5 h-2.5 rounded-full ${color}`}></span>
-        <span className="text-steel">{label}</span>
+      <div className="flex items-center gap-2.5">
+        <span className={`block h-2 w-2 rounded-full ${dot}`} />
+        <span className="text-[14px] text-ink-mid">{label}</span>
       </div>
-      <span className="font-semibold text-navy">{value}</span>
+      <span className="font-mono text-[14px] font-medium text-ink">{value}</span>
     </div>
   )
 }
@@ -318,8 +438,14 @@ function ScoreRow({ color, label, value }) {
 function LabelThumb({ src, label }) {
   return (
     <div>
-      <img src={src} alt={label} className="w-full h-28 object-contain bg-ice rounded-lg border border-slate-light p-1" />
-      <div className="text-xs text-steel text-center mt-1">{label}</div>
+      <img
+        src={src}
+        alt={label + ' label'}
+        className="h-28 w-full rounded-[12px] border border-rule bg-ground object-contain p-1.5"
+      />
+      <div className="mt-1.5 text-center font-mono text-[10.5px] uppercase tracking-[.1em] text-ink-soft">
+        {label}
+      </div>
     </div>
   )
 }
