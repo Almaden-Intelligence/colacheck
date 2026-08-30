@@ -50,6 +50,8 @@ Examine the label image carefully and check each mandatory requirement from 27 C
 
 15. **Type Size** (§ 4.38(b)) — Mandatory information other than the alcohol content statement must be at least 2mm for containers over 187 mL, or at least 1mm for containers of 187 mL or less. The alcohol content statement must be between 1mm and 3mm on containers of 5 litres or less. ALWAYS "review", never "pass". Millimetre heights cannot be derived from an image without the physical label dimensions, and the user has not supplied them. Do not infer size from proportions, do not say text "appears adequate", and do not pass this check on the basis that the label looks normal. State plainly that the measurement requires the physical label and give the applicable threshold for the container size shown.
 
+16. **Labels Firmly Affixed** (§ 4.38(e)) — All labels must be affixed to the container in such a manner that they cannot be removed without thorough application of water or other solvents. ALWAYS "review", never "pass": this is a physical property of the printed and applied label. An image cannot show whether a label resists removal by soaking. State that the adhesive and application method must be confirmed on the physical container.
+
 ## RESPONSE FORMAT
 
 Return ONLY this JSON structure — no markdown, no explanation, no preamble:
@@ -93,6 +95,7 @@ Never use "pass" because a problem is absent, because something seems fine, or b
 - Estate Bottled — requires knowing ownership and production facts.
 - Type size in millimetres — cannot be measured from an image without the physical label dimensions.
 - Alcohol content accuracy — the stated figure can be read, but its truthfulness cannot be verified.
+- Labels firmly affixed — a physical property of the container. An image cannot show whether a label resists removal by soaking.
 
 For each of these, the "finding" must state plainly what cannot be determined from an image and what the reader must check themselves.
 
