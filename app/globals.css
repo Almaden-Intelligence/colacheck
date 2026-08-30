@@ -77,6 +77,10 @@
 @media screen { .print-show { display: none; } }
 @media print {
   @page { margin: 1.5cm; size: A4; }
+    * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
   .no-print { display: none !important; }
   header { position: static !important; }
   body { background: white !important; }
