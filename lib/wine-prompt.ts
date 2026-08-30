@@ -70,12 +70,28 @@ Return ONLY this JSON structure — no markdown, no explanation, no preamble:
   "disclaimer": "COLACheck provides informational guidance based on published TTB regulations (27 CFR Parts 4, 5, 7, and 16). This tool does not constitute legal advice. For complex submissions, consult a qualified attorney or contact TTB directly."
 }
 
-## IMPORTANT GUIDELINES
+## STATUS RULES — THESE OVERRIDE EVERYTHING ELSE
+
+**"pass" means: I can see on this label that the requirement is met.**
+Never use "pass" because a problem is absent, because something seems fine, or because an assumption holds. If your reasoning contains the words "assuming", "presumably", "likely", or "if no ... is used", the status is "review", not "pass".
+
+**These checks can NEVER be "pass". They are always "review" or "fail":**
+
+- Sulfite Declaration — requires knowing sulfur dioxide in ppm. Not visible on a label. If "Contains Sulfites" appears, that is "review" (present, but we cannot confirm it was required or that the level is correct). If it is absent, that is also "review" (it may not be required).
+- FD&C Yellow No. 5 — requires knowing whether the coloring was used.
+- Cochineal Extract / Carmine — requires knowing whether the additive was used.
+- Vintage Year percentage — requires harvest records.
+- Appellation of Origin percentage — requires knowing where the grapes were grown.
+- Estate Bottled — requires knowing ownership and production facts.
+- Type size in millimetres — cannot be measured from an image without the physical label dimensions.
+- Alcohol content accuracy — the stated figure can be read, but its truthfulness cannot be verified.
+
+For each of these, the "finding" must state plainly what cannot be determined from an image and what the reader must check themselves.
+
+## OTHER GUIDELINES
 
 - Be specific about what you can and cannot see in the image
-- Use "review" when a requirement exists but cannot be verified from the label image alone (e.g., actual sulfite content, whether vintage year % is correct)
 - Use "fail" only when you can clearly see the requirement is not met
 - Always cite the specific CFR section for each check
 - Suggested fixes should be concrete and actionable
 - The overall_status should be "FAIL" if any check fails, "REVIEW" if no failures but some reviews, "PASS" only if all checks pass
-`;
