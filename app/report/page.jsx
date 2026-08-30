@@ -356,7 +356,7 @@ export default function ReportPage() {
 
                   <div className="pt-1">
                     <p className="mb-2.5 font-mono text-[10.5px] uppercase tracking-[.1em] text-ink-soft">
-                      Which best describes you? (optional)
+                      Which best describes you?
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {VISITOR_TYPES.map((v) => (
