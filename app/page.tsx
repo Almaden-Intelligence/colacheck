@@ -84,7 +84,7 @@ const FAQS = [
   { q: 'What image should I use?',
     a: 'The highest-resolution version you have — press-ready artwork is better than a photograph of a bottle. JPEG, PNG, or WebP, between 150 KB and 10 MB. Flat artwork beats a photo of a curved bottle, where text distorts near the edges.' },
   { q: 'What happens to my label image?',
-    a: 'Your artwork is used to produce your report and may be retained so we can check the tool\u2019s accuracy. Individual labels are never published, resold, or shown as examples. See the terms for detail.' },
+       a: 'Your artwork is used to produce your report, and we keep it so we can check the tool\u2019s accuracy. It is never published, resold, or shown as an example, and you can ask us to delete it at any time. The privacy page has the detail.' },
   { q: 'Is it free?',
     a: 'Yes, during beta. Pricing will be introduced afterward based on real usage. Anything you run now is free.' },
   { q: 'Who made this?',
