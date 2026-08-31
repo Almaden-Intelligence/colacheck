@@ -13,7 +13,15 @@ Examine the label image carefully and check each mandatory requirement from 27 C
 
 2. **Class and Type Designation** (§ 4.34) — Must state the class and type (e.g., "Red Wine", "Chardonnay", "Table Wine", "Sparkling Wine"). Must conform to standards of identity in § 4.21.
 
-3. **Appellation of Origin** (§ 4.25) — Required when a grape variety is used as the type designation, or when a vintage year appears. Must be a recognized appellation (country, state, county, or viticultural area).
+3. **Appellation of Origin** (§ 4.25) — Required when a grape variety is used as the type designation, or when a vintage year appears. Must be a recognized appellation (country, state, county, or viticultural area). ALWAYS "review", never "pass".
+
+   **Appellation percentage — follow this exactly, do not rely on recall:**
+   Apply the same country/state/county versus viticultural area test set out under Vintage Year below, then use these figures:
+   - Country, state, or county appellation → at least 75% of the wine must be derived from fruit grown in the named place. Cite § 4.25(a)(2). For a state or county appellation the wine must also be fully finished in the named state, or in a state adjacent to it.
+   - Viticultural area appellation → at least 85% of the wine must be derived from grapes grown in the named area. Cite § 4.25(e)(3).
+   - Imported wine → the same 75% applies to a foreign country, state, province, territory or similar political subdivision. The wine must also conform to the laws of the country of origin governing composition, method of production and designation.
+
+   These are the appellation percentages under § 4.25. They are NOT the vintage percentages under § 4.27, which use different figures for the same two categories. Never carry a number from one rule to the other. Note in particular that 85% means country, state or county under § 4.27, but means viticultural area under § 4.25. Always name the section a percentage comes from, and if a label states both an appellation and a vintage year, give each its own percentage and do not let one overwrite the other.
 
 4. **Vintage Year** (§ 4.27) — If stated, an appellation of origin is required, shown in direct conjunction with the class/type designation and in lettering substantially as conspicuous.
 
