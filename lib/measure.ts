@@ -135,7 +135,8 @@ export async function measureLabel(
     const out: string[] = []
     out.push('MEASURED TYPE SIZE — ' + labelName + ' label')
     out.push('Source: Google Cloud Vision OCR character bounding boxes.')
-    out.push(`Scale: stated label width ${labelWidthMm} mm / image width ${imgW} px = ${mmPerPx.toFixed(4)} mm per pixel.`)
+    const widthIn = (labelWidthMm / 25.4).toFixed(2)
+    out.push(`Scale: stated label width ${widthIn} inches / image width ${imgW} px = ${mmPerPx.toFixed(4)} mm per pixel.`)
 
     if (labelHeightMm && Number.isFinite(labelHeightMm) && labelHeightMm > 0 && imgH > 0) {
       const stated = labelWidthMm / labelHeightMm
@@ -143,7 +144,7 @@ export async function measureLabel(
       const dev = Math.abs(actual - stated) / stated
       if (dev > ASPECT_TOLERANCE) {
         out.push(
-          `WARNING: the stated label proportions (${labelWidthMm} x ${labelHeightMm} mm) do not match the image proportions ` +
+          `WARNING: the stated label proportions (${(labelWidthMm / 25.4).toFixed(2)} x ${(labelHeightMm / 25.4).toFixed(2)} inches) do not match the image proportions ` +
           `(${imgW} x ${imgH} px), a difference of ${(dev * 100).toFixed(0)}%. The image is probably not cropped to the label edge, ` +
           `or the dimensions were entered incorrectly. Every measurement below is unreliable and most likely reads too large. ` +
           `Say so explicitly in the Type Size finding.`,
