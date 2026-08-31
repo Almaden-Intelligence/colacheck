@@ -32,6 +32,16 @@ export interface ComplianceReport {
 
 
 
+export interface CheckRequest {
+  category: 'wine' | 'spirits' | 'beer'
+  imageBase64: string
+  imageMimeType: string
+  backImageBase64?: string
+  backImageMimeType?: string
+  labelWidthMm?: number
+  labelHeightMm?: number
+}
+
 export interface CheckResponse {
   success: boolean
   report?: ComplianceReport
