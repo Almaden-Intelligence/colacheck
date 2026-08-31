@@ -30,13 +30,7 @@ export interface ComplianceReport {
   analyzed_at: string
 }
 
-export interface CheckRequest {
-  category: 'wine' | 'spirits' | 'beer'
-  imageBase64: string
-  imageMimeType: string
-  backImageBase64?: string
-  backImageMimeType?: string
-}
+
 
 export interface CheckResponse {
   success: boolean
