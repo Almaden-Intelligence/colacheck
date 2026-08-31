@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import type { CheckRequest } from '@/lib/types'
 import { t } from '@/lib/translations'
@@ -192,6 +192,19 @@ export default function HomePage() {
   const ready = !!front && toMm(widthMm) !== undefined && toMm(heightMm) !== undefined
 
   const strings = t.en
+
+  const [elapsed, setElapsed] = useState(0)
+
+  useEffect(() => {
+    if (!loading) { setElapsed(0); return }
+    const tick = setInterval(() => setElapsed(s => s + 1), 1000)
+    const guard = (e: BeforeUnloadEvent) => { e.preventDefault(); e.returnValue = '' }
+    window.addEventListener('beforeunload', guard)
+    return () => {
+      clearInterval(tick)
+      window.removeEventListener('beforeunload', guard)
+    }
+  }, [loading])
 
   const readFile = useCallback((file: File, label: string): Promise<LabelImage> => {
     return new Promise((resolve, reject) => {
@@ -456,6 +469,16 @@ export default function HomePage() {
             )}
           </div>
 
+                    {loading && (
+            <div className="border-t border-rule-soft bg-review-bg px-8 py-4">
+              <p className="max-w-[74ch] text-[13px] leading-[1.65] text-review">
+                <strong className="font-semibold">Keep this tab open.</strong> A check usually takes around a minute —
+                your label is read, measured, and then assessed against the regulations. The report does not exist
+                anywhere until it appears on screen, so closing this tab or navigating away will lose it.
+              </p>
+            </div>
+          )}
+
           <div className="flex flex-col items-stretch justify-between gap-5 border-t border-rule-soft bg-ground px-8 py-6 sm:flex-row sm:items-center">
             <p className="max-w-[52ch] text-xs leading-[1.65] text-ink-soft">
               Informational guidance drawn from published TTB regulations. Not legal advice, and not a substitute for
@@ -473,7 +496,7 @@ export default function HomePage() {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                   </svg>
-                  {strings.analyzing}
+                  {strings.analyzing} {elapsed}s
                 </span>
               ) : 'Run compliance check →'}
             </button>
