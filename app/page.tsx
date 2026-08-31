@@ -189,6 +189,8 @@ export default function HomePage() {
   const [widthMm, setWidthMm]   = useState('')
   const [heightMm, setHeightMm] = useState('')
 
+  const ready = !!front && toMm(widthMm) !== undefined && toMm(heightMm) !== undefined
+
   const strings = t.en
 
   const readFile = useCallback((file: File, label: string): Promise<LabelImage> => {
@@ -389,8 +391,40 @@ export default function HomePage() {
               })}
             </div>
 
-            <div className="mb-4 flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">
+                        <div className="mb-4 flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">
               <span className="grad-fill grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full text-[10px] font-semibold text-white">2</span>
+              Label dimensions
+              <span className="rounded-full border border-line bg-tint px-2 py-[3px] text-[9.5px] tracking-[.1em] text-brand">Required</span>
+              <span className="h-px flex-1 bg-rule-soft" />
+            </div>
+            <div className="mb-8 rounded-[18px] border border-rule bg-white p-6">
+              <p className="mb-5 max-w-[64ch] text-[13.5px] leading-[1.65] text-ink-soft">
+                The physical size of the printed label, in millimetres — the artwork as it will be printed, not the
+                bottle. These let us measure the height of the text on your label and report it against the minimum
+                type size in the regulation.
+              </p>
+              <div className="grid max-w-[440px] gap-4 sm:grid-cols-2">
+                <label className="block">
+                  <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Width (mm)</span>
+                  <input type="number" inputMode="decimal" min="1" max="1000" step="0.1" value={widthMm}
+                    onChange={(e) => setWidthMm(e.target.value)} placeholder="e.g. 102"
+                    className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
+                </label>
+                <label className="block">
+                  <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Height (mm)</span>
+                  <input type="number" inputMode="decimal" min="1" max="1000" step="0.1" value={heightMm}
+                    onChange={(e) => setHeightMm(e.target.value)} placeholder="e.g. 76"
+                    className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
+                </label>
+              </div>
+              <p className="mt-5 max-w-[64ch] font-mono text-[11.5px] leading-[1.6] text-ink-soft">
+                Measurement depends on the image being cropped to the label edge, with no background or bleed, and
+                being flat artwork rather than a photograph of a bottle.
+              </p>
+            </div>
+
+            <div className="mb-4 flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">
+              <span className="grad-fill grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full text-[10px] font-semibold text-white">3</span>
               Label artwork
               <span className="h-px flex-1 bg-rule-soft" />
             </div>
@@ -415,38 +449,6 @@ export default function HomePage() {
               />
             </div>
 
-                        <div className="mb-4 mt-8 flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">
-              <span className="grad-fill grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full text-[10px] font-semibold text-white">3</span>
-              Label dimensions
-              <span className="rounded-full bg-tint px-2 py-[3px] text-[9.5px] tracking-[.1em] text-brand">Optional</span>
-              <span className="h-px flex-1 bg-rule-soft" />
-            </div>
-            <div className="rounded-[18px] border border-rule bg-white p-6">
-              <p className="mb-5 max-w-[64ch] text-[13.5px] leading-[1.65] text-ink-soft">
-                The physical size of the printed label, in millimetres. Supplying these lets us measure the height of
-                the text on your artwork and report it against the minimum type size in the regulation. Leave them
-                blank and the type size check runs as it does now, without a measurement.
-              </p>
-              <div className="grid max-w-[440px] gap-4 sm:grid-cols-2">
-                <label className="block">
-                  <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Width (mm)</span>
-                  <input type="number" inputMode="decimal" min="1" max="1000" step="0.1" value={widthMm}
-                    onChange={(e) => setWidthMm(e.target.value)} placeholder="e.g. 102"
-                    className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
-                </label>
-                <label className="block">
-                  <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Height (mm)</span>
-                  <input type="number" inputMode="decimal" min="1" max="1000" step="0.1" value={heightMm}
-                    onChange={(e) => setHeightMm(e.target.value)} placeholder="e.g. 76"
-                    className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
-                </label>
-              </div>
-              <p className="mt-5 max-w-[64ch] font-mono text-[11.5px] leading-[1.6] text-ink-soft">
-                Measurement depends on the image being cropped to the label edge, with no background or bleed, and
-                being flat artwork rather than a photograph of a bottle.
-              </p>
-            </div>
-
             {error && (
               <div role="alert" className="mt-5 rounded-[14px] border border-fail/25 bg-fail-bg px-4 py-3 font-mono text-[12.5px] leading-relaxed text-fail">
                 {error}
@@ -460,9 +462,9 @@ export default function HomePage() {
               TTB&rsquo;s own review. By running a check you agree to the{' '}
               <a href="/terms" className="text-brand underline underline-offset-2">terms</a>.
             </p>
-            <button onClick={handleSubmit} disabled={!front || loading}
+              <button onClick={handleSubmit} disabled={!ready || loading}
               className={`shrink-0 rounded-full px-[30px] py-[15px] text-[14.5px] font-semibold transition duration-200
-                ${!front || loading
+                ${!ready || loading
                   ? 'cursor-not-allowed bg-rule text-ink-soft'
                   : 'grad-fill text-white shadow-[0_6px_20px_-6px_rgba(74,79,168,.5)] hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-8px_rgba(74,79,168,.55)]'}`}>
               {loading ? (
