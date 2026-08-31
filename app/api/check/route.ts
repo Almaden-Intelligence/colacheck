@@ -16,7 +16,7 @@ const CFR_PARTS = { wine: '27 CFR Part 4', spirits: '27 CFR Part 5', beer: '27 C
 export async function POST(request: NextRequest) {
   try {
     const body: CheckRequest = await request.json()
-        const { category, imageBase64, imageMimeType, backImageBase64, backImageMimeType, labelWidthMm, labelHeightMm } = body
+               const { category, imageBase64, imageMimeType, backImageBase64, backImageMimeType, labelWidthMm, labelHeightMm, backLabelWidthMm, backLabelHeightMm } = body
 
     if (!imageBase64 || !imageMimeType)
       return NextResponse.json({ success: false, error: 'Front label image is required.' }, { status: 400 })
@@ -45,7 +45,12 @@ export async function POST(request: NextRequest) {
 
     const categoryLabel = category === 'beer' ? 'malt beverage' : category
 
-    const measurement = await measureLabel(imageBase64, labelWidthMm, labelHeightMm)
+    const [measurement, backMeasurement] = await Promise.all([
+      measureLabel(imageBase64, labelWidthMm, labelHeightMm, 'front'),
+      backImageBase64
+        ? measureLabel(backImageBase64, backLabelWidthMm, backLabelHeightMm, 'back')
+        : Promise.resolve(null),
+    ])
 
     const response = await anthropic.messages.create({
       model: 'claude-opus-4-5',
@@ -57,6 +62,7 @@ export async function POST(request: NextRequest) {
         content: [
           ...imageContent,
           ...(measurement ? [{ type: 'text' as const, text: measurement }] : []),
+          ...(backMeasurement ? [{ type: 'text' as const, text: backMeasurement }] : []),
           { type: 'text', text: `${labelNote}\n\nPlease analyze this ${categoryLabel} label for TTB compliance. Check all mandatory requirements under ${cfrPart} and return your findings as JSON.` }, 
         ],
       }],
