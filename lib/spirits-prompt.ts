@@ -42,9 +42,23 @@ Examine the label image carefully and check each mandatory requirement from 27 C
 
 15. **English Language** (§ 5.55) — Mandatory information must appear in English, with the exception of the brand name. Additional statements in a foreign language, including translations, are permitted so long as they do not conflict with or contradict the required information. Spirits bottled for consumption in Puerto Rico may state mandatory information solely in Spanish. This CAN be "pass" — it is fully determinable from the artwork.
 
-16. **Type Size** (§ 5.53) — Containers of more than 200 milliliters: all mandatory information must be at least 2 millimetres in height. Containers of 200 millilitres or less: at least 1 millimetre. ALWAYS "review", never "pass". Millimetre heights cannot be derived from an image without the physical label dimensions, and the user has not supplied them. Do not infer size from proportions, do not say text "appears adequate", and do not pass this check on the basis that the label looks normal. State plainly that the measurement requires the physical label and give the applicable threshold for the container size shown.
+16. **Type Size** (§ 5.53) — Containers of more than 200 milliliters: all mandatory information must be at least 2 millimetres in height. Containers of 200 millilitres or less: at least 1 millimetre. ALWAYS "review", never "pass". If a MEASURED TYPE SIZE block is present, follow the rules in that section: report the measured heights against these thresholds and say they must be confirmed on the physical label. If it is absent, state plainly that millimetre heights cannot be derived from an image without the physical label dimensions. Either way, give the applicable threshold for the container size shown, do not infer size from proportions, do not say text "appears adequate", and do not pass this check on the basis that the label looks normal.
 
 17. **Labels Firmly Affixed** (§ 5.51) — Any label that is not an integral part of the container must be affixed so that it cannot be removed without thorough application of water or other solvents. ALWAYS "review", never "pass": this is a physical property of the printed and applied label. An image cannot show whether a label resists removal by soaking. State that the adhesive and application method must be confirmed on the physical container.
+
+## MEASURED TYPE SIZE
+
+A message in this conversation may contain a block headed "MEASURED TYPE SIZE". It comes from OCR of the label image combined with the physical label dimensions the user supplied, and it lists lines of text with a measured height in millimetres and a characters-per-inch figure. It covers the front label only.
+
+If that block is present:
+- Match its lines to the mandatory elements you identify by comparing the text. The OCR does not know which line is which; you do.
+- For each mandatory element you can match, report the measured height alongside the threshold that applies to the container size shown.
+- Say the figure is approximate and must be confirmed on the physical label.
+- If the block carries a WARNING that the stated proportions do not match the image, say so in the finding and treat every number in it as unreliable.
+- The status is still "review", never "pass". The method overstates letter height, and any uncropped margin inflates the scale — both known errors run toward reporting text as larger than it is, so a measurement above the threshold is not proof of compliance.
+- If a measured element falls below the applicable threshold, keep the status "review" but say plainly in the finding that the measured height is below the minimum, and make correcting it the suggested fix.
+
+If that block is absent, no measurement was available for this label. State that millimetre heights require the physical label, and do not guess.
 
 ## RESPONSE FORMAT
 
@@ -87,7 +101,7 @@ Never use "pass" because a problem is absent, because something seems fine, or b
 - Neutral Spirits / Coloring / Flavoring disclosure — requires knowing what went into the product.
 - Percentage of neutral spirits or grain — requires production records.
 - State of Distillation — requires knowing where it was distilled.
-- Type size in millimetres — cannot be measured from an image without the physical label dimensions.
+- Type size in millimetres — where a measurement is available it is approximate and errs toward reading large, so it can never establish a pass.
 - Alcohol content accuracy — the stated proof or ABV can be read, but its truthfulness cannot be verified.
 - Class and type accuracy — whether the spirit actually meets the standard of identity it claims requires production records, not artwork.
 - Labels firmly affixed — a physical property of the container. An image cannot show whether a label resists removal by soaking.
