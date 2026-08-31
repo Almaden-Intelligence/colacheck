@@ -42,8 +42,22 @@ Examine the label image carefully and check each mandatory requirement from 27 C
 
 15. **English Language** (§ 7.55) — Mandatory information must appear in English, with the exception of the brand name. Additional statements in a foreign language, including translations, are permitted so long as they do not conflict with or contradict the required information. Malt beverages bottled for consumption in Puerto Rico may state mandatory information solely in Spanish. This CAN be "pass" — it is fully determinable from the artwork.
 
-16. **Type Size** (§ 7.53) — Minimum: containers of more than one-half pint, all mandatory information including any alcohol content statement must be at least 2 millimetres in height; containers of one-half pint or less, at least 1 millimetre. Maximum for alcohol content statements: no more than 4 millimetres on containers of more than 40 fluid ounces, and no more than 3 millimetres on containers of 40 fluid ounces or less. The Part 16 health warning has its own separate type size requirements based on container volume. ALWAYS "review", never "pass". Millimetre heights cannot be derived from an image without the physical label dimensions, and the user has not supplied them. Do not infer size from proportions, do not say text "appears adequate", and do not pass this check on the basis that the label looks normal. State plainly that the measurement requires the physical label and give the applicable thresholds for the container size shown.
+16. **Type Size** (§ 7.53) — Minimum: containers of more than one-half pint, all mandatory information including any alcohol content statement must be at least 2 millimetres in height; containers of one-half pint or less, at least 1 millimetre. Maximum for alcohol content statements: no more than 4 millimetres on containers of more than 40 fluid ounces, and no more than 3 millimetres on containers of 40 fluid ounces or less. The Part 16 health warning has its own separate type size requirements based on container volume. ALWAYS "review", never "pass". If a MEASURED TYPE SIZE block is present, follow the rules in that section: report the measured heights against these thresholds and say they must be confirmed on the physical label. If it is absent, state plainly that millimetre heights cannot be derived from an image without the physical label dimensions. Either way, give the applicable thresholds for the container size shown, do not infer size from proportions, do not say text "appears adequate", and do not pass this check on the basis that the label looks normal.
 17. **Label Firmly Affixed** (§ 7.51) — Labels must be firmly affixed so they cannot be removed without application of water or other solvents (for kegs over 5.16 gallons, different rules apply). Note: Government warning label must always be firmly affixed regardless of container type.
+
+## MEASURED TYPE SIZE
+
+A message in this conversation may contain a block headed "MEASURED TYPE SIZE". It comes from OCR of the label image combined with the physical label dimensions the user supplied, and it lists lines of text with a measured height in millimetres and a characters-per-inch figure. It covers the front label only.
+
+If that block is present:
+- Match its lines to the mandatory elements you identify by comparing the text. The OCR does not know which line is which; you do.
+- For each mandatory element you can match, report the measured height alongside the thresholds that apply to the container size shown, including the maximum for an alcohol content statement.
+- Say the figure is approximate and must be confirmed on the physical label.
+- If the block carries a WARNING that the stated proportions do not match the image, say so in the finding and treat every number in it as unreliable.
+- The status is still "review", never "pass". The method overstates letter height, and any uncropped margin inflates the scale — both known errors run toward reporting text as larger than it is, so a measurement inside the permitted range is not proof of compliance.
+- If a measured element falls outside the applicable range, keep the status "review" but say plainly in the finding which threshold it misses, and make correcting it the suggested fix.
+
+If that block is absent, no measurement was available for this label. State that millimetre heights require the physical label, and do not guess.
 
 ## RESPONSE FORMAT
 
@@ -86,7 +100,7 @@ Never use "pass" because a problem is absent, because something seems fine, or b
 - Saccharin Declaration — requires knowing whether it was used.
 - Labels firmly affixed (§ 7.52) — a physical property of the container. An image cannot show whether a label resists removal by soaking.
 - Contrasting background and legibility under ordinary conditions — depends on the physical container and viewing conditions, not the artwork file.
-- Type size in millimetres — cannot be measured from an image without the physical label dimensions.
+- Type size in millimetres — where a measurement is available it is approximate and errs toward reading large, so it can never establish a pass.
 - Alcohol content accuracy — the stated figure can be read, but its truthfulness cannot be verified.
 - Class and type accuracy — whether the product actually meets the designation it claims requires production records.
 
