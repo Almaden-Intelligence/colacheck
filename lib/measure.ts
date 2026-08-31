@@ -26,15 +26,16 @@ export async function measureLabel(
   imageBase64: string,
   labelWidthMm?: number,
   labelHeightMm?: number,
+  labelName: string = 'front',
 ): Promise<string | null> {
   const key = process.env.GOOGLE_VISION_API_KEY
-  console.log('[measure] key present:', !!key, '| widthMm:', labelWidthMm, '| heightMm:', labelHeightMm)
+  console.log('[measure]', labelName, '| key present:', !!key, '| widthMm:', labelWidthMm, '| heightMm:', labelHeightMm)
   if (!key) {
     console.error('[measure] GOOGLE_VISION_API_KEY is not set in this environment')
     return null
   }
   if (!labelWidthMm || !Number.isFinite(labelWidthMm) || labelWidthMm <= 0) {
-    console.error('[measure] no usable label width received:', labelWidthMm)
+    console.error('[measure]', labelName, 'no usable label width received:', labelWidthMm)
     return null
   }
 
@@ -130,9 +131,9 @@ export async function measureLabel(
       }
     })
 
-    console.log('[measure] measured', lines.length, 'lines at', mmPerPx.toFixed(4), 'mm/px')
+    console.log('[measure]', labelName, 'measured', lines.length, 'lines at', mmPerPx.toFixed(4), 'mm/px')
     const out: string[] = []
-    out.push('MEASURED TYPE SIZE — front label only')
+    out.push('MEASURED TYPE SIZE — ' + labelName + ' label')
     out.push('Source: Google Cloud Vision OCR character bounding boxes.')
     out.push(`Scale: stated label width ${labelWidthMm} mm / image width ${imgW} px = ${mmPerPx.toFixed(4)} mm per pixel.`)
 
