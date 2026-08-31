@@ -38,8 +38,7 @@ export default function LimitationsPage() {
         <strong className="font-medium text-ink">Review</strong>, never as Pass, and the figure is only as accurate as
         the dimensions you enter. Estimated dimensions produce estimated millimetres.
       </P>
-      ]} />
-
+    
       <H2>It cannot verify facts that aren&rsquo;t printed on the label</H2>
       <P>
         Some of the most consequential requirements turn on facts about the liquid, not the artwork. These are always
