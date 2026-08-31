@@ -85,6 +85,7 @@
   header { position: static !important; }
   body { background: white !important; }
   .print-show { display: block !important; }
+  .print-show.flex { display: flex !important; }
   .print-keep {
     break-inside: avoid;
     page-break-inside: avoid;
