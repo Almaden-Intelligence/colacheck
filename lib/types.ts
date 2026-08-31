@@ -40,6 +40,8 @@ export interface CheckRequest {
   backImageMimeType?: string
   labelWidthMm?: number
   labelHeightMm?: number
+  backLabelWidthMm?: number
+  backLabelHeightMm?: number
 }
 
 export interface CheckResponse {
