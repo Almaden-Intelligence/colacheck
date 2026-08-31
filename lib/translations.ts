@@ -33,7 +33,7 @@ export const t = {
     // Submit
     disclaimer: 'COLACheck provides informational guidance based on published TTB regulations. This tool does not constitute legal advice.',
     runCheck: 'Run Compliance Check →',
-    analyzing: 'Analyzing — 15–30 seconds…',
+    analyzing: 'Analyzing…',
 
     // Errors
     invalidType: 'Please upload a JPEG, PNG, or WebP image.',
