@@ -28,8 +28,15 @@ export async function measureLabel(
   labelHeightMm?: number,
 ): Promise<string | null> {
   const key = process.env.GOOGLE_VISION_API_KEY
-  if (!key) return null
-  if (!labelWidthMm || !Number.isFinite(labelWidthMm) || labelWidthMm <= 0) return null
+  console.log('[measure] key present:', !!key, '| widthMm:', labelWidthMm, '| heightMm:', labelHeightMm)
+  if (!key) {
+    console.error('[measure] GOOGLE_VISION_API_KEY is not set in this environment')
+    return null
+  }
+  if (!labelWidthMm || !Number.isFinite(labelWidthMm) || labelWidthMm <= 0) {
+    console.error('[measure] no usable label width received:', labelWidthMm)
+    return null
+  }
 
   try {
     const controller = new AbortController()
@@ -61,7 +68,10 @@ export async function measureLabel(
     const page = data?.responses?.[0]?.fullTextAnnotation?.pages?.[0]
     const imgW = page?.width
     const imgH = page?.height
-    if (!page || !imgW || imgW <= 0) return null
+    if (!page || !imgW || imgW <= 0) {
+      console.error('[measure] Vision returned no page geometry — no text detected?')
+      return null
+    }
 
     const mmPerPx = labelWidthMm / imgW
 
@@ -101,7 +111,10 @@ export async function measureLabel(
     }
     flush()
 
-    if (lines.length === 0) return null
+      if (lines.length === 0) {
+      console.error('[measure] OCR found text but no measurable lines')
+      return null
+    }
 
     const rows = lines.slice(0, MAX_LINES).map(l => {
       const heightMm = median(l.heights) * mmPerPx
@@ -117,6 +130,7 @@ export async function measureLabel(
       }
     })
 
+    console.log('[measure] measured', lines.length, 'lines at', mmPerPx.toFixed(4), 'mm/px')
     const out: string[] = []
     out.push('MEASURED TYPE SIZE — front label only')
     out.push('Source: Google Cloud Vision OCR character bounding boxes.')
