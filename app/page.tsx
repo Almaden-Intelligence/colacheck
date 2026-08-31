@@ -527,7 +527,7 @@ export default function HomePage() {
         <section id="how" className="scroll-mt-6 pb-16 pt-2">
           <div className="mb-8">
             <h2 className="mb-2 font-display text-[31px] font-semibold tracking-[-.035em]">How it works</h2>
-            <p className="max-w-[58ch] text-[14.5px] leading-relaxed text-ink-soft">
+              <p className="text-[14.5px] leading-relaxed text-ink-soft">
               Two things you do, one thing we return. No account, no upload queue, no waiting on a human.
             </p>
           </div>
@@ -549,7 +549,7 @@ export default function HomePage() {
           <div className="overflow-hidden rounded-[22px] border border-rule bg-white shadow-e2">
             <div className="border-b border-rule-soft px-8 py-6">
               <h3 className="mb-1.5 font-display text-[22px] font-semibold tracking-[-.03em]">Three verdicts, not two</h3>
-              <p className="max-w-[62ch] text-[13.5px] leading-relaxed text-ink-soft">
+                <p className="text-[13.5px] leading-relaxed text-ink-soft">
                 A label image cannot answer every question the regulation asks. Rather than guess, COLACheck says so —
                 which is why there is a third category between pass and fail.
               </p>
@@ -571,7 +571,7 @@ export default function HomePage() {
             </div>
             <div className="border-t border-rule-soft bg-ground px-8 py-6">
               <div className="mb-2 font-mono text-[10px] uppercase tracking-[.13em] text-ink-soft">On method</div>
-              <p className="max-w-[76ch] text-[13.5px] leading-[1.7] text-ink-mid">
+                <p className="text-[13.5px] leading-[1.7] text-ink-mid">
                 COLACheck reads your artwork using an AI model, guided by a checklist of the mandatory requirements
                 for your product class. That checklist is written and maintained by hand from the text of 27 CFR —
                 it is not scraped live, and it is not a general-purpose question to an AI about alcohol law. Each
@@ -588,7 +588,7 @@ export default function HomePage() {
         <section id="parts" className="scroll-mt-6 pb-16 pt-2">
           <div className="mb-8">
             <h2 className="mb-2 font-display text-[31px] font-semibold tracking-[-.035em]">What it reads against</h2>
-            <p className="max-w-[58ch] text-[14.5px] leading-relaxed text-ink-soft">
+              <p className="text-[13.5px] leading-[1.7] text-ink-mid">
               Four parts of Title 27, maintained by hand from the published regulation — so a finding can always be
               traced back to the section behind it.
             </p>
