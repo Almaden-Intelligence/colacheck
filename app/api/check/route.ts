@@ -6,6 +6,8 @@ import { BEER_SYSTEM_PROMPT } from '@/lib/beer-prompt'
 import type { CheckRequest, ComplianceReport } from '@/lib/types'
 import { measureLabel } from '@/lib/measure'
 
+export const maxDuration = 120
+
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
 const PROMPTS = { wine: WINE_SYSTEM_PROMPT, spirits: SPIRITS_SYSTEM_PROMPT, beer: BEER_SYSTEM_PROMPT }
