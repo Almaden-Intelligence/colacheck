@@ -24,10 +24,20 @@ export default function LimitationsPage() {
       <H2>It only sees the image</H2>
       <P>Several requirements are physical. An image cannot settle them:</P>
       <UL items={[
-        <><strong className="font-medium text-ink">Type size.</strong> Mandatory text must meet minimum heights in millimetres. We can see that text is small; we cannot measure it against the real container.</>,
+                <><strong className="font-medium text-ink">Type size.</strong> Mandatory text must meet minimum heights in millimetres. If you supply the physical dimensions of the label we can estimate those heights from your artwork, but an estimate taken from an image is not a measurement of the printed container.</>,
         <><strong className="font-medium text-ink">Legibility and contrast</strong> under ordinary viewing conditions.</>,
         <><strong className="font-medium text-ink">Whether the label is firmly affixed,</strong> and whether it can be removed by soaking — a requirement under Part 7.</>,
         <><strong className="font-medium text-ink">Actual container volume,</strong> as opposed to what the label claims.</>,
+      ]} />
+      <P>
+        On type size specifically: where you give us the label&rsquo;s width and height, we read the text on your
+        artwork and report its height in millimetres against the threshold that applies. Two things stop that from
+        being conclusive. The character outlines we measure are slightly taller than the letters inside them, and any
+        margin left around the label in your image stretches the scale — both errors make text read larger than it
+        really is. A measured height is therefore always returned as{' '}
+        <strong className="font-medium text-ink">Review</strong>, never as Pass, and the figure is only as accurate as
+        the dimensions you enter. Estimated dimensions produce estimated millimetres.
+      </P>
       ]} />
 
       <H2>It cannot verify facts that aren&rsquo;t printed on the label</H2>
