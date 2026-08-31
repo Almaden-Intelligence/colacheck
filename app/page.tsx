@@ -169,9 +169,12 @@ function FaqItem({ q, a }: { q: string; a: string }) {
   )
 }
 
+const INCH_MM = 25.4
+
 const toMm = (v: string) => {
-  const n = parseFloat(v)
-  return Number.isFinite(n) && n > 0 && n <= 1000 ? n : undefined
+  const inches = parseFloat(v)
+  if (!Number.isFinite(inches) || inches <= 0 || inches > 40) return undefined
+  return inches * INCH_MM
 }
 
 export default function HomePage() {
@@ -412,21 +415,22 @@ export default function HomePage() {
             </div>
             <div className="mb-8 rounded-[18px] border border-rule bg-white p-6">
               <p className="mb-5 max-w-[64ch] text-[13.5px] leading-[1.65] text-ink-soft">
-                The physical size of the printed label, in millimetres — the artwork as it will be printed, not the
-                bottle. These let us measure the height of the text on your label and report it against the minimum
-                type size in the regulation.
+                The size of the actual printed label, in inches — the artwork as it will be printed, not the bottle
+                and not the image file. TTB asks for this same measurement when you upload label images to COLAs
+                Online, so you may already have it. It lets us measure the height of the text on your label and
+                report it against the minimum type size in the regulation.
               </p>
               <div className="grid max-w-[440px] gap-4 sm:grid-cols-2">
                 <label className="block">
-                  <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Width (mm)</span>
-                  <input type="number" inputMode="decimal" min="1" max="1000" step="0.1" value={widthMm}
-                    onChange={(e) => setWidthMm(e.target.value)} placeholder="e.g. 102"
+                  <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Width (inches)</span>
+                  <input type="number" inputMode="decimal" min="0.1" max="40" step="0.01" value={widthMm}
+                    onChange={(e) => setWidthMm(e.target.value)} placeholder="e.g. 4.00"
                     className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
                 </label>
                 <label className="block">
-                  <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Height (mm)</span>
-                  <input type="number" inputMode="decimal" min="1" max="1000" step="0.1" value={heightMm}
-                    onChange={(e) => setHeightMm(e.target.value)} placeholder="e.g. 76"
+                  <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Height (inches)</span>
+                  <input type="number" inputMode="decimal" min="0.1" max="40" step="0.01" value={heightMm}
+                    onChange={(e) => setHeightMm(e.target.value)} placeholder="e.g. 5.25"
                     className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
                 </label>
               </div>
