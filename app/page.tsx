@@ -417,58 +417,45 @@ export default function HomePage() {
               <span className="rounded-full border border-line bg-tint px-2 py-[3px] text-[9.5px] tracking-[.1em] text-brand">Required</span>
               <span className="h-px flex-1 bg-rule-soft" />
             </div>
+         
             <div className="mb-8 rounded-[18px] border border-rule bg-white p-6">
-              <p className="mb-5 max-w-[64ch] text-[13.5px] leading-[1.65] text-ink-soft">
-                The size of the actual printed label, in inches — the artwork as it will be printed, not the bottle
-                and not the image file. TTB asks for this same measurement when you upload label images to COLAs
-                Online, so you may already have it. It lets us measure the height of the text on your label and
-                report it against the minimum type size in the regulation.
+              <p className="mb-5 text-[13.5px] leading-[1.65] text-ink-soft">
+                The size of the actual printed label, in inches — the artwork as it will be printed, not the bottle and
+                not the image file. TTB asks for this same measurement when you upload label images to COLAs Online, so
+                you may already have it. Back label dimensions are optional: give them if your product has a back label
+                and you want its type size measured too.
               </p>
-              <div className="grid max-w-[440px] gap-4 sm:grid-cols-2">
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 <label className="block">
-                  <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Width (inches)</span>
+                  <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Front width (in)</span>
                   <input type="number" inputMode="decimal" min="0.1" max="40" step="0.01" value={widthMm}
                     onChange={(e) => setWidthMm(e.target.value)} placeholder="e.g. 4.00"
                     className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
                 </label>
                 <label className="block">
-                  <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Height (inches)</span>
+                  <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Front height (in)</span>
                   <input type="number" inputMode="decimal" min="0.1" max="40" step="0.01" value={heightMm}
                     onChange={(e) => setHeightMm(e.target.value)} placeholder="e.g. 5.25"
                     className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
                 </label>
-                           </div>
-
-              {back && (
-                <div className="mt-6 border-t border-rule-soft pt-6">
-                  <p className="mb-4 max-w-[64ch] text-[13.5px] leading-[1.65] text-ink-soft">
-                    <strong className="font-medium text-ink">Back label.</strong> A back label is usually a different
-                    size from the front. Give its dimensions and we measure it too. Leave these blank and only the
-                    front label is measured.
-                  </p>
-                  <div className="grid max-w-[440px] gap-4 sm:grid-cols-2">
-                    <label className="block">
-                      <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Back width (inches)</span>
-                      <input type="number" inputMode="decimal" min="0.1" max="40" step="0.01" value={backWidthMm}
-                        onChange={(e) => setBackWidthMm(e.target.value)} placeholder="Optional"
-                        className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
-                    </label>
-                    <label className="block">
-                      <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Back height (inches)</span>
-                      <input type="number" inputMode="decimal" min="0.1" max="40" step="0.01" value={backHeightMm}
-                        onChange={(e) => setBackHeightMm(e.target.value)} placeholder="Optional"
-                        className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
-                    </label>
-                  </div>
-                </div>
-              )}
-
-              <p className="mt-5 max-w-[64ch] font-mono text-[11.5px] leading-[1.6] text-ink-soft">
+                <label className="block">
+                  <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Back width (in)</span>
+                  <input type="number" inputMode="decimal" min="0.1" max="40" step="0.01" value={backWidthMm}
+                    onChange={(e) => setBackWidthMm(e.target.value)} placeholder="Optional"
+                    className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
+                </label>
+                <label className="block">
+                  <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Back height (in)</span>
+                  <input type="number" inputMode="decimal" min="0.1" max="40" step="0.01" value={backHeightMm}
+                    onChange={(e) => setBackHeightMm(e.target.value)} placeholder="Optional"
+                    className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
+                </label>
+              </div>
+              <p className="mt-5 font-mono text-[11.5px] leading-[1.6] text-ink-soft">
                 Measurement depends on each image being cropped to the label edge, with no background or bleed, and
                 being flat artwork rather than a photograph of a bottle.
               </p>
             </div>
-
             <div className="mb-4 flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">
               <span className="grad-fill grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full text-[10px] font-semibold text-white">3</span>
               Label artwork
