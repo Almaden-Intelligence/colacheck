@@ -451,7 +451,12 @@ export default function HomePage() {
                     className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
                 </label>
               </div>
-              <p className="mt-5 font-mono text-[11.5px] leading-[1.6] text-ink-soft">
+                <p className="mt-5 rounded-[13px] border border-review/25 bg-review-bg px-4 py-3 text-[12.5px] leading-[1.6] text-review">
+                <strong className="font-semibold">Measure, do not estimate.</strong> Take these from a ruler on the
+                printed label or from your print specification. A dimension that is off by ten percent makes every
+                type size we report wrong by ten percent, in the direction that makes text look bigger than it is.
+              </p>
+              <p className="mt-4 font-mono text-[11.5px] leading-[1.6] text-ink-soft">
                 Measurement depends on each image being cropped to the label edge, with no background or bleed, and
                 being flat artwork rather than a photograph of a bottle.
               </p>
