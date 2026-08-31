@@ -48,11 +48,13 @@ Examine the label image carefully and check each mandatory requirement from 27 C
 
 14. **English Language** (§ 4.38(c)) — All mandatory label information must be in English. Brand name, place of production, and the name of the manufacturer, producer, blender, bottler, packer or shipper are excepted. This CAN be "pass" — it is fully determinable from the artwork.
 
-15. **Type Size** (§ 4.38(b)) — Mandatory information other than the alcohol content statement must be at least 2mm for containers over 187 mL, or at least 1mm for containers of 187 mL or less. The alcohol content statement must be between 1mm and 3mm on containers of 5 litres or less. ALWAYS "review", never "pass". Millimetre heights cannot be derived from an image without the physical label dimensions, and the user has not supplied them. Do not infer size from proportions, do not say text "appears adequate", and do not pass this check on the basis that the label looks normal. State plainly that the measurement requires the physical label and give the applicable threshold for the container size shown.
+15. **Type Size** (§ 4.38(b)) — Mandatory information other than the alcohol content statement must be at least 2mm for containers over 187 mL, or at least 1mm for containers of 187 mL or less. The alcohol content statement must be between 1mm and 3mm on containers of 5 litres or less.ALWAYS "review", never "pass". If a MEASURED TYPE SIZE block is present, follow the rules in that section: report the measured heights against these thresholds and say they must be confirmed on the physical label. If it is absent, state plainly that millimetre heights cannot be derived from an image without the physical label dimensions. Either way, give the applicable threshold for the container size shown, do not infer size from proportions, do not say text "appears adequate", and do not pass this check on the basis that the label looks normal.
 
 16. **Labels Firmly Affixed** (§ 4.38(e)) — All labels must be affixed to the container in such a manner that they cannot be removed without thorough application of water or other solvents. ALWAYS "review", never "pass": this is a physical property of the printed and applied label. An image cannot show whether a label resists removal by soaking. State that the adhesive and application method must be confirmed on the physical container.
 
-## RESPONSE FORMAT
+          ...imageContent,
+          ...(measurement ? [{ type: 'text' as const, text: measurement }] : []),
+          { type: 'text', text: `${labelNote}\n\nPlease analyze this ${categoryLabel} label for TTB compliance. Check all mandatory requirements under ${cfrPart} and return your findings as JSON.` },
 
 Return ONLY this JSON structure — no markdown, no explanation, no preamble:
 
@@ -93,7 +95,7 @@ Never use "pass" because a problem is absent, because something seems fine, or b
 - Vintage Year percentage — requires harvest records.
 - Appellation of Origin percentage — requires knowing where the grapes were grown.
 - Estate Bottled — requires knowing ownership and production facts.
-- Type size in millimetres — cannot be measured from an image without the physical label dimensions.
+- Type size in millimetres — where a measurement is available it is approximate and errs toward reading large, so it can never establish a pass.
 - Alcohol content accuracy — the stated figure can be read, but its truthfulness cannot be verified.
 - Labels firmly affixed — a physical property of the container. An image cannot show whether a label resists removal by soaking.
 
