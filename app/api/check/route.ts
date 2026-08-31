@@ -4,6 +4,7 @@ import { WINE_SYSTEM_PROMPT } from '@/lib/wine-prompt'
 import { SPIRITS_SYSTEM_PROMPT } from '@/lib/spirits-prompt'
 import { BEER_SYSTEM_PROMPT } from '@/lib/beer-prompt'
 import type { CheckRequest, ComplianceReport } from '@/lib/types'
+import { measureLabel } from '@/lib/measure'
 
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
@@ -13,7 +14,7 @@ const CFR_PARTS = { wine: '27 CFR Part 4', spirits: '27 CFR Part 5', beer: '27 C
 export async function POST(request: NextRequest) {
   try {
     const body: CheckRequest = await request.json()
-    const { category, imageBase64, imageMimeType, backImageBase64, backImageMimeType } = body
+        const { category, imageBase64, imageMimeType, backImageBase64, backImageMimeType, labelWidthMm, labelHeightMm } = body
 
     if (!imageBase64 || !imageMimeType)
       return NextResponse.json({ success: false, error: 'Front label image is required.' }, { status: 400 })
@@ -42,6 +43,8 @@ export async function POST(request: NextRequest) {
 
     const categoryLabel = category === 'beer' ? 'malt beverage' : category
 
+    const measurement = await measureLabel(imageBase64, labelWidthMm, labelHeightMm)
+
     const response = await anthropic.messages.create({
       model: 'claude-opus-4-5',
       max_tokens: 8192,
@@ -51,7 +54,8 @@ export async function POST(request: NextRequest) {
         role: 'user',
         content: [
           ...imageContent,
-          { type: 'text', text: `${labelNote}\n\nPlease analyze this ${categoryLabel} label for TTB compliance. Check all mandatory requirements under ${cfrPart} and return your findings as JSON.` },
+          ...(measurement ? [{ type: 'text' as const, text: measurement }] : []),
+          { type: 'text', text: `${labelNote}\n\nPlease analyze this ${categoryLabel} label for TTB compliance. Check all mandatory requirements under ${cfrPart} and return your findings as JSON.` }, 
         ],
       }],
     })
