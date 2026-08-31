@@ -58,6 +58,7 @@ For each block present:
 - If the block carries a WARNING that the stated proportions do not match the image, say so in the finding and treat every number in it as unreliable.
 - The status is still "review", never "pass". The method overstates letter height, and any uncropped margin inflates the scale — both known errors run toward reporting text as larger than it is, so a measurement above the threshold is not proof of compliance.
 - If a measured element falls below the applicable threshold, keep the status "review" but say plainly in the finding that the measured height is below the minimum, and make correcting it the suggested fix.
+- A maximum is not the mirror of a minimum here. Because this method reads large, a measurement that appears to exceed a maximum is the exact error the method produces, so report the figure as unconfirmed and do not describe it as a probable violation or make correcting it the suggested fix. Falling short of a minimum is informative; overshooting a maximum is not.
 
 If no block is present at all, no measurement was available. State that millimetre heights require the physical label, and do not guess. If one label was measured and the other was not, use the measurement you have and say plainly which label went unmeasured — do not let a measured front label imply anything about back label type size.
 
