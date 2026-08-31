@@ -191,6 +191,8 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null)
   const [widthMm, setWidthMm]   = useState('')
   const [heightMm, setHeightMm] = useState('')
+  const [backWidthMm, setBackWidthMm]   = useState('')
+  const [backHeightMm, setBackHeightMm] = useState('')
 
   const ready = !!front && toMm(widthMm) !== undefined && toMm(heightMm) !== undefined
 
@@ -250,6 +252,8 @@ export default function HomePage() {
         backImageMimeType: back ? back.file.type : undefined,
         labelWidthMm:  toMm(widthMm),
         labelHeightMm: toMm(heightMm),
+        backLabelWidthMm:  back ? toMm(backWidthMm)  : undefined,
+        backLabelHeightMm: back ? toMm(backHeightMm) : undefined,
       }
       const res  = await fetch('/api/check', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
       const data = await res.json()
@@ -433,9 +437,34 @@ export default function HomePage() {
                     onChange={(e) => setHeightMm(e.target.value)} placeholder="e.g. 5.25"
                     className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
                 </label>
-              </div>
+                           </div>
+
+              {back && (
+                <div className="mt-6 border-t border-rule-soft pt-6">
+                  <p className="mb-4 max-w-[64ch] text-[13.5px] leading-[1.65] text-ink-soft">
+                    <strong className="font-medium text-ink">Back label.</strong> A back label is usually a different
+                    size from the front. Give its dimensions and we measure it too. Leave these blank and only the
+                    front label is measured.
+                  </p>
+                  <div className="grid max-w-[440px] gap-4 sm:grid-cols-2">
+                    <label className="block">
+                      <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Back width (inches)</span>
+                      <input type="number" inputMode="decimal" min="0.1" max="40" step="0.01" value={backWidthMm}
+                        onChange={(e) => setBackWidthMm(e.target.value)} placeholder="Optional"
+                        className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
+                    </label>
+                    <label className="block">
+                      <span className="mb-1.5 block font-mono text-[10.5px] uppercase tracking-[.13em] text-ink-soft">Back height (inches)</span>
+                      <input type="number" inputMode="decimal" min="0.1" max="40" step="0.01" value={backHeightMm}
+                        onChange={(e) => setBackHeightMm(e.target.value)} placeholder="Optional"
+                        className="w-full rounded-[13px] border border-rule bg-white px-4 py-3 font-mono text-[14px] text-ink outline-none transition focus:border-brand focus:shadow-[0_0_0_3px_rgba(74,79,168,.14)]" />
+                    </label>
+                  </div>
+                </div>
+              )}
+
               <p className="mt-5 max-w-[64ch] font-mono text-[11.5px] leading-[1.6] text-ink-soft">
-                Measurement depends on the image being cropped to the label edge, with no background or bleed, and
+                Measurement depends on each image being cropped to the label edge, with no background or bleed, and
                 being flat artwork rather than a photograph of a bottle.
               </p>
             </div>
