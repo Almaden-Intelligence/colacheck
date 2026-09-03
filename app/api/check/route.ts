@@ -5,6 +5,7 @@ import { SPIRITS_SYSTEM_PROMPT } from '@/lib/spirits-prompt'
 import { BEER_SYSTEM_PROMPT } from '@/lib/beer-prompt'
 import type { CheckRequest, ComplianceReport } from '@/lib/types'
 import { measureLabel } from '@/lib/measure'
+import { getCfrCorpus } from '@/lib/cfr/load'
 
 export const maxDuration = 120
 
@@ -24,7 +25,26 @@ export async function POST(request: NextRequest) {
     if (!['wine','spirits','beer'].includes(category))
       return NextResponse.json({ success: false, error: 'Invalid category.' }, { status: 400 })
 
-    const systemPrompt = PROMPTS[category]
+        const systemPrompt = [
+      'The text below is the verbatim federal regulation you must apply. It was',
+      'retrieved from the eCFR and is pinned to issue date 2026-09-02. It is the',
+      'authority for this analysis.',
+      '',
+      'Cite section numbers exactly as they appear in this text. Do not cite a',
+      'section from memory, and do not cite one that does not appear below —',
+      'these Parts have been renumbered and older section numbers are no longer',
+      'valid. Where the regulation states a threshold, tolerance, percentage, or',
+      'list of permitted values, take it from this text rather than from prior',
+      'knowledge.',
+      '',
+      '=== BEGIN REGULATION TEXT ===',
+      '',
+      getCfrCorpus(category),
+      '',
+      '=== END REGULATION TEXT ===',
+      '',
+      PROMPTS[category],
+    ].join('\n')
     const cfrPart = CFR_PARTS[category]
 
     const imageContent: Anthropic.ImageBlockParam[] = [{
