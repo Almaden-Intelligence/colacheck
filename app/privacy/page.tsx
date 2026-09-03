@@ -12,7 +12,7 @@ export default function PrivacyPage() {
       eyebrow="Privacy"
       title="What we collect, and what we do with it."
       intro="Short, because we collect very little. No advertising, no tracking across sites, no selling anything to anyone."
-      updated="August 2026"
+      updated="September 2026"
     >
       <Callout>
         <strong className="font-semibold text-ink">The short version.</strong> You can run a check without telling us
@@ -45,10 +45,11 @@ export default function PrivacyPage() {
         running. That is ordinary infrastructure logging, not analytics, and we do not use it to identify anyone.
       </P>
 
-      <H2>Who else touches your data</H2>
-      <P>Three companies, each doing one job:</P>
+        <H2>Who else touches your data</H2>
+      <P>Four companies, each doing one job:</P>
       <UL items={[
         <><strong className="font-medium text-ink">Anthropic</strong> — the AI provider. Your label images are sent to Anthropic to produce your report. This is the core of how the tool works, and it cannot run without it.</>,
+        <><strong className="font-medium text-ink">Google Cloud Vision</strong> — used to measure text size on your label before Anthropic reviews it. Your label images pass through this service as part of that measurement step.</>,
         <><strong className="font-medium text-ink">Vercel</strong> — hosting and analytics.</>,
         <><strong className="font-medium text-ink">Zoho</strong> — the email service that delivers your report.</>,
       ]} />
