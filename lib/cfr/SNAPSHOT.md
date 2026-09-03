@@ -9,12 +9,26 @@ Publishing Office. The eCFR is authoritative but unofficial; the official
 annual publication is the printed CFR on govinfo.gov.
 Text is never taken from PDFs, screenshots, or secondary sources.
 Files
-File	Part	Scope	Retrieved	eCFR "up to date as of"
-`part-16-health-warning.md`	27 CFR Part 16	Complete (§§ 16.1–16.33)	2026-09-03	9/01/2026
-`part-04-wine.md`	27 CFR Part 4	pending	—	—
-`part-05-spirits.md`	27 CFR Part 5	pending	—	—
-`part-07-malt.md`	27 CFR Part 7	pending	—	—
-Title 27 was last amended 8/17/2026 as of the first retrieval.
+File	Part	Scope	Snapshot
+`part-04-wine-standards.md`	27 CFR Part 4	Subpart C, §§ 4.20–4.28	2026-09-02
+`part-04-wine-labeling.md`	27 CFR Part 4	Subpart D, §§ 4.30–4.39	2026-09-02
+`part-05-spirits.md`	27 CFR Part 5	pending	—
+`part-07-malt.md`	27 CFR Part 7	pending	—
+`part-16-health-warning.md`	27 CFR Part 16	Complete, §§ 16.1–16.33	2026-09-03
+Title 27 was last amended 8/17/2026 as of the first retrieval. The most recent
+eCFR issue date available at that time was 2026-09-02, which is the pinned date
+for everything except Part 16 (retrieved a day earlier from the web view).
+How the files are produced
+Text is pulled from eCFR's machine-readable endpoint, not the web view:
+    https://www.ecfr.gov/api/versioner/v1/full/<DATE>/title-27.xml?part=<N>
+
+and converted by `scripts/ecfr_to_md.py`, which strips the XML markup and emits
+only the scoped subparts. The conversion is mechanical — no text is retyped, so
+the corpus cannot drift from the source through transcription.
+    python3 scripts/ecfr_to_md.py part-4.xml lib/cfr/part-04-wine-labeling.md 2026-09-02 D
+
+`<DATE>` must be a date eCFR has issued; requesting a future date returns an
+error naming the most recent valid one.
 Scope policy
 Included: the subparts that govern what must, may, and may not appear on a
 container label — mandatory information, label standards (legibility, type
