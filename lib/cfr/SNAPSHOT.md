@@ -12,12 +12,13 @@ Files
 File	Part	Scope	Snapshot
 `part-04-wine-standards.md`	27 CFR Part 4	Subpart C, §§ 4.20–4.28	2026-09-02
 `part-04-wine-labeling.md`	27 CFR Part 4	Subpart D, §§ 4.30–4.39	2026-09-02
-`part-05-spirits.md`	27 CFR Part 5	pending	—
-`part-07-malt.md`	27 CFR Part 7	pending	—
-`part-16-health-warning.md`	27 CFR Part 16	Complete, §§ 16.1–16.33	2026-09-03
-Title 27 was last amended 8/17/2026 as of the first retrieval. The most recent
-eCFR issue date available at that time was 2026-09-02, which is the pinned date
-for everything except Part 16 (retrieved a day earlier from the web view).
+`part-05-spirits-labeling.md`	27 CFR Part 5	Subparts D–H, §§ 5.51–5.130	2026-09-02
+`part-05-spirits-standards.md`	27 CFR Part 5	Subparts I, K, §§ 5.141–5.205	2026-09-02
+`part-07-malt-labeling.md`	27 CFR Part 7	Subparts D–H, §§ 7.51–7.132	2026-09-02
+`part-07-malt-standards.md`	27 CFR Part 7	Subpart I, §§ 7.141–7.147	2026-09-02
+`part-16-health-warning.md`	27 CFR Part 16	Complete, §§ 16.1–16.33	2026-09-02
+Roughly 260 KB total. Every file is pinned to eCFR issue date 2026-09-02.
+Title 27 was last amended 8/17/2026 as of that snapshot.
 How the files are produced
 Text is pulled from eCFR's machine-readable endpoint, not the web view:
     https://www.ecfr.gov/api/versioner/v1/full/<DATE>/title-27.xml?part=<N>
@@ -34,12 +35,24 @@ Included: the subparts that govern what must, may, and may not appear on a
 container label — mandatory information, label standards (legibility, type
 size, language, affixing), restricted and prohibited statements, and standards
 of identity used for class and type designations.
-Excluded: advertising rules, COLA application procedure, formulas,
-penalties, and administrative provisions. COLACheck screens labels, not
-advertisements or filings. Excluded material adds cost to every check and
-dilutes the signal the engine needs.
+Excluded: advertising, COLA application procedure, alteration and
+relabeling, formulas, penalties, paperwork reduction, and general provisions.
+COLACheck screens labels, not advertisements or filings. Excluded material adds
+cost to every check and dilutes the signal the engine needs.
+By subpart, what was left out:
+Part 4: A (scope), B (definitions), E (customs withdrawal), F (label
+approval), G (advertising), H (standards of fill), I, J (grape variety
+names), K (organic)
+Part 5: A (general), B (COLA), C (relabeling), J (formulas), L, M
+(penalties), N (advertising), O (paperwork)
+Part 7: A (general), B (COLA), C (relabeling), M (penalties), N
+(advertising), O (paperwork)
 Part 16 is included in full because it is short and every section bears on
 label content.
+Two exclusions are worth revisiting if checks are added later: Part 4 Subpart J
+lists the approved American grape variety names that § 4.23(e) requires, and
+Part 4 Subpart H carries the wine standards of fill. Neither is currently
+checked.
 If a check ever needs an excluded subpart, add that subpart here and record it
 in the table above rather than working from memory.
 What to do when a regulation changes
