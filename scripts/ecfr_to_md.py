@@ -39,39 +39,70 @@ def clean(s):
     return s.strip()
 
 
+def emit_table(rows, lines):
+    """Write rows as a markdown table. Falls back to a list if ragged."""
+    rows = [r for r in rows if any(c.strip() for c in r)]
+    if not rows:
+        return
+    width = max(len(r) for r in rows)
+    rows = [r + [""] * (width - len(r)) for r in rows]
+    if width == 1:
+        for r in rows:
+            lines.append(f"- {r[0]}")
+        lines.append("")
+        return
+    lines.append("| " + " | ".join(c.replace("|", "\\|") for c in rows[0]) + " |")
+    lines.append("| " + " | ".join(["---"] * width) + " |")
+    for r in rows[1:]:
+        lines.append("| " + " | ".join(c.replace("|", "\\|") for c in r) + " |")
+    lines.append("")
+
+
+def render_node(el, lines):
+    """
+    Walk a section's children in document order.
+
+    eCFR XML mixes two table formats: the legacy GPOTABLE/ROW/ENT and plain
+    HTML TABLE/TR/TD, the latter usually wrapped in one or more <DIV>. Both
+    carry substantive regulatory content (standards of identity, net contents,
+    type size limits), so both must be rendered and DIV wrappers recursed into.
+    """
+    for child in el:
+        tag = child.tag
+        if tag == "HEAD":
+            continue
+        elif tag in ("P", "FP", "PSPACE"):
+            body = clean(text_of(child))
+            if body:
+                lines.append(body + "\n")
+        elif tag == "CITA":
+            body = clean(text_of(child))
+            if body:
+                lines.append(f"*{body}*\n")
+        elif tag == "EDNOTE":
+            body = clean(text_of(child))
+            if body:
+                lines.append(f"> {body}\n")
+        elif tag == "TABLE":
+            rows = []
+            for tr in child.iter("TR"):
+                cells = [clean(text_of(c)) for c in tr if c.tag in ("TH", "TD")]
+                rows.append(cells)
+            emit_table(rows, lines)
+        elif tag == "GPOTABLE":
+            rows = []
+            for row in child.iter("ROW"):
+                rows.append([clean(text_of(c)) for c in row.findall("ENT")])
+            emit_table(rows, lines)
+        elif tag in ("DIV", "DIV9", "EXTRACT", "NOTE"):
+            render_node(child, lines)
+
+
 def render_section(sec, lines):
     head = clean(sec.findtext("HEAD") or "")
     if head:
         lines.append(f"### {head}\n")
-    for el in sec:
-        if el.tag in ("HEAD",):
-            continue
-        if el.tag in ("P", "FP", "PSPACE"):
-            body = clean(text_of(el))
-            if body:
-                lines.append(body + "\n")
-        elif el.tag == "CITA":
-            body = clean(text_of(el))
-            if body:
-                lines.append(f"*{body}*\n")
-        elif el.tag == "EDNOTE":
-            body = clean(text_of(el))
-            if body:
-                lines.append(f"> {body}\n")
-        elif el.tag == "GPOTABLE":
-            rows = []
-            for row in el.iter("ROW"):
-                cells = [clean(text_of(c)) for c in row.findall("ENT")]
-                if any(cells):
-                    rows.append(cells)
-            if rows:
-                width = max(len(r) for r in rows)
-                rows = [r + [""] * (width - len(r)) for r in rows]
-                lines.append("| " + " | ".join(rows[0]) + " |")
-                lines.append("| " + " | ".join(["---"] * width) + " |")
-                for r in rows[1:]:
-                    lines.append("| " + " | ".join(r) + " |")
-                lines.append("")
+    render_node(sec, lines)
 
 
 def main():
