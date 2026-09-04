@@ -62,16 +62,38 @@ def render_node(el, lines):
     """
     Walk a section's children in document order.
 
-    eCFR XML mixes two table formats: the legacy GPOTABLE/ROW/ENT and plain
-    HTML TABLE/TR/TD, the latter usually wrapped in one or more <DIV>. Both
-    carry substantive regulatory content (standards of identity, net contents,
-    type size limits), so both must be rendered and DIV wrappers recursed into.
+    eCFR uses more than one XML structure for the same kind of material, and
+    each unhandled variant is content silently lost. Tables appear as both the
+    legacy GPOTABLE/ROW/ENT and plain HTML TABLE/TR/TD wrapped in DIV. List
+    entries appear as FP-1 inside EXTRACT — this is how the 347 approved grape
+    variety names at 27 CFR 4.91 are carried. Undesignated centre headings
+    appear as HD1/HD2/HD3.
+
+    After changing this function, regenerate every file and diff against the
+    committed copies. Do not assume a change is local.
     """
     for child in el:
         tag = child.tag
         if tag == "HEAD":
             continue
         elif tag in ("P", "FP", "PSPACE"):
+            body = clean(text_of(child))
+            if body:
+                lines.append(body + "\n")
+        elif tag in ("HD1", "HD2", "HD3", "HED", "CAPTION"):
+            # Undesignated centre headings that group the paragraphs beneath
+            # them, e.g. "Food Allergen Labeling" inside 27 CFR 5.81.
+            body = clean(text_of(child))
+            if body:
+                lines.append(f"**{body}**\n")
+        elif tag.startswith("FP-"):
+            # Flush paragraphs used for list entries, most heavily in the
+            # approved grape variety names at 27 CFR 4.91. Rendered as list
+            # items so the entries stay individually readable.
+            body = clean(text_of(child))
+            if body:
+                lines.append(f"- {body}")
+        elif tag in ("CROSSREF", "SECAUTH", "APPRO"):
             body = clean(text_of(child))
             if body:
                 lines.append(body + "\n")
