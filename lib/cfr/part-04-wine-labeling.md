@@ -22,6 +22,9 @@
 
 *[T.D. 6521, 25 FR 13835, Dec. 29, 1960, as amended by T.D. ATF-425, 65 FR 11891, Mar. 7, 2000; T.D. ATF-953, 68 FR 39455, July 2, 2003]*
 
+Cross Reference:
+For customs warehouses and control of merchandise therein, see 19 CFR part 19.
+
 ### § 4.32 Mandatory label information.
 
 (a) There shall be stated on the brand label:
@@ -53,6 +56,8 @@
 (2) Any wine bottled on or after July 9, 1987, regardless of the date of issuance of the certificate of label approval; and,
 
 (3) Any wine removed on or after January 9, 1988.
+
+(Paragraph (e) approved by the Office of Management and Budget under Control Number 1512-0469)
 
 *[T.D. 6521, 25 FR 13835, Dec. 29, 1960]*
 
@@ -343,9 +348,15 @@ However, if a statement of composition is required to appear as the designation 
 
 This product accompanied at the time of the importation by a certificate issued by the
 
+**(Name of government)**
+
 government indicating that the product is
 
+**(Class and type as stated on the label)**
+
 and (if label bears a statement of vintage date) that the wine is of the vintage of
+
+**(Year of vintage stated on the label)**
 
 (f) *Use of the word "Importer", or similar words.* The word *Importer,* or similar words, shall not be stated on labels on containers of domestic wine except as part of the bona fide name of a permittee for or by whom, or of a retailer for whom, such wine is bottled, packed or distributed: *Provided,* That in all cases where such words are used as part of such name, there shall be stated on the same label the words "Product of the United States", or similar words to negative any impression that the product is imported, and such negative statement shall appear in the same size and kind of printing as such name.
 
