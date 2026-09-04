@@ -2,7 +2,7 @@
 
 > Source: eCFR, https://www.ecfr.gov/api/versioner/v1/full/2026-09-02/title-27.xml?part=4
 > Snapshot date: 2026-09-02 (pinned; reproducible from the URL above)
-> Subparts included: C, H
+> Subparts included: C, H, J
 
 **Authority:** 27 U.S.C. 205, unless otherwise noted.
 
@@ -115,6 +115,9 @@ Standards of identity for the several classes and types of wine set forth in thi
 (iv) Any "grape wine" "citrus wine," "fruit wine," or "wine from other agricultural products" to which has been added sugar and water solution in an amount which is in excess of the limitations prescribed in the standards of identity for these products, unless, in the case of "citrus wine," "fruit wine" and "wine from other agricultural products" the normal acidity of the material from which such wine is produced is 20 parts or more per thousand and the volume of the resulting product has not been increased more than 60 percent by such addition.
 
 (i) *Class 9; retsina wine.* "Retsina wine" is grape table wine fermented or flavored with resin.
+
+Cross Reference:
+For regulations relating to the use of spirits in wine, see part 24 of this chapter.
 
 *[T.D. 6521, 25 FR 13835, Dec. 29, 1960]]*
 
@@ -346,6 +349,8 @@ The following are type designations of varietal significance for American wine. 
 
 (c) Section 4.72 of this part does not apply to wine domestically bottled or packed, either in or out of customs custody, before January 1, 1979, if the wine was bottled or packed according to the standards of fill (listed in ounces, quarts, and gallons) prescribed by regulation before that date.
 
+(Approved by the Office of Management and Budget under control number 1513-0064)
+
 *[T.D. ATF-12, 39 FR 45222, Dec. 31, 1974, as amended by T.D. ATF-49, 43 FR 19848, May 9, 1978; T.D. ATF-76, 46 FR 1727, Jan. 7, 1981; T.D. TTB-91, 76 FR 5477, Feb. 1, 2011; T.D. TTB-145, 81 FR 94197, Dec. 22, 2016]*
 
 ### § 4.71 Standard wine containers.
@@ -425,4 +430,476 @@ The following are type designations of varietal significance for American wine. 
 (c) *Tolerances.* The tolerances in fill are the same as are allowed by § 4.37 in respect to statement of net contents on labels.
 
 *[T.D. ATF-12, 39 FR 45223, Dec. 31, 1974, as amended by T.D. ATF-49, 43 FR 19848, May 9, 1978; T.D. ATF-76, 46 FR 1727, Jan. 7, 1981; T.D. ATF-303, 55 FR 42713, Oct. 23, 1990. Redesignated by T.D. ATF-953, 68 FR 39455, July 2, 2003; T.D. TTB-165, 85 FR 85520, Dec. 29, 2020; T.D. TTB-200, 90 FR 1875, Jan. 20, 2025]*
+
+## Subpart J—American Grape Variety Names
+
+### § 4.91 List of approved names.
+
+The following grape variety names have been approved by the Administrator for use as type designations for American wines. When more than one name may be used to identify a single variety of grape, the synonym is shown in parentheses following the grape variety names. Grape variety names may appear on labels of wine in upper or in lower case, and may be spelled with or without the hyphens or diacritic marks indicated in the following list.
+
+- *Aglianico*
+- *Agawam*
+- *Albariño (Alvarinho)*
+- *Albemarle*
+- *Aleatico*
+- *Alicante Bouschet*
+- *Aligoté*
+- *Alvarelhão*
+- *Alvarinho (Albariño)*
+- *Arneis*
+- *Aurore*
+- *Auxerrois*
+- *Bacchus*
+- *Baco blanc*
+- *Baco noir*
+- *Barbera*
+- *Beacon*
+- *Beclan*
+- *Bellandais*
+- *Beta*
+- *Biancolella*
+- *Black Corinth*
+- *Black Malvoisie (Cinsaut)*
+- *Black Monukka*
+- *Black Muscat (Muscat Hamburg)*
+- *Black Pearl*
+- *Blanc Du Bois*
+- *Blaufränkish (Lemberger, Limberger)*
+- *Blue Eye*
+- *Bonarda*
+- *Bountiful*
+- *Brianna*
+- *Burdin 4672*
+- *Burdin 5201*
+- *Burdin 11042*
+- *Burgaw*
+- *Burger*
+- *Cabernet Diane*
+- *Cabernet Doré*
+- *Cabernet franc*
+- *Cabernet Pfeffer*
+- *Cabernet Sauvignon*
+- *Calzin*
+- *Campbell Early* (*Island Belle*)
+- *Canada Muscat*
+- *Canaiolo (Canaiolo Nero)*
+- *Canaiolo Nero (Canaiolo)*
+- *Captivator*
+- *Carignan (Carignane)*
+- *Carignane (Carignan)*
+- *Carlos*
+- *Carmenère*
+- *Carmine*
+- *Carnelian*
+- *Cascade*
+- *Castel 19-637*
+- *Catawba*
+- *Cayuga White*
+- *Centurion*
+- *Chambourcin*
+- *Chancellor*
+- *Charbono*
+- *Chardonel*
+- *Chardonnay*
+- *Chasselas doré*
+- *Chelois*
+- *Chenin blanc*
+- *Chief*
+- *Chowan*
+- *Cinsaut* (*Black Malvoisie*)
+- *Clairette blanche*
+- *Clinton*
+- *Colombard* (*French Colombard*)
+- *Colobel*
+- *Corot noir*
+- *Cortese*
+- *Corvina*
+- *Concord*
+- *Conquistador*
+- *Couderc noir*
+- *Counoise*
+- *Cowart*
+- *Creek*
+- *Crimson Cabernet*
+- *Cynthiana* (*Norton*)
+- *Dearing*
+- *De Chaunac*
+- *Delaware*
+- *Diamond*
+- *Dixie*
+- *Dolcetto*
+- *Doreen*
+- *Dornfelder*
+- *Dulcet*
+- *Durif (Petite Sirah)*
+- *Dutchess*
+- *Early Burgundy*
+- *Early Muscat*
+- *Edelweiss*
+- *Eden*
+- *Ehrenfelser*
+- *Ellen Scott*
+- *Elvira*
+- *Emerald Riesling*
+- *Erbaluce*
+- *Favorite*
+- *Feher Szagos*
+- *Fernão Pires*
+- *Fern Munson*
+- *Fiano*
+- *Flame Tokay*
+- *Flora*
+- *Florental*
+- *Folle blanche*
+- *Forastera*
+- *Fredonia*
+- *Freedom*
+- *Freisa*
+- *French Colombard (Colombard)*
+- *Frontenac*
+- *Frontenac gris*
+- *Fry*
+- *Fumé blanc (Sauvignon blanc)*
+- *Furmint*
+- *Gamay noir*
+- *Garnacha (Grenache, Grenache noir)*
+- *Garnacha blanca (Grenache blanc)*
+- *Garronet*
+- *Geneva Red 7*
+- *Gewürztraminer*
+- *Gladwin 113*
+- *Glennel*
+- *Gold*
+- *Golden Isles*
+- *Golden Muscat*
+- *Graciano*
+- *Grand Noir*
+- *Green Hungarian*
+- *Grenache (Garnacha, Grenache noir)*
+- *Grenache blanc (Garnacha blanca)*
+- *Grenache noir (Garnacha, Grenache)*
+- *Grignolino*
+- *Grillo*
+- *Gros Verdot*
+- *Grüner Veltliner*
+- *Helena*
+- *Herbemont*
+- *Higgins*
+- *Horizon*
+- *Hunt*
+- *Iona*
+- *Interlaken*
+- *Isabella*
+- *Island Belle (Campbell Early)*
+- *Ives*
+- *James*
+- *Jewell*
+- *Joannes Seyve 12-428*
+- *Joannes Seyve 23-416*
+- *Kerner*
+- *Kay Gray*
+- *Kleinberger*
+- *La Crescent*
+- *LaCrosse*
+- *Lagrein*
+- *Lake Emerald*
+- *Lambrusco*
+- *Landal*
+- *Landot noir*
+- *Lenoir*
+- *Léon Millot*
+- *Lemberger (Blaufränkish, Limberger)*
+- *Limberger (Blaufränkisch, Lemberger)*
+- *Louise Swenson*
+- *Lucie Kuhlmann*
+- *Madeline Angevine*
+- *Magnolia*
+- *Magoon*
+- *Malbec*
+- *Malvasia bianca (Moscato greco)*
+- *Mammolo*
+- *Maréchal Foch*
+- *Marquette*
+- *Marsanne*
+- *Mataro (Monastrell, Mourvèdre)*
+- *Melody*
+- *Melon (Melon de Bourgogne)*
+- *Melon de Bourgogne (Melon)*
+- *Merlot*
+- *Meunier (Pinot Meunier)*
+- *Mish*
+- *Mission*
+- *Missouri Riesling*
+- *Monastrell (Mataro, Mourvèdre)*
+- *Mondeuse (Refosco)*
+- *Montefiore*
+- *Montepulciano*
+- *Moore Early*
+- *Morio-Muskat*
+- *Moscato greco (Malvasia bianca)*
+- *Mourvèdre (Mataro)*
+- *Mourvèdre (Mataro, Monastrell)*
+- *Müller-Thurgau*
+- *Münch*
+- *Muscadelle*
+- *Muscat blanc (Muscat Canelli)*
+- *Muscat Canelli (Muscat blanc)*
+- *Muscat du Moulin*
+- *Muscat Hamburg (Black Muscat)*
+- *Muscat of Alexandria*
+- *Muscat Ottonel*
+- *Naples*
+- *Nebbiolo*
+- *Négrette*
+- *Negrara*
+- *Negro Amaro*
+- *Nero d'Avola*
+- *New York Muscat*
+- *Niagara*
+- *Noah*
+- *Noble*
+- *Noiret*
+- *Norton (Cynthiana)*
+- *Ontario*
+- *Orange Muscat*
+- *Palomino*
+- *Pamlico*
+- *Pedro Ximenes*
+- *Peloursin*
+- *Petit Bouschet*
+- *Petit Manseng*
+- *Petit Verdot*
+- *Petite Sirah (Durif)*
+- *Peverella*
+- *Picpoul (Piquepoul blanc)*
+- *Pinotage*
+- *Pinot blanc*
+- *Pinot Grigio (Pinot gris)*
+- *Pinot gris (Pinot Grigio)*
+- *Pinot Meunier (Meunier)*
+- *Pinot noir*
+- *Piquepoul blanc (Picpoul)*
+- *Prairie Star*
+- *Precoce de Malingre*
+- *Pride*
+- *Primitivo*
+- *Princess*
+- *Rayon d'Or*
+- *Ravat 34*
+- *Ravat 51 (Vignoles)*
+- *Ravat noir*
+- *Redgate*
+- *Refosco (Mondeuse)*
+- *Regale*
+- *Reliance*
+- *Riesling (White Riesling)*
+- *Rkatsiteli (Rkatziteli)*
+- *Rkatziteli (Rkatsiteli)*
+- *Roanoke*
+- *Rondinella*
+- *Rosette*
+- *Roucaneuf*
+- *Rougeon*
+- *Roussanne*
+- *Royalty*
+- *Rubired*
+- *Ruby Cabernet*
+- *St. Croix*
+- *St. Laurent*
+- *St. Pepin*
+- *St. Vincent*
+- *Sabrevois*
+- *Sagrantino*
+- *Saint Macaire*
+- *Salem*
+- *Salvador*
+- *Sangiovese*
+- *Sauvignon blanc (Fumé blanc)*
+- *Sauvignon gris*
+- *Scarlet*
+- *Scheurebe*
+- *Sémillon*
+- *Sereksiya*
+- *Seyval* (*Seyval blanc*)
+- *Seyval blanc (Seyval)*
+- *Shiraz (Syrah)*
+- *Siegerrebe*
+- *Siegfried*
+- *Southland*
+- *Souzão*
+- *Steuben*
+- *Stover*
+- *Sugargate*
+- *Sultanina* (*Thomspon Seedless*)
+- *Summit*
+- *Suwannee*
+- *Sylvaner*
+- *Symphony*
+- *Syrah* (*Shiraz*)
+- *Swenson Red*
+- *Tannat*
+- *Tarheel*
+- *Taylor*
+- *Tempranillo* (*Valdepeñas*)
+- *Teroldego*
+- *Thomas*
+- *Thompson Seedless* (*Sultanina*)
+- *Tinta Madeira*
+- *Tinto cão*
+- *Tocai Friulano*
+- *Topsail*
+- *Touriga*
+- *Traminer*
+- *Traminette*
+- *Trebbiano (Ugni blanc)*
+- *Trousseau*
+- *Trousseau gris*
+- *Ugni blanc* (*Trebbiano*)
+- *Valdepeñas (Tempranillo)*
+- *Valdiguié*
+- *Valerien*
+- *Valiant*
+- *Valvin Muscat*
+- *Van Buren*
+- *Veeblanc*
+- *Veltliner*
+- *Ventura*
+- *Verdelet*
+- *Verdelho*
+- *Vergennes*
+- *Vermentino*
+- *Vidal blanc*
+- *Vignoles (Ravat 51)*
+- *Villard blanc*
+- *Villard noir*
+- *Vincent*
+- *Viognier*
+- *Vivant*
+- *Welsch Rizling*
+- *Watergate*
+- *Welder*
+- *White Riesling (Riesling)*
+- *Wine King*
+- *Yuga*
+- *Zinfandel*
+- *Zinthiana*
+- *Zweigelt*
+*[T.D. ATF-370, 61 FR 539, Jan. 8, 1996, as amended by T.D. ATF-417, 64 FR 49388, Sept. 13, 1999; T.D. ATF-433, 65 FR 78096, Dec. 14, 2000; T.D. ATF-466, 66 FR 49280, Sept. 27, 2001; T.D. ATF-475, 67 FR 11918, Mar. 18, 2002; T.D. ATF-481, 67 FR 56481, Sept. 4, 2002; T.D. TTB-95, 76 FR 66628, Oct. 25, 2011]*
+
+### § 4.92 Alternative names permitted for temporary use.
+
+The following alternative names shown in the left column may be used as the type designation for American wine in lieu of the name of the grape variety shown in the right column. Alternative names listed in the left column may only be used for wine bottled prior to the date indicated.
+
+(a) *Wines bottled prior to January 1, 1997.*
+
+**Alternative Name/Name**
+
+- *Baco 1—Baco noir*
+- *Baco 22A—Baco blanc*
+- *Bastardo—Trousseau*
+- *Black Spanish—Lenoir*
+- *Burdin 7705—Florental*
+- *Cayuga—Cayuga White*
+- *Chancellor noir—Chancellor*
+- *Chasselas—Chasselas doré*
+- *Chevrier—Sémillon*
+- *Chelois noir—Chelois*
+- *Couderc 71-20—Couderc noir*
+- *Couderc 299-35—Muscat du Moulin*
+- *Foch—Maréchal Foch*
+- *Franken Riesling—Sylvaner*
+- *Gutedel—Chasselas doré*
+- *Ives Seedling—Ives*
+- *Jacquez—Lenoir*
+- *Joannes Seyve 26-205—Chambourcin*
+- *Landot 244—Landal*
+- *Landot 4511—Landot noir*
+- *Millot—Leon Millot*
+- *Moore's Diamond—Diamond*
+- *Norton Seedling—Norton*
+- *Pfeffer Cabernet—Cabernet Pfeffer*
+- *Pineau de la Loire—Chenin blanc*
+- *Pinot Chardonnay—Chardonnay*
+- *Ravat 262—Ravat noir*
+- *Ruländer—Pinot gris*
+- *Seibel 128—Salvador*
+- *Seibel 1000—Rosette*
+- *Seibel 4986—Rayon d'Or*
+- *Seibel 5279—Aurore*
+- *Seibel 5898—Rougeon*
+- *Seibel 7053—Chancellor*
+- *Seibel 8357—Colobel*
+- *Seibel 9110—Verdelet*
+- *Seibel 9549—De Chaunac*
+- *Seibel 10878—Chelois*
+- *Seibel 13053—Cascade*
+- *Seibel 14596—Bellandais*
+- *Seyve-Villard 5-276—Seyval*
+- *Seyve-Villard 12-309—Roucaneuf*
+- *Seyve-Villard 12-375—Villard blanc*
+- *Seyve-Villard 18-283—Garronet*
+- *Seyve-Villard 18-315—Villard noir*
+- *Seyve-Villard 23-410—Valerien*
+- *Sweetwater—Chasselas doré*
+- *Verdelet blanc—Verdelet*
+- *Vidal 256—Vidal blanc*
+- *Virginia Seedling—Norton*
+- *Wälschriesling—Welsch Rizling*
+- *Welschriesling—Welsch Rizling*
+(b) *Wines bottled prior to January 1, 1999.*
+
+**Alternative Name/Name**
+
+- *Cabernet—Cabernet Sauvignon*
+- *Grey Riesling—Trousseau gris*
+- *Muscat Frontignan—Muscat blanc*
+- *Muscat Pantelleria—Muscat of Alexandria*
+- *Napa Gamay—Valdiquié*
+- *Pinot Saint George—Négrette*
+- *Sauvignon vert—Muscadelle*
+(c) *Wines bottled prior to January 1, 2006.*
+
+**Alternative Name/Name**
+
+- *Johannisberg Riesling—Riesling*
+(d) *Wines bottled prior to* October 29, 2012.
+
+**Alternative Name/Name**
+
+- *Agwam—Agawam*
+*[T.D. ATF-370, 61 FR 539, Jan. 8, 1996, as amended by T.D. ATF-417, 64 FR 49388, Sept. 13, 1999; T.D. TTB-95, 76 FR 66629, Oct. 27, 2011]*
+
+### § 4.93 Approval of grape variety names.
+
+(a) Any interested person may petition the Administrator for the approval of a grape variety name. The petition may be in the form of a letter and should provide evidence of the following—
+
+(1) Acceptance of the new grape variety,
+
+(2) The validity of the name for identifying the grape variety,
+
+(3) That the variety is used or will be used in winemaking, and
+
+(4) That the variety is grown and used in the United States.
+
+(b) For the approval of names of new grape varieties, documentation submitted with the petition to establish the items in paragraph (a) of this section may include—
+
+(1) reference to the publication of the name of the variety in a scientific or professional journal of horticulture or a published report by a professional, scientific or winegrowers' organization,
+
+(2) reference to a plant patent, if so patented, and
+
+(3) information pertaining to the commercial potential of the variety, such as the acreage planted and its location or market studies.
+
+(c) The Administrator will not approve a grape variety name if:
+
+(1) The name has previously been used for a different grape variety;
+
+(2) The name contains a term or name found to be misleading under § 4.39; or
+
+(3) The name of a new grape variety contains the term "Riesling."
+
+(d) For new grape varieties developed in the United States, the Administrator may determine if the use of names which contain words of geographical significance, place names, or foreign words are misleading under § 4.39. The Administrator will not approve the use of a grape variety name found to be misleading.
+
+(e) The Administrator shall publish the list of approved grape variety names at least annually in the Federal Register.
+
+(Approved by the Office of Management and Budget under Control Number 1512-0513)
 
