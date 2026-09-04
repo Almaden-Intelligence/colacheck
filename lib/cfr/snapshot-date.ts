@@ -22,4 +22,4 @@ export const CFR_SNAPSHOT_DATE = '2026-09-02'
  * The same date for display, e.g. on the homepage. Kept alongside the machine
  * form so the two cannot drift apart.
  */
-export const CFR_SNAPSHOT_DISPLAY = 'September 2026'
+export const CFR_SNAPSHOT_DISPLAY = 'September 2, 2026'
