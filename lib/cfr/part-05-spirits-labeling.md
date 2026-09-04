@@ -368,6 +368,8 @@ The words "colored and flavored with wood____ " (inserting "chips," "slabs," etc
 
 (b) *Statement or representation.* For purposes of the practices in this subpart, the term "statement or representation" includes any statement, design, device, or representation, and includes pictorial or graphic designs or representations as well as written ones. The term "statement or representation" includes explicit and implicit statements and representations.
 
+**Food Allergen Labeling**
+
 ### § 5.82 Voluntary disclosure of major food allergens.
 
 (a) *Definitions.* For purposes of this section, the following terms or phrases have the meanings indicated.
@@ -418,6 +420,8 @@ The words "colored and flavored with wood____ " (inserting "chips," "slabs," etc
 
 (v) The request must be supported by a signed statement by the interested person, or by an authorized officer or employee of that person, certifying that the information in question is a trade secret or other confidential commercial or financial information and that the information is not already in the public domain.
 
+**Production Claims**
+
 ### § 5.84 Use of the term "organic."
 
 Use of the term "organic" is permitted if any such use complies with United States Department of Agriculture (USDA) National Organic Program rules (7 CFR part 205), as interpreted by the USDA.
@@ -425,6 +429,8 @@ Use of the term "organic" is permitted if any such use complies with United Stat
 ### § 5.85 [Reserved]
 
 ### § 5.86 [Reserved]
+
+**Other Label Terms**
 
 ### § 5.87 "Barrel Proof" and similar terms.
 
