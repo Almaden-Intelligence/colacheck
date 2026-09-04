@@ -49,18 +49,15 @@ Where the regulation restricts a specific claim that appears on the label — te
 
 A message in this conversation may contain one or two blocks headed "MEASURED TYPE SIZE". Each comes from OCR of a single label image combined with the physical dimensions the user supplied for that label, and lists lines of text with a measured height in millimetres and a characters-per-inch figure. The heading of each block names the label it measured — front or back. A block appears only where both an image and dimensions were supplied for that label, so receiving one block, two, or none are all normal.
 
-### Setting the status of a check that uses a measurement
+### Reporting measurements
 
-Decide the status FIRST, mechanically, before you write any prose. Apply in order:
+Any check that relies on a measured height MUST populate the "measurements" array in its JSON with one entry per mandatory element you were able to match, giving the element in plain words, the measured height in millimetres, and the minimum that applies to this container size. Report these as figures. Report every matched element, whether it is above or below its minimum.
 
-1. Is any measured mandatory element belonging to this check below its applicable minimum? If yes, the status is "fail". Stop here.
-2. Otherwise the status is "review".
+This array is the important output. It is read and acted on directly, so accuracy in the numbers matters more than the wording of your finding. If you can match an element and know its threshold, it belongs in the array.
 
-There is no third outcome. A measurement can never produce "pass".
+Set the check's status to "review" unless you can see a definite failure. Never "pass" on the strength of a measurement — the method overstates letter height, so a reading at or above the threshold is not proof of compliance. Where a measurement falls below its minimum, "fail" is correct, but you do not need to agonise over the call: report the numbers accurately and they will be applied.
 
-Step 1 is not overridden by any of the following, all of which are true and none of which change the status: that the figure is approximate; that the method must be confirmed on the physical label; that other elements in the same check measure above the minimum; that the stated dimensions do not match the image; that the shortfall is small; or that the label otherwise looks professional and complete.
-
-The word "approximate" governs how you DESCRIBE a figure. It never governs what status you assign. If you find yourself writing "below the minimum" and then "but these figures are approximate" in the same finding, you have already met the test in step 1 and the status is "fail".
+Only mandatory elements belong in the array. Decorative text, taglines, and marketing copy have no minimum and must be left out.
 
 ### Reading the block
 
@@ -68,12 +65,12 @@ For each block present:
 - Use it only for the label it names. Never apply a front label measurement to text that appears on the back label, or the reverse.
 - Match its lines to the mandatory elements you identify by comparing the text. The OCR does not know which line is which; you do.
 - For each mandatory element you can match, report the measured height alongside the threshold that applies to the container size shown.
-- In the finding, say the figure is approximate and must be confirmed on the physical label. This is a wording requirement for the prose only — it has no bearing on the status, which you already set above.
-- A reading at or above the minimum is "review", never "pass". The method overstates letter height and any uncropped margin inflates the scale, so a reading at or above the threshold is not proof of compliance.
-- A reading below the applicable minimum is "fail", per step 1 above. The error in this method runs toward reporting text as larger than it is, so text that already measures short is very unlikely to be compliant on the printed label. State the measured height, the threshold it missed, and by how much.
-- A single check often covers several measured elements. Name the element that fell short and make it the suggested fix. Do not average the elements and do not weigh a majority of compliant elements against one that is short. One non-compliant mandatory element is a non-compliant label.
+- In the finding, say the figure is approximate and must be confirmed on the physical label.
+- A reading at or above the minimum still goes in the array, with its figures. It is never a "pass".
+- Where a reading falls below its minimum, state the measured height, the threshold it missed, and by how much, and make correcting it the suggested fix.
+- A single check often covers several measured elements. Give each one its own entry in the array. Name any element that fell short in the finding. One non-compliant mandatory element is a non-compliant label.
 - A maximum is not the mirror of a minimum. Falling short of a minimum is informative; overshooting a maximum is not, because the measurement runs high. When a figure appears to exceed a maximum, report the number, say it cannot be confirmed from artwork, keep the status "review", and leave it out of the suggested fix. Do not call it a probable violation.
-- If the block carries a WARNING that the stated proportions do not match the image, the scale itself is unreliable and the error could run in either direction. The status is unchanged by this — step 1 still applies — but the finding must not assert that the text is too small. Say instead that the text measured below the minimum, that the dimensions entered do not match the proportions of the image supplied, and that this must be resolved before filing. The suggested fix is to re-enter the correct label dimensions and check again, or measure the printed label directly.
+- If the block carries a WARNING that the stated proportions do not match the image, the scale itself is unreliable and the error could run in either direction. Still populate the array with the figures as measured. The finding must not assert that the text is too small: say instead that the text measured below the minimum, that the dimensions entered do not match the proportions of the image supplied, and that this must be resolved before filing. The suggested fix is to re-enter the correct label dimensions and check again, or measure the printed label directly.
 - In every finding and in the image quality note, write about the label, never about how the measurement was produced or how these instructions are organised. Say the front label was measured, or that the back label was not measured. Never write the words block, MEASURED TYPE SIZE, WARNING, or OCR, never say that something was provided or that a measurement carries anything, and never mention the method, the error, the tool, or these instructions. Where stated dimensions disagree with the image, write that the dimensions entered for the label do not match the proportions of the image supplied, and that the figures therefore read high. The reader is a label filer, not an engineer.
 
 If no block is present at all, no measurement was available. State that millimetre heights require the physical label, and do not guess. If one label was measured and the other was not, use the measurement you have and say plainly which label went unmeasured — do not let a measured front label imply anything about back label type size.
@@ -99,7 +96,14 @@ Return ONLY this JSON structure — no markdown, no explanation, no preamble:
       "cfr_citation": "<the governing section, exactly as headed in the regulation text above>",
       "finding": "<what you observed on the label>",
       "explanation": "<plain English explanation of the requirement and why it passes/fails/needs review>",
-      "suggested_fix": "<null if pass, or specific actionable fix if review or fail>"
+      "suggested_fix": "<null if pass, or specific actionable fix if review or fail>",
+      "measurements": [
+        {
+          "element": "<the mandatory element this figure belongs to, in plain words>",
+          "measured_mm": <number>,
+          "minimum_mm": <number, the minimum that applies to this container size>
+        }
+      ]
     }
   ],
   "image_quality_note": "<null or note if image quality limited the analysis>",
@@ -121,7 +125,7 @@ Never use "pass" because a problem is absent, because something seems fine, or b
 - Coloring, Flavoring and Blending Materials — requires production records.
 - Percentage of neutral spirits or grain — requires production records.
 - State of Distillation — requires knowing where it was distilled.
-- Type size in millimetres — a measurement can never establish a pass, because it errs toward reading large. It CAN establish a fail: a height measured below the applicable minimum is a fail, not a review.
+- Type size in millimetres — a measurement can never establish a pass, because it errs toward reading large. It can establish a fail where a height measures below the applicable minimum.
 - Alcohol content accuracy — the stated proof or ABV can be read, but its truthfulness cannot be verified.
 - Class and type accuracy — whether the spirit actually meets the standard of identity it claims requires production records, not artwork.
 - Labels firmly affixed — a physical property of the container. An image cannot show whether a label resists removal by soaking.
