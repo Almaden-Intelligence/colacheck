@@ -17,7 +17,7 @@ Text is **never** taken from PDFs, screenshots, or secondary sources.
 
 | File | Part | Scope | Snapshot |
 | --- | --- | --- | --- |
-| `part-04-wine-standards.md` | 27 CFR Part 4 | Subparts C, H, §§ 4.20–4.72 | 2026-09-02 |
+| `part-04-wine-standards.md` | 27 CFR Part 4 | Subparts C, H, J, §§ 4.20–4.93 | 2026-09-02 |
 | `part-04-wine-labeling.md` | 27 CFR Part 4 | Subpart D, §§ 4.30–4.39 | 2026-09-02 |
 | `part-05-spirits-labeling.md` | 27 CFR Part 5 | Subparts D–H, §§ 5.51–5.130 | 2026-09-02 |
 | `part-05-spirits-standards.md` | 27 CFR Part 5 | Subparts I, K, §§ 5.141–5.205 | 2026-09-02 |
@@ -58,7 +58,7 @@ cost to every check and dilutes the signal the engine needs.
 By subpart, what was left out:
 
 - Part 4: A (scope), B (definitions), E (customs withdrawal), F (label
-  approval), G (advertising), I, J (grape variety names), K (organic)
+  approval), G (advertising), I, K (organic)
 - Part 5: A (general), B (COLA), C (relabeling), J (formulas), L, M
   (penalties), N (advertising), O (paperwork)
 - Part 7: A (general), B (COLA), C (relabeling), M (penalties), N
@@ -72,10 +72,31 @@ citing § 4.72 for authorized container sizes from memory, because the section
 was not in scope. Standards of fill are part of the net contents check for all
 three categories, so Part 4 Subpart H now sits alongside Part 5 Subpart K.
 
-One exclusion is still worth revisiting: Part 4 Subpart J lists the approved
-American grape variety names that § 4.23(e) requires. It is not currently
-checked, so a varietal designation is verified as a share threshold but not
-against the list of permitted names.
+Part 4 Subpart J was added on 2026-09-03 so that a grape variety designation
+can be checked against the list of names TTB has actually approved, not only
+against its share threshold. § 4.91 carries 347 approved names and § 4.92 a
+further 61 permitted for temporary use. The list applies to American wine; an
+imported wine's variety names are governed by the law of its country of origin.
+
+## Converter defects found and fixed
+
+The conversion script has twice dropped content silently, both times because
+eCFR uses more than one XML structure for the same kind of material. Each was
+caught by comparing a generated file against the source, which is the only
+reliable check.
+
+- **2026-09-03, tables.** eCFR carries tables as both the legacy
+  `GPOTABLE/ROW/ENT` and plain HTML `TABLE/TR/TD` wrapped in `DIV`. The script
+  read only the first, silently losing nine tables — the spirits standards of
+  identity at §§ 5.142–5.150, the wine net contents table at § 4.37, and the
+  characters-per-inch limits at § 16.22.
+- **2026-09-03, flush paragraphs and headings.** List entries appear as `FP-1`
+  inside `EXTRACT`, and undesignated centre headings as `HD1`. Neither was
+  handled, which emptied the § 4.91 grape variety list of all 347 names and
+  dropped three headings from Part 5.
+
+After any converter change, regenerate every file and diff against the
+committed copies rather than assuming the change was local.
 
 If a check ever needs an excluded subpart, add that subpart here and record it
 in the table above rather than working from memory.
