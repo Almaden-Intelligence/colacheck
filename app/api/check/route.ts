@@ -6,6 +6,7 @@ import { BEER_SYSTEM_PROMPT } from '@/lib/beer-prompt'
 import type { CheckRequest, ComplianceReport } from '@/lib/types'
 import { measureLabel } from '@/lib/measure'
 import { getCfrCorpus } from '@/lib/cfr/load'
+import { enforceReportRules } from '@/lib/enforce'
 
 export const maxDuration = 120
 
@@ -94,7 +95,7 @@ export async function POST(request: NextRequest) {
     let raw = textContent.text.trim()
     raw = raw.replace(/^```json\s*/i,'').replace(/```\s*$/,'').trim()
 
-    const parsed = JSON.parse(raw)
+    const parsed = enforceReportRules(JSON.parse(raw))
     const report: ComplianceReport = { ...parsed, category, lang: 'en', analyzed_at: new Date().toISOString() }
 
     return NextResponse.json({ success: true, report })
