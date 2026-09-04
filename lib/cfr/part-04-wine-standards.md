@@ -2,7 +2,7 @@
 
 > Source: eCFR, https://www.ecfr.gov/api/versioner/v1/full/2026-09-02/title-27.xml?part=4
 > Snapshot date: 2026-09-02 (pinned; reproducible from the URL above)
-> Subparts included: C
+> Subparts included: C, H
 
 **Authority:** 27 U.S.C. 205, unless otherwise noted.
 
@@ -325,4 +325,104 @@ The following are type designations of varietal significance for American wine. 
 (3) The designation "Gamay Beaujolais" may not be used on labels of American wines bottled on or after April 9, 2007.
 
 *[T.D. ATF-370, 61 FR 539, Jan. 8, 1996, as amended by T.D. ATF-388, 62 FR 16490, Apr. 7, 1997; T.D. ATF-388a, 62 FR 33747, June 23, 1997; T.D. TTB-91, 76 FR 5476, Feb. 1, 2011]*
+
+## Subpart H—Standards of Fill for Wine
+
+### § 4.70 Application.
+
+(a) Except as provided in paragraph (b) of this section, no person engaged in business as a producer, rectifier, blender, importer, or wholesaler of wine, directly or indirectly or through an affiliate, shall sell or ship or deliver for sale or shipment, or otherwise introduce in interstate or foreign commerce, or receive therein, or remove from customs custody, any wine unless such wine is bottled or packed in the standard wine containers herein prescribed.
+
+(b) Sections 4.71 and 4.72 of this part do not apply to:
+
+(1) Sake;
+
+(2) Wine packed in containers of 18 liters or more;
+
+(3) Imported wine in the original containers in which entered customs custody if the wine was bottled or packed before January 1, 1979;
+
+(4) Imported wine bottled or packed before January 1, 1979, and certified as to such in a statement, available to the appropriate TTB officer upon request, signed by an official duly authorized by the appropriate foreign government; or
+
+(5) Wine domestically bottled or packed, either in or out of customs custody, before October 24, 1943, if the container, or the label on the container, bears a conspicuous statement of the net contents, and if the actual capacity of the container is not substantially less than the apparent capacity upon visual examination under ordinary conditions of purchase or use.
+
+(c) Section 4.72 of this part does not apply to wine domestically bottled or packed, either in or out of customs custody, before January 1, 1979, if the wine was bottled or packed according to the standards of fill (listed in ounces, quarts, and gallons) prescribed by regulation before that date.
+
+*[T.D. ATF-12, 39 FR 45222, Dec. 31, 1974, as amended by T.D. ATF-49, 43 FR 19848, May 9, 1978; T.D. ATF-76, 46 FR 1727, Jan. 7, 1981; T.D. TTB-91, 76 FR 5477, Feb. 1, 2011; T.D. TTB-145, 81 FR 94197, Dec. 22, 2016]*
+
+### § 4.71 Standard wine containers.
+
+(a) A standard wine container shall be made, formed and filled to meet the following specifications:
+
+(1) *Design.* It shall be so made and formed as not to mislead the purchaser. Wine containers shall be held (irrespective of the correctness of the net contents specified on the label) to be so made and formed as to mislead the purchaser if the actual capacity is substantially less than the apparent capacity upon visual examination under ordinary conditions of purchase or use; and
+
+(2) *Fill.* It shall be so filled as to contain the quantity of wine specified in one of the standards of fill prescribed in § 4.72; and
+
+(3) *Headspace.* It must be designed and filled so that the headspace, or empty space between the top of the wine and the top of the container, meets the following specifications:
+
+(i) *187 mL or more.* If the net contents stated on the label are 187 milliliters or more, the headspace must not exceed 6 percent of the container's total capacity after closure.
+
+(ii) *Less than 187 mL.* If the net contents stated on the label are less than 187 milliliters, except as described in (a)(3)(iii) of this section, the headspace must not exceed 10 percent of the container's total capacity after closure.
+
+(iii) *Exception.* Wine bottled in clear containers with the contents clearly visible, with a net content stated on the label of 100 milliliters or less, may have a headspace that does not exceed 30 percent of the container's total capacity after closure.
+
+*[T.D. ATF-12, 39 FR 45222, Dec. 31, 1974, as amended by T.D. TTB-91, 76 FR 5477, Feb. 1, 2011; T.D. TTB-165, 85 FR 85520, Dec. 29, 2020]*
+
+### § 4.72 Metric standards of fill.
+
+(a) *Authorized standards of fill.* The standards of fill for wine are the following:
+
+(1) 3 liters.
+
+(2) 2.25 liters.
+
+(3) 1.8 liters.
+
+(4) 1.5 liters.
+
+(5) 1 liter.
+
+(6) 750 milliliters.
+
+(7) 720 milliliters.
+
+(8) 700 milliliters.
+
+(9) 620 milliliters.
+
+(10) 600 milliliters.
+
+(11) 568 milliliters.
+
+(12) 550 milliliters.
+
+(13) 500 milliliters.
+
+(14) 473 milliliters.
+
+(15) 375 milliliters.
+
+(16) 360 milliliters.
+
+(17) 355 milliliters.
+
+(18) 330 milliliters.
+
+(19) 300 milliliters.
+
+(20) 250 milliliters.
+
+(21) 200 milliliters.
+
+(22) 187 milliliters.
+
+(23) 180 milliliters.
+
+(24) 100 milliliters.
+
+(25) 50 milliliters.
+
+(b) *Sizes larger than 3 liters.* Wine may be bottled or packed in containers of 4 liters or larger if the containers are filled and labeled in quantities of even liters (4 liters, 5 liters, 6 liters, etc.).
+
+(c) *Tolerances.* The tolerances in fill are the same as are allowed by § 4.37 in respect to statement of net contents on labels.
+
+*[T.D. ATF-12, 39 FR 45223, Dec. 31, 1974, as amended by T.D. ATF-49, 43 FR 19848, May 9, 1978; T.D. ATF-76, 46 FR 1727, Jan. 7, 1981; T.D. ATF-303, 55 FR 42713, Oct. 23, 1990. Redesignated by T.D. ATF-953, 68 FR 39455, July 2, 2003; T.D. TTB-165, 85 FR 85520, Dec. 29, 2020; T.D. TTB-200, 90 FR 1875, Jan. 20, 2025]*
 
