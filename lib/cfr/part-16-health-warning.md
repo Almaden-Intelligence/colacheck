@@ -72,6 +72,8 @@ GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink
 
 (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.
 
+(Authority: Sec. 8001, Pub. L. 100-690, 102 Stat. 4181, 27 U.S.C. 215)
+
 ### § 16.22 General requirements.
 
 (a) *Legibility.* (1) All labels shall be so designed that the statement required by § 16.21 is readily legible under ordinary conditions, and such statement shall be on a contrasting background.
