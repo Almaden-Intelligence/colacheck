@@ -189,7 +189,7 @@ export default function ReportPage() {
             <div className="font-display text-[22px] font-semibold leading-none tracking-[-.03em]">
               COLA<span className="text-brand">Check</span>
             </div>
-            <div className="mt-1 font-mono text-[11px] text-ink-soft">Built by Almaden Studio</div>
+            <div className="mt-1 font-mono text-[11px] text-ink-soft">By Almaden Studio</div>
           </div>
         </div>
         {/* verdict banner */}
@@ -417,7 +417,7 @@ export default function ReportPage() {
             <span className="font-display text-[24px] font-semibold tracking-[-.03em]">
               COLA<span className="text-brand">Check</span>
             </span>
-            <span className="font-mono text-[13px] text-ink-soft">Built by Almaden Studio</span>
+            <span className="font-mono text-[13px] text-ink-soft">Built by Almaden Studio in California</span>
             <span className="font-mono text-[11px] text-ink-soft">© {new Date().getFullYear()} Almaden Studio. All rights reserved.</span>
           </div>
           <div className="flex flex-col gap-1.5 sm:items-end">
