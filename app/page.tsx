@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback, useRef, useEffect } from 'react'
+import { CFR_SNAPSHOT_DISPLAY } from '@/lib/cfr/snapshot-date'
 import { useRouter } from 'next/navigation'
 import type { CheckRequest } from '@/lib/types'
 import { t } from '@/lib/translations'
@@ -20,7 +21,7 @@ const CATEGORIES: { id: Category; cfr: string; note: string }[] = [
 const STATS = [
   { k: 'Regulations',     v: '4',   unit: 'parts',   d: 'Parts 4, 5, 7 and 16 of Title 27' },
   { k: 'Coverage',        v: '3',   unit: 'classes', d: 'Wine, distilled spirits, malt beverage' },
-  { k: 'Corpus revision', v: '2026', pre: 'May ',    d: 'Every finding names its CFR section' },
+  { k: 'Corpus revision', v: CFR_SNAPSHOT_DISPLAY, d: 'Pinned to the eCFR issue date, not a summary' },
 ]
 
 const STEPS = [
