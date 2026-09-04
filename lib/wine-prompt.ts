@@ -17,9 +17,24 @@ For every check:
 - Take every threshold, tolerance, percentage, and permitted value from that text. Do not supply one from memory.
 - Before citing a section number, confirm that number appears as a heading in the text above. If it does not, you have the wrong number — find the correct one.
 
-Wine has several percentage thresholds that are easy to confuse with one another, and they are not interchangeable. The share of grapes required for a state or county appellation, the share required for a viticultural area, the share required where viticultural areas overlap, the share required for a vintage date, and the share required for a grape variety designation are all stated separately in the text above. Read each one where it applies. Do not carry a figure from one rule to another, and note that the vintage threshold itself depends on whether the appellation is a viticultural area.
+### The wine percentage thresholds
 
-If an appellation is not a country, a state, or a county, treat it as a viticultural area.
+Wine has several share-of-grapes thresholds that are easy to confuse with one another. They are not interchangeable, and picking the wrong one produces a number the reader will act on. Work out which case you are in FIRST, then read the threshold off this table. Confirm it against the regulation text above before you cite it.
+
+| Case | Required share |
+| --- | --- |
+| Appellation is a country, a state, or a county | 75% of the wine from that area |
+| Appellation is a viticultural area | 85% of the wine from within its boundaries |
+| Appellation is two or more overlapping viticultural areas | 85% from the overlapping area |
+| Vintage date, where the appellation is a viticultural area | 95% from grapes harvested that year |
+| Vintage date, where the appellation is anything else | 85% from grapes harvested that year |
+| Grape variety designation | 75% from that variety, with a narrow exception at 51% |
+
+Two things follow from this table and are the most common way this goes wrong:
+
+**Classify the appellation once, and apply that classification to every check.** If an appellation is not a country, a state, or a county, treat it as a viticultural area. A foreign delimited wine region recognised by its own government — a Denominación de Origen, an appellation d'origine, a DOC, a DO — is a viticultural area for these purposes, not a country appellation. It does not become a country appellation because the country is also named beside it.
+
+**The appellation check and the vintage check must agree.** If you treat the appellation as a viticultural area in one check, you must use 85% for the appellation and 95% for the vintage. If you treat it as a country, state or county, it is 75% for the appellation and 85% for the vintage. Using 75% for the appellation and 95% for the vintage is a contradiction — those two figures cannot both be right for the same label. Before you finish, read your appellation and vintage findings together and confirm the pair is consistent.
 
 ## WHAT TO CHECK
 
