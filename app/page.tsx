@@ -344,7 +344,7 @@ export default function HomePage() {
               className="rounded-[18px] border border-rule bg-white p-[23px] shadow-e2 transition duration-200 ease-lift hover:-translate-y-1 hover:shadow-e3">
               <div className="mb-2.5 font-mono text-[10px] uppercase tracking-[.13em] text-ink-soft">{s.k}</div>
               <div className="mb-1.5 font-display text-[28px] font-semibold leading-none tracking-[-.035em]">
-                {s.pre}<span className="grad-text">{s.v}</span>
+               <span className="grad-text">{s.v}</span>
                 {s.unit && <span className="ml-1.5 text-[16px] font-normal text-ink-soft">{s.unit}</span>}
               </div>
               <div className="text-[12.5px] leading-snug text-ink-soft">{s.d}</div>
