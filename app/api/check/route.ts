@@ -7,6 +7,7 @@ import type { CheckRequest, ComplianceReport } from '@/lib/types'
 import { measureLabel } from '@/lib/measure'
 import { getCfrCorpus } from '@/lib/cfr/load'
 import { enforceReportRules } from '@/lib/enforce'
+import { CFR_SNAPSHOT_DATE } from '@/lib/cfr/snapshot-date'
 
 export const maxDuration = 120
 
@@ -28,7 +29,7 @@ export async function POST(request: NextRequest) {
 
         const systemPrompt = [
       'The text below is the verbatim federal regulation you must apply. It was',
-      'retrieved from the eCFR and is pinned to issue date 2026-09-02. It is the',
+      `retrieved from the eCFR and is pinned to issue date ${CFR_SNAPSHOT_DATE}. It is the`,
       'authority for this analysis.',
       '',
       'Cite section numbers exactly as they appear in this text. Do not cite a',
