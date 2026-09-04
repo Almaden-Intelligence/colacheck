@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import { CFR_SNAPSHOT_DATE } from './snapshot-date'
 
 export type CfrCategory = 'wine' | 'spirits' | 'beer'
 
@@ -30,6 +31,24 @@ function readCfrFile(filename: string): string {
   if (text.length < 5000) {
     throw new Error(`CFR corpus file looks truncated: ${filename} is only ${text.length} bytes.`)
   }
+
+  // Every generated file carries "> Snapshot date: YYYY-MM-DD" in its header.
+  // If it disagrees with CFR_SNAPSHOT_DATE, the corpus and the date the app
+  // reports have drifted — most likely a re-pull where the constant was not
+  // updated. Fail loudly: a stale date shown confidently is worse than a check
+  // that refuses to run.
+  const stamped = text.match(/^> Snapshot date: (\d{4}-\d{2}-\d{2})/m)?.[1]
+  if (!stamped) {
+    throw new Error(`CFR corpus file has no snapshot date in its header: ${filename}.`)
+  }
+  if (stamped !== CFR_SNAPSHOT_DATE) {
+    throw new Error(
+      `CFR corpus date mismatch: ${filename} is pinned to ${stamped}, but ` +
+      `CFR_SNAPSHOT_DATE in lib/cfr/snapshot-date.ts says ${CFR_SNAPSHOT_DATE}. ` +
+      `Update the constant to match the corpus, or re-pull the corpus.`
+    )
+  }
+
   return text
 }
 
