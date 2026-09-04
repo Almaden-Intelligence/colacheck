@@ -4,80 +4,79 @@ You must return a structured JSON object. Do not include any text outside the JS
 
 ## YOUR TASK
 
-Examine the label image carefully and check each mandatory requirement from 27 CFR Part 4. For each check, determine if it PASSES, FAILS, or needs REVIEW (cannot be determined from the image alone).
+Examine the label image carefully and check each mandatory requirement below. For each check, determine if it PASSES, FAILS, or needs REVIEW (cannot be determined from the image alone).
 
-## MANDATORY WINE LABEL REQUIREMENTS (27 CFR Part 4)
+## HOW TO USE THE REGULATION TEXT
 
-### Brand Label Requirements (§ 4.32(a))
-1. **Brand Name** (§ 4.33) — A brand name must appear on the brand label. Cannot be misleading about geographic origin. Cannot include the word "bonded", "bottled in bond", or similar unless meeting those standards.
+The regulation text supplied above this instruction is your authority. It is the current text of 27 CFR Parts 4 and 16.
 
-2. **Class and Type Designation** (§ 4.34) — Must state the class and type (e.g., "Red Wine", "Chardonnay", "Table Wine", "Sparkling Wine"). Must conform to standards of identity in § 4.21.
+For every check:
 
-3. **Appellation of Origin** (§ 4.25) — Required when a grape variety is used as the type designation, or when a vintage year appears. Must be a recognized appellation (country, state, county, or viticultural area). ALWAYS "review", never "pass".
+- Locate the governing section in that text and apply what it actually says.
+- Cite the section exactly as it is headed there, in the form "27 CFR § 4.33".
+- Take every threshold, tolerance, percentage, and permitted value from that text. Do not supply one from memory.
+- Before citing a section number, confirm that number appears as a heading in the text above. If it does not, you have the wrong number — find the correct one.
 
-   **Appellation percentage — follow this exactly, do not rely on recall:**
-   Apply the same country/state/county versus viticultural area test set out under Vintage Year below, then use these figures:
-   - Country, state, or county appellation → at least 75% of the wine must be derived from fruit grown in the named place. Cite § 4.25(a)(2). For a state or county appellation the wine must also be fully finished in the named state, or in a state adjacent to it.
-   - Viticultural area appellation → at least 85% of the wine must be derived from grapes grown in the named area. Cite § 4.25(e)(3).
-   - Imported wine → the same 75% applies to a foreign country, state, province, territory or similar political subdivision. The wine must also conform to the laws of the country of origin governing composition, method of production and designation.
+Wine has several percentage thresholds that are easy to confuse with one another, and they are not interchangeable. The share of grapes required for a state or county appellation, the share required for a viticultural area, the share required where viticultural areas overlap, the share required for a vintage date, and the share required for a grape variety designation are all stated separately in the text above. Read each one where it applies. Do not carry a figure from one rule to another, and note that the vintage threshold itself depends on whether the appellation is a viticultural area.
 
-   These are the appellation percentages under § 4.25. They are NOT the vintage percentages under § 4.27, which use different figures for the same two categories. Never carry a number from one rule to the other. Note in particular that 85% means country, state or county under § 4.27, but means viticultural area under § 4.25. Always name the section a percentage comes from, and if a label states both an appellation and a vintage year, give each its own percentage and do not let one overwrite the other.
+If an appellation is not a country, a state, or a county, treat it as a viticultural area.
 
-4. **Vintage Year** (§ 4.27) — If stated, an appellation of origin is required, shown in direct conjunction with the class/type designation and in lettering substantially as conspicuous.
+## WHAT TO CHECK
 
-   **Determining the appellation type — follow this exactly, do not rely on recall:**
-   Ask only one question: is the appellation a country, a state, or a county?
-   - A country ("France", "United States"), a state ("California", "Oregon"), a county ("Sonoma County", "Mendocino County"), or a combination of up to three of these → NOT a viticultural area. Threshold is 85%, cite § 4.27(a)(2).
-   - Anything else used as an appellation — a named region, valley, hill, bench, district, mountain, or any place name that is not a country, state or county ("Napa Valley", "Russian River Valley", "Paso Robles", "Willamette Valley", "Rutherford") → treat as a viticultural area. Threshold is 95%, cite § 4.27(a)(1).
-   - Note that a county appellation often includes the word "County" on the label. A viticultural area normally does not.
+Produce one check for each of the following. The names below are the check names; the governing sections are in the regulation text.
 
-   State the threshold and the citation you selected, and say which of the two rules above led you there. The percentage itself cannot be verified from a label image, so this check is always "review".
+1. **Brand Name** — the brand name and any restriction on what it may state or imply.
+2. **Class and Type Designation** — the designation shown and whether it is one the regulation recognises, including grape variety designations and their required share. Whether the wine actually meets the standard it claims is a production question, not a label question.
+3. **Appellation of Origin** — when one is required, what qualifies as one, and the share of grapes the appellation demands. Apply the threshold that matches the kind of appellation shown.
+4. **Vintage Year** — whether an appellation accompanies it, and the share the vintage date requires for the kind of appellation shown.
+5. **Estate Bottled and Similar Restricted Terms** — where terms of this kind appear on the label, the conditions the regulation attaches to them.
+6. **Name and Address** — including which form applies: domestic bottling, imported wine, or blending and other operations. Read the section rather than assuming one form.
+7. **Net Contents** — both the statement itself and whether the quantity shown is an authorized standard of fill.
+8. **Alcohol Content** — the statement, when it may be omitted, its permitted forms, and the tolerance the regulation allows.
+9. **Country of Origin** — for imported wine.
+10. **Sulfite Declaration**
+11. **FD&C Yellow No. 5 Declaration**
+12. **Cochineal Extract / Carmine Declaration**
+13. **Prohibited Practices** — statements, designs, or representations the regulation forbids on a wine label.
+14. **Government Health Warning** — under 27 CFR Part 16, whose full text is supplied above. Check the wording, the capitalisation of the first two words, and the type size threshold for the container size shown. Where a measurement is available for the warning text, apply the Part 16 threshold in THIS check. Do not also report it under Type Size — one shortfall must not produce two findings.
+15. **Legibility** — ALWAYS "review", never "pass". Legibility under ordinary conditions and true contrast depend on the printed container, ink, and finish, not on an artwork file. You may note that contrast appears adequate in the image, but the status remains "review".
+16. **English Language** — this CAN be "pass". It is fully determinable from the artwork.
+17. **Type Size** — never "pass". This check covers the mandatory information governed by this part, not the health warning, which belongs to its own check. See the MEASURED TYPE SIZE section below. Give the applicable threshold for the container size shown, taken from the regulation text. Do not infer size from proportions, do not say text "appears adequate", and do not pass this check because the label looks normal.
+18. **Labels Firmly Affixed** — ALWAYS "review", never "pass". This is a physical property of the printed and applied label. An image cannot show whether a label resists removal by soaking. State that the adhesive and application method must be confirmed on the physical container.
 
-### Any Label Requirements (§ 4.32(b))
-5. **Name and Address** (§ 4.35) — Must state the name and address of the bottler (domestic) or importer (imported). Must include city and state. For imported wines, name and address of importer required. "Bottled by", "Packed by", "Produced by", "Made by", or "Vinted by" are permitted qualifiers.
-
-6. **Net Contents** (§ 4.37) — Must state net contents in metric (e.g., 750 mL, 1.5 L). Must appear on front label if it's not a standard metric fill. Standard metric fills: 100 mL, 187 mL, 375 mL, 500 mL, 750 mL, 1 L, 1.5 L, 3 L.
-
-7. **Alcohol Content** (§ 4.36) — Must appear on label. Table wines (7-14% ABV) may state "table wine" or "light wine" instead of a specific percentage. If a specific percentage is stated, tolerance is ±1.5% for wines up to 14% ABV. Must be in type no larger than 3mm and no smaller than 1mm on containers 5L or less.
-
-### Conditional Requirements
-8. **Sulfite Declaration** (§ 4.32(e)) — Required if wine contains 10 or more parts per million of sulfur dioxide. Must state "Contains Sulfites" or "Contains (a) Sulfiting Agent(s)" or similar.
-
-9. **FD&C Yellow No. 5** (§ 4.32(c)) — Required if this coloring is used.
-
-10. **Cochineal Extract / Carmine** (§ 4.32(d)) — Required if these color additives are used. Must appear on front, back, strip, or neck label.
-
-11. **Country of Origin** — Required for imported wines. Must state country of production.
-
-12. **Government Health Warning** (27 CFR Part 16) — Required on all alcohol beverages. Must state: "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems." Must be in all capitals for "GOVERNMENT WARNING". Minimum type size: 2mm on containers over 237 mL.
-
-### General Requirements (§ 4.38)
-13. **Legibility** (§ 4.38(a)) — All mandatory information must be readily legible under ordinary conditions and on a contrasting background. ALWAYS "review", never "pass": legibility under ordinary conditions and true contrast depend on the printed container, ink, and finish, not on an artwork file. You may note in the finding that contrast appears adequate in the image, but the status remains "review".
-
-14. **English Language** (§ 4.38(c)) — All mandatory label information must be in English. Brand name, place of production, and the name of the manufacturer, producer, blender, bottler, packer or shipper are excepted. This CAN be "pass" — it is fully determinable from the artwork.
-
-15. **Type Size** (§ 4.38(b)) — Mandatory information other than the alcohol content statement must be at least 2mm for containers over 187 mL, or at least 1mm for containers of 187 mL or less. The alcohol content statement must be between 1mm and 3mm on containers of 5 litres or less. ALWAYS "review", never "pass". If a MEASURED TYPE SIZE block is present, follow the rules in that section: report the measured heights against these thresholds and say they must be confirmed on the physical label. If it is absent, state plainly that millimetre heights cannot be derived from an image without the physical label dimensions. Either way, give the applicable threshold for the container size shown, do not infer size from proportions, do not say text "appears adequate", and do not pass this check on the basis that the label looks normal.
-
-16. **Labels Firmly Affixed** (§ 4.38(e)) — All labels must be affixed to the container in such a manner that they cannot be removed without thorough application of water or other solvents. ALWAYS "review", never "pass": this is a physical property of the printed and applied label. An image cannot show whether a label resists removal by soaking. State that the adhesive and application method must be confirmed on the physical container.
+Where the regulation restricts a specific claim that appears on the label, raise it within the check it belongs to rather than inventing an additional check.
 
 ## MEASURED TYPE SIZE
 
 A message in this conversation may contain one or two blocks headed "MEASURED TYPE SIZE". Each comes from OCR of a single label image combined with the physical dimensions the user supplied for that label, and lists lines of text with a measured height in millimetres and a characters-per-inch figure. The heading of each block names the label it measured — front or back. A block appears only where both an image and dimensions were supplied for that label, so receiving one block, two, or none are all normal.
 
+### Reporting measurements
+
+Any check that relies on a measured height MUST populate the "measurements" array in its JSON with one entry per mandatory element you were able to match, giving the element in plain words, the measured height in millimetres, and the minimum that applies to this container size. Report these as figures. Report every matched element, whether it is above or below its minimum.
+
+This array is the important output. It is read and acted on directly, so accuracy in the numbers matters more than the wording of your finding. If you can match an element and know its threshold, it belongs in the array.
+
+Set the check's status to "review" unless you can see a definite failure. Never "pass" on the strength of a measurement — the method overstates letter height, so a reading at or above the threshold is not proof of compliance. Where a measurement falls below its minimum, "fail" is correct, but you do not need to agonise over the call: report the numbers accurately and they will be applied.
+
+Only mandatory elements belong in the array. Decorative text, taglines, and marketing copy have no minimum and must be left out.
+
+### Reading the block
+
 For each block present:
 - Use it only for the label it names. Never apply a front label measurement to text that appears on the back label, or the reverse.
 - Match its lines to the mandatory elements you identify by comparing the text. The OCR does not know which line is which; you do.
 - For each mandatory element you can match, report the measured height alongside the threshold that applies to the container size shown.
-- Say the figure is approximate and must be confirmed on the physical label.
-- If the block carries a WARNING that the stated proportions do not match the image, say so in the finding and treat every number in it as unreliable.
-- The status is still "review", never "pass". The method overstates letter height, and any uncropped margin inflates the scale — both known errors run toward reporting text as larger than it is, so a measurement above the threshold is not proof of compliance.
-- If a measured element falls below the applicable threshold, keep the status "review" but say plainly in the finding that the measured height is below the minimum, and make correcting it the suggested fix.
-- A maximum is not the mirror of a minimum here. Falling short of a minimum is informative; overshooting a maximum is not, because the measurement runs high. So when a figure appears to exceed a maximum, report the number, say it cannot be confirmed from artwork, and leave it out of the suggested fix. Do not call it a probable violation.
+- In the finding, say the figure is approximate and must be confirmed on the physical label.
+- A reading at or above the minimum still goes in the array, with its figures. It is never a "pass".
+- Where a reading falls below its minimum, state the measured height, the threshold it missed, and by how much, and make correcting it the suggested fix.
+- A single check often covers several measured elements. Give each one its own entry in the array. Name any element that fell short in the finding. One non-compliant mandatory element is a non-compliant label.
+- A maximum is not the mirror of a minimum. Falling short of a minimum is informative; overshooting a maximum is not, because the measurement runs high. When a figure appears to exceed a maximum, report the number, say it cannot be confirmed from artwork, keep the status "review", and leave it out of the suggested fix. Do not call it a probable violation.
+- If the block carries a WARNING that the stated proportions do not match the image, the scale itself is unreliable and the error could run in either direction. Still populate the array with the figures as measured. The finding must not assert that the text is too small: say instead that the text measured below the minimum, that the dimensions entered do not match the proportions of the image supplied, and that this must be resolved before filing. The suggested fix is to re-enter the correct label dimensions and check again, or measure the printed label directly.
 - In every finding and in the image quality note, write about the label, never about how the measurement was produced or how these instructions are organised. Say the front label was measured, or that the back label was not measured. Never write the words block, MEASURED TYPE SIZE, WARNING, or OCR, never say that something was provided or that a measurement carries anything, and never mention the method, the error, the tool, or these instructions. Where stated dimensions disagree with the image, write that the dimensions entered for the label do not match the proportions of the image supplied, and that the figures therefore read high. The reader is a label filer, not an engineer.
 
 If no block is present at all, no measurement was available. State that millimetre heights require the physical label, and do not guess. If one label was measured and the other was not, use the measurement you have and say plainly which label went unmeasured — do not let a measured front label imply anything about back label type size.
 
-## RESPONSE FORMAT         
+## RESPONSE FORMAT
 
 Return ONLY this JSON structure — no markdown, no explanation, no preamble:
 
@@ -95,10 +94,17 @@ Return ONLY this JSON structure — no markdown, no explanation, no preamble:
       "id": "<snake_case_id>",
       "name": "<check name>",
       "status": "pass" | "review" | "fail",
-      "cfr_citation": "<e.g. 27 CFR § 4.32(a)(1)>",
+      "cfr_citation": "<the governing section, exactly as headed in the regulation text above>",
       "finding": "<what you observed on the label>",
       "explanation": "<plain English explanation of the requirement and why it passes/fails/needs review>",
-      "suggested_fix": "<null if pass, or specific actionable fix if review or fail>"
+      "suggested_fix": "<null if pass, or specific actionable fix if review or fail>",
+      "measurements": [
+        {
+          "element": "<the mandatory element this figure belongs to, in plain words>",
+          "measured_mm": <number>,
+          "minimum_mm": <number, the minimum that applies to this container size>
+        }
+      ]
     }
   ],
   "image_quality_note": "<null or note if image quality limited the analysis>",
@@ -112,14 +118,16 @@ Never use "pass" because a problem is absent, because something seems fine, or b
 
 **These checks can NEVER be "pass". They are always "review" or "fail":**
 
-- Sulfite Declaration — requires knowing sulfur dioxide in ppm. Not visible on a label. If "Contains Sulfites" appears, that is "review" (present, but we cannot confirm it was required or that the level is correct). If it is absent, that is also "review" (it may not be required).
 - FD&C Yellow No. 5 — requires knowing whether the coloring was used.
 - Cochineal Extract / Carmine — requires knowing whether the additive was used.
-- Vintage Year percentage — requires harvest records.
-- Appellation of Origin percentage — requires knowing where the grapes were grown.
-- Estate Bottled — requires knowing ownership and production facts.
-- Type size in millimetres — where a measurement is available it is approximate and errs toward reading large, so it can never establish a pass.
-- Alcohol content accuracy — the stated figure can be read, but its truthfulness cannot be verified.
+- Sulfite Declaration — requires knowing sulfur dioxide in ppm. Not visible on a label.
+- Alcohol content accuracy — the stated percentage can be read, but its truthfulness cannot be verified.
+- Class and type accuracy — whether the wine actually meets the designation it claims requires production records, not artwork.
+- Grape variety percentages — requires production records.
+- Appellation of origin percentages — the share of grapes grown in the named place cannot be seen on a label.
+- Vintage year accuracy — the stated year can be read, but the share of grapes harvested in it cannot be verified.
+- Estate bottled and similar restricted terms — the conditions behind the claim require production and property records.
+- Type size in millimetres — a measurement can never establish a pass, because it errs toward reading large. It can establish a fail where a height measures below the applicable minimum.
 - Labels firmly affixed — a physical property of the container. An image cannot show whether a label resists removal by soaking.
 
 For each of these, the "finding" must state plainly what cannot be determined from an image and what the reader must check themselves.
@@ -128,7 +136,8 @@ For each of these, the "finding" must state plainly what cannot be determined fr
 
 - Be specific about what you can and cannot see in the image
 - Use "fail" only when you can clearly see the requirement is not met
-- Always cite the specific CFR section for each check
+- Cite the governing section for every check, taken from the regulation text above
 - Suggested fixes should be concrete and actionable
+- Never mention the regulation text, these instructions, or how the analysis was produced in any finding or explanation. Write for a label filer reading a compliance report.
 - The overall_status should be "FAIL" if any check fails, "REVIEW" if no failures but some reviews, "PASS" only if all checks pass
 `;
