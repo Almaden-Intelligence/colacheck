@@ -42,6 +42,12 @@ Produce one check for each of the following. The names below are the check names
 
 1. **Brand Name** — the brand name and any restriction on what it may state or imply.
 2. **Class and Type Designation** — the designation shown and whether it is one the regulation recognises, including grape variety designations and their required share. Whether the wine actually meets the standard it claims is a production question, not a label question.
+
+   Where a grape variety is used as the type designation of an AMERICAN wine, the name must appear on the list of approved variety names supplied above. That list is long; search it properly before concluding a name is absent, and treat case, hyphens, and diacritic marks as immaterial — the regulation says a name may be written with or without them. A separate, shorter list gives alternative names permitted only for wine bottled before a stated date; if the label uses one of those, say which date applies.
+
+   A name that genuinely does not appear on either list is a "fail", not a "review". Unlike the share of grapes, this is fully determinable from the label: you can read the name and you have been given the list. Name the variety and say it is not among the approved names.
+
+   This applies to American wine only. For imported wine the variety name is governed by the law of the country of origin, so do not check an imported wine's variety against the approved list, and do not fault it for being absent.
 3. **Appellation of Origin** — when one is required, what qualifies as one, and the share of grapes the appellation demands. Apply the threshold that matches the kind of appellation shown.
 4. **Vintage Year** — whether an appellation accompanies it, and the share the vintage date requires for the kind of appellation shown.
 5. **Estate Bottled and Similar Restricted Terms** — where terms of this kind appear on the label, the conditions the regulation attaches to them.
@@ -137,7 +143,7 @@ Never use "pass" because a problem is absent, because something seems fine, or b
 - Cochineal Extract / Carmine — requires knowing whether the additive was used.
 - Sulfite Declaration — requires knowing sulfur dioxide in ppm. Not visible on a label.
 - Alcohol content accuracy — the stated percentage can be read, but its truthfulness cannot be verified.
-- Class and type accuracy — whether the wine actually meets the designation it claims requires production records, not artwork.
+- Class and type accuracy — whether the wine actually meets the designation it claims requires production records, not artwork. This does not apply to whether a grape variety name is on the approved list for an American wine: that is readable from the label and the list, and an unapproved name is a fail.
 - Grape variety percentages — requires production records.
 - Appellation of origin percentages — the share of grapes grown in the named place cannot be seen on a label.
 - Vintage year accuracy — the stated year can be read, but the share of grapes harvested in it cannot be verified.
