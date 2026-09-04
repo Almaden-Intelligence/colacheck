@@ -21,7 +21,7 @@ const CATEGORIES: { id: Category; cfr: string; note: string }[] = [
 const STATS = [
   { k: 'Regulations',     v: '4',   unit: 'parts',   d: 'Parts 4, 5, 7 and 16 of Title 27' },
   { k: 'Coverage',        v: '3',   unit: 'classes', d: 'Wine, distilled spirits, malt beverage' },
-  { k: 'Corpus revision', v: CFR_SNAPSHOT_DISPLAY, d: 'Pinned to the eCFR issue date, not a summary' },
+  { k: 'Corpus revision', v: CFR_SNAPSHOT_DISPLAY, d: d: 'The eCFR issue date your label is checked against' },
 ]
 
 const STEPS = [
