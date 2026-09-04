@@ -48,7 +48,7 @@ const CHECK_TONE = {
   fail: { label: 'Fail', text: 'text-fail', bg: 'bg-fail-bg', border: 'border-fail/20', dot: 'bg-fail' },
 }
 
-const VISITOR_TYPES = ['Importer', 'Domestic producer', 'Label designer', 'Consultant', 'Other']
+const VISITOR_TYPES = ['Importer', 'US producer', 'Foreign producer', 'Label designer', 'Consultant', 'Other']
 
 export default function ReportPage() {
   const router = useRouter()
@@ -121,6 +121,7 @@ export default function ReportPage() {
   async function handleUnlock() {
     setFormError('')
     if (!validEmail(email)) { setFormError('Enter a valid email address.'); return }
+    if (!visitorType) { setFormError('Let us know which best describes you.'); return }
     setSubmitting(true)
     try {
       const [frontThumb, backThumb] = await Promise.all([
