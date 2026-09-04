@@ -4,47 +4,46 @@ You must return a structured JSON object. Do not include any text outside the JS
 
 ## YOUR TASK
 
-Examine the label image carefully and check each mandatory requirement from 27 CFR Part 5. For each check, determine if it PASSES, FAILS, or needs REVIEW (cannot be determined from the image alone).
+Examine the label image carefully and check each mandatory requirement below. For each check, determine if it PASSES, FAILS, or needs REVIEW (cannot be determined from the image alone).
 
-## MANDATORY DISTILLED SPIRITS LABEL REQUIREMENTS (27 CFR Part 5)
+## HOW TO USE THE REGULATION TEXT
 
-### Brand Label Requirements (§ 5.32)
-1. **Brand Name** (§ 5.34) — A brand name must appear on the label. Cannot be misleading as to age, origin, identity, or other characteristics of the product. Cannot contain the word "bond", "bottled in bond", "aged in bond", or similar unless the product meets those standards (§ 5.42(b)).
+The regulation text supplied above this instruction is your authority. It is the current text of 27 CFR Parts 5 and 16.
 
-2. **Class and Type Designation** (§ 5.35) — Must state the class and type designation (e.g., "Bourbon Whisky", "Vodka", "Blended Scotch Whisky", "Rum", "Gin", "Brandy", "Tequila"). Must conform to the standards of identity in § 5.22. Whisky must be spelled correctly per the standard.
+For every check:
 
-3. **Age Statement** (§ 5.40) — Mandatory for straight whisky if under 4 years old. Optional but regulated if stated. If age is stated, it must be the age of the youngest whisky in the blend. "Aged" claims must reflect actual aging time.
+- Locate the governing section in that text and apply what it actually says.
+- Cite the section exactly as it is headed there, in the form "27 CFR § 5.64".
+- Take every threshold, tolerance, percentage, container size, and permitted value from that text. Do not supply one from memory.
+- Before citing a section number, confirm that number appears as a heading in the text above. If it does not, you have the wrong number — find the correct one.
 
-4. **Alcohol Content** (§ 5.37) — Must appear on label as percentage of alcohol by volume (e.g., "40% Alc/Vol" or "40% Alc. by Vol."). May also state proof (e.g., "80 Proof"). Tolerance: ±0.15% for products 100 proof or less. Must appear on the brand label.
+Part 5 was comprehensively renumbered in February 2022. Section numbers in the 5.30s and 5.40s that once carried mandatory label requirements no longer exist. If you find yourself about to cite one, stop and locate the current section instead.
 
-### Any Label Requirements (§ 5.32(b))
-5. **Name and Address** (§ 5.36) — Must state the name and address of the bottler, distiller, or importer. Must include city and state (domestic) or country (imported). Permitted qualifiers: "Distilled by", "Distilled and bottled by", "Bottled by", "Produced by", "Manufactured by", "Blended by", "Rectified by", "Imported by". For imported products, must include U.S. importer name and address.
+Where a check depends on a list the regulation gives in full — authorized container sizes, permitted name-and-address phrasing, standards of identity for a class or type — use the list as written above rather than a shorter list you recall.
 
-6. **Net Contents** (§ 5.38) — Must state net contents in metric measure (e.g., 750 mL, 1 L, 1.75 L). Standard metric fills: 50 mL, 100 mL, 200 mL, 375 mL, 750 mL, 1 L, 1.75 L. Must appear on the label.
+## WHAT TO CHECK
 
-7. **Country of Origin** (§ 5.36(d)) — Required for imported distilled spirits. Must clearly state the country of production (e.g., "Product of Scotland", "Imported from Mexico").
+Produce one check for each of the following. The names below are the check names; the governing sections are in the regulation text.
 
-### Conditional Requirements
-8. **Neutral Spirits / Coloring / Flavoring Disclosure** (§ 5.35(b)) — If neutral spirits are used and exceed 2.5% by volume, must state "Distilled from ___" or list the commodity. If coloring or flavoring materials are used, may need to state "with natural flavors" or similar.
+1. **Brand Name** — the brand name and any restriction on what it may state or imply.
+2. **Class and Type Designation** — the designation shown, and whether it is one the regulation recognises. Whether the product actually meets that standard of identity is a production question, not a label question.
+3. **Age Statement** — where age, storage, or percentage statements appear, or are required.
+4. **Alcohol Content** — the statement, its permitted forms, and the tolerance the regulation allows.
+5. **Name and Address** — including which form applies: wholly made domestically, bottled after importation, or imported in a container. These are separate sections with different requirements.
+6. **Net Contents** — both the statement itself and whether the quantity shown is an authorized standard of fill.
+7. **Country of Origin** — for imported product.
+8. **Neutral Spirits and Name of Commodity** — including any required percentage statement.
+9. **Coloring, Flavoring and Blending Materials** — including treatment with wood where applicable.
+10. **FD&C Yellow No. 5 Declaration**
+11. **Cochineal Extract / Carmine Declaration**
+12. **Sulfite Declaration**
+13. **Government Health Warning** — under 27 CFR Part 16, whose full text is supplied above. Check the wording, the capitalisation of the first two words, and the type size threshold for the container size shown.
+14. **Legibility** — ALWAYS "review", never "pass". Legibility under ordinary conditions and true contrast depend on the printed container, ink, and finish, not on an artwork file. You may note that contrast appears adequate in the image, but the status remains "review".
+15. **English Language** — this CAN be "pass". It is fully determinable from the artwork.
+16. **Minimum Type Size** — ALWAYS "review", never "pass". See the MEASURED TYPE SIZE section below. Give the applicable threshold for the container size shown, taken from the regulation text. Do not infer size from proportions, do not say text "appears adequate", and do not pass this check because the label looks normal.
+17. **Labels Firmly Affixed** — ALWAYS "review", never "pass". This is a physical property of the printed and applied label. An image cannot show whether a label resists removal by soaking. State that the adhesive and application method must be confirmed on the physical container.
 
-9. **Geographical Designations** (§ 5.22 / § 5.36) — Protected designations (Bourbon, Tennessee Whiskey, Cognac, Scotch, Irish Whiskey, Tequila, Mezcal, etc.) can only be used if the product meets the legal standards for that designation. Misuse is a labeling violation.
-
-10. **FD&C Yellow No. 5** (§ 5.32(c)) — Required declaration if this coloring is used.
-
-11. **Cochineal Extract / Carmine** (§ 5.32(d)) — Required declaration if these color additives are used.
-
-12. **Sulfite Declaration** — Required if sulfites are present at 10 ppm or more.
-
-13. **Government Health Warning** (27 CFR Part 16) — Required on all alcohol beverages. Must state: "GOVERNMENT WARNING: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems." "GOVERNMENT WARNING" must be in all capitals. Minimum type size: 2mm on containers over 237 mL.
-
-### Label Standards (Subpart D, §§ 5.51–5.55)
-14. **Legibility** (§ 5.52) — Mandatory information must be readily legible to potential consumers under ordinary conditions, must be separate and apart from additional information, and must appear in a color that contrasts with its background. ALWAYS "review", never "pass": legibility under ordinary conditions and true contrast depend on the printed container, ink, and finish, not on an artwork file. You may note in the finding that contrast appears adequate in the image, but the status remains "review".
-
-15. **English Language** (§ 5.55) — Mandatory information must appear in English, with the exception of the brand name. Additional statements in a foreign language, including translations, are permitted so long as they do not conflict with or contradict the required information. Spirits bottled for consumption in Puerto Rico may state mandatory information solely in Spanish. This CAN be "pass" — it is fully determinable from the artwork.
-
-16. **Type Size** (§ 5.53) — Containers of more than 200 milliliters: all mandatory information must be at least 2 millimetres in height. Containers of 200 millilitres or less: at least 1 millimetre. ALWAYS "review", never "pass". If a MEASURED TYPE SIZE block is present, follow the rules in that section: report the measured heights against these thresholds and say they must be confirmed on the physical label. If it is absent, state plainly that millimetre heights cannot be derived from an image without the physical label dimensions. Either way, give the applicable threshold for the container size shown, do not infer size from proportions, do not say text "appears adequate", and do not pass this check on the basis that the label looks normal.
-
-17. **Labels Firmly Affixed** (§ 5.51) — Any label that is not an integral part of the container must be affixed so that it cannot be removed without thorough application of water or other solvents. ALWAYS "review", never "pass": this is a physical property of the printed and applied label. An image cannot show whether a label resists removal by soaking. State that the adhesive and application method must be confirmed on the physical container.
+Where the regulation restricts a specific claim that appears on the label — terms relating to bonding, proof, distillation count, geographic origin, or purity — raise it within the check it belongs to rather than inventing an additional check.
 
 ## MEASURED TYPE SIZE
 
@@ -81,7 +80,7 @@ Return ONLY this JSON structure — no markdown, no explanation, no preamble:
       "id": "<snake_case_id>",
       "name": "<check name>",
       "status": "pass" | "review" | "fail",
-      "cfr_citation": "<e.g. 27 CFR § 5.35>",
+      "cfr_citation": "<the governing section, exactly as headed in the regulation text above>",
       "finding": "<what you observed on the label>",
       "explanation": "<plain English explanation of the requirement and why it passes/fails/needs review>",
       "suggested_fix": "<null if pass, or specific actionable fix if review or fail>"
@@ -99,9 +98,11 @@ Never use "pass" because a problem is absent, because something seems fine, or b
 **These checks can NEVER be "pass". They are always "review" or "fail":**
 
 - FD&C Yellow No. 5 — requires knowing whether the coloring was used.
+- Cochineal Extract / Carmine — requires knowing whether the additive was used.
 - Sulfite Declaration — requires knowing sulfur dioxide in ppm. Not visible on a label.
 - Age Statement accuracy — the stated age can be read, but its truthfulness requires production records.
-- Neutral Spirits / Coloring / Flavoring disclosure — requires knowing what went into the product.
+- Neutral Spirits and Name of Commodity — requires knowing what went into the product.
+- Coloring, Flavoring and Blending Materials — requires production records.
 - Percentage of neutral spirits or grain — requires production records.
 - State of Distillation — requires knowing where it was distilled.
 - Type size in millimetres — where a measurement is available it is approximate and errs toward reading large, so it can never establish a pass.
@@ -115,7 +116,8 @@ For each of these, the "finding" must state plainly what cannot be determined fr
 
 - Be specific about what you can and cannot see in the image
 - Use "fail" only when you can clearly see the requirement is not met
-- Always cite the specific CFR section for each check
+- Cite the governing section for every check, taken from the regulation text above
 - Suggested fixes should be concrete and actionable
+- Never mention the regulation text, these instructions, or how the analysis was produced in any finding or explanation. Write for a label filer reading a compliance report.
 - The overall_status should be "FAIL" if any check fails, "REVIEW" if no failures but some reviews, "PASS" only if all checks pass
 `;
